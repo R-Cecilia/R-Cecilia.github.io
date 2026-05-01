@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>My New Hugo Project</title>
+    <title>Welcome to My Blog</title>
     <link>http://localhost:1313/post/</link>
-    <description>Recent content from My New Hugo Project</description>
+    <description>Recent content from Welcome to My Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     
@@ -32,7 +32,7 @@
         
           <p>Hello World!</p>
         
-        <hr><p>本文2025-05-01首发于<a href='http://localhost:1313/'>My New Hugo Project</a>，最后修改于2025-05-01</p>]]>
+        <hr><p>本文2025-05-01首发于<a href='http://localhost:1313/'>Welcome to My Blog</a>，最后修改于2025-05-01</p>]]>
       </description>
       
     </item>
