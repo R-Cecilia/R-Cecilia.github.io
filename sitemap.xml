@@ -2,10 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/post/python%E6%95%B0%E6%8D%AE%E5%AE%B9%E5%99%A8/</loc>
-    <lastmod>2025-05-01T11:10:00-15:00</lastmod>
+    <loc>http://localhost:1313/categories/</loc>
+    <lastmod>2025-05-02T11:13:00-15:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/post/python%E4%B8%AD%E7%9A%84numpy/</loc>
+    <lastmod>2025-05-02T11:13:00-15:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/python/</loc>
+    <lastmod>2025-05-02T11:13:00-15:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/</loc>
+    <lastmod>2025-05-02T11:13:00-15:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/post/python%E5%BC%82%E5%B8%B8%E6%A8%A1%E5%9D%97%E5%92%8C%E5%8C%85/</loc>
+    <lastmod>2025-05-02T11:12:00-15:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/post/python%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99/</loc>
+    <lastmod>2025-05-02T11:10:00-15:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/post/python%E6%95%B0%E6%8D%AE%E5%AE%B9%E5%99%A8/</loc>
     <lastmod>2025-05-01T11:10:00-15:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/post/python%E5%87%BD%E6%95%B0/</loc>
@@ -25,8 +40,6 @@
   </url><url>
     <loc>http://localhost:1313/post/</loc>
     <lastmod>2022-07-26T21:46:25+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/categories/</loc>
   </url><url>
     <loc>http://localhost:1313/tags/</loc>
   </url>

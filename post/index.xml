@@ -12,12 +12,275 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Thu, 01 May 2025 11:10:00 -1500</lastBuildDate>
+    <lastBuildDate>Fri, 02 May 2025 11:13:00 -1500</lastBuildDate>
     
     
     <atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
+    
+    
+
+    <item>
+      <title>Numpy的介绍和使用</title>
+      <link>http://localhost:1313/post/python%E4%B8%AD%E7%9A%84numpy/</link>
+      <pubDate>Fri, 02 May 2025 11:12:00 -1500</pubDate>
+      <author>2554181@tongji.edu.com (Cecilia)</author>
+      <guid>http://localhost:1313/post/python%E4%B8%AD%E7%9A%84numpy/</guid>
+      <description>
+        <![CDATA[<h1>Numpy的介绍和使用</h1><p>作者：Cecilia（2554181@tongji.edu.com）</p>
+        
+          <h1 id="python中的numpy">
+<a class="header-anchor" href="#python%e4%b8%ad%e7%9a%84numpy"></a>
+Python中的Numpy
+</h1><h2 id="1-基本介绍">
+<a class="header-anchor" href="#1-%e5%9f%ba%e6%9c%ac%e4%bb%8b%e7%bb%8d"></a>
+1. 基本介绍
+</h2><ul>
+<li>Numpy (Numerical Python) 是 Python 语言的一个扩展程序库，主要用于处理大型多维数组和矩阵运算。</li>
+<li>它是许多高级数据科学库（如 Matplotlib, Pandas, Scikit-learn）的基础构建块 。</li>
+<li>其核心是 ndarray 对象—— 一种存储同质数据类型的高性能n维数组。</li>
+</ul>
+<h2 id="2-numpy数组基础">
+<a class="header-anchor" href="#2-numpy%e6%95%b0%e7%bb%84%e5%9f%ba%e7%a1%80"></a>
+2. Numpy数组基础
+</h2><h3 id="21-数组的基本数据类型">
+<a class="header-anchor" href="#21-%e6%95%b0%e7%bb%84%e7%9a%84%e5%9f%ba%e6%9c%ac%e6%95%b0%e6%8d%ae%e7%b1%bb%e5%9e%8b"></a>
+2.1 数组的基本数据类型
+</h3><ul>
+<li>➢ 数组有类型：np.uint、np.int、np.float 、np.bool 、np.complex 、np.str 、 np.complex、np.datetime</li>
+<li>➢ 数组中的每个元素都存在且类型相同</li>
+<li>➢ np.ndim，np.shape，np.size，
+np.dtype访问数组的维度，形状，
+元素个数，数据类型</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]],</span><span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;维度是</span><span class="si">{</span><span class="n">a</span><span class="o">.</span><span class="n">ndim</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;形状是</span><span class="si">{</span><span class="n">a</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;个数是</span><span class="si">{</span><span class="n">a</span><span class="o">.</span><span class="n">size</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;类型是</span><span class="si">{</span><span class="n">a</span><span class="o">.</span><span class="n">dtype</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="22-numpy的基本操作-数组创建">
+<a class="header-anchor" href="#22-numpy%e7%9a%84%e5%9f%ba%e6%9c%ac%e6%93%8d%e4%bd%9c-%e6%95%b0%e7%bb%84%e5%88%9b%e5%bb%ba"></a>
+2.2 Numpy的基本操作-数组创建
+</h3><h4 id="221-创建数组">
+<a class="header-anchor" href="#221-%e5%88%9b%e5%bb%ba%e6%95%b0%e7%bb%84"></a>
+2.2.1 创建数组
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl"><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span> <span class="c1">#用列表创建一个一维数组</span>
+</span></span><span class="line"><span class="cl"><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]])</span><span class="c1">#用列表创建一个二维数组</span>
+</span></span><span class="line"><span class="cl"><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span><span class="c1">#初始化一个shape大小的全零数组</span>
+</span></span><span class="line"><span class="cl"><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span><span class="c1">#初始化一个shape大小的全1数组</span>
+</span></span><span class="line"><span class="cl"><span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span><span class="c1">#初始化一个shape大小的全空数组</span>
+</span></span><span class="line"><span class="cl"><span class="n">b</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span><span class="c1">#初始化一个范围从0到10的随机整数数组</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="c1">#初始化一个数据范围从0到1的随机数组</span>
+</span></span><span class="line"><span class="cl"><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span><span class="c1">#初始化一个从1开始到10结束共有10个元素的数组</span>
+</span></span><span class="line"><span class="cl"><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="c1">#初始化一个从10开始到16结束(不包含16)的间隔为2的数组</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h4 id="222-数组的连接numpyconcatenate">
+<a class="header-anchor" href="#222-%e6%95%b0%e7%bb%84%e7%9a%84%e8%bf%9e%e6%8e%a5numpyconcatenate"></a>
+2.2.2 数组的连接(numpy.concatenate)
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl"><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">C</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Result:</span><span class="se">\n</span><span class="si">{</span><span class="n">C</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h4 id="223-数组的堆叠npvstackhstack">
+<a class="header-anchor" href="#223-%e6%95%b0%e7%bb%84%e7%9a%84%e5%a0%86%e5%8f%a0npvstackhstack"></a>
+2.2.3 数组的堆叠(np.vstack/hstack)
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl"><span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#竖向堆叠(Vertical Stack)</span>
+</span></span><span class="line"><span class="cl"><span class="n">V_S</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">C</span><span class="p">,</span><span class="n">D</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#横向堆叠(Horizontioal Stack)</span>
+</span></span><span class="line"><span class="cl"><span class="n">H_S</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">C</span><span class="p">,</span><span class="n">D</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#深度堆叠(Depth Stack)</span>
+</span></span><span class="line"><span class="cl"><span class="n">D_S</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">dstack</span><span class="p">((</span><span class="n">C</span><span class="p">,</span><span class="n">D</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Vertical Stack: </span><span class="se">\n</span><span class="si">{</span><span class="n">V_S</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Horizentional Stack: </span><span class="se">\n</span><span class="si">{</span><span class="n">H_S</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Depth Stack: </span><span class="se">\n</span><span class="si">{</span><span class="n">D_S</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="23-numpy数组的访问">
+<a class="header-anchor" href="#23-numpy%e6%95%b0%e7%bb%84%e7%9a%84%e8%ae%bf%e9%97%ae"></a>
+2.3 Numpy数组的访问
+</h3><ul>
+<li>➢ 与标准 Python 列表访问方式类似，使用方括号 []，如x[0,:]</li>
+<li>➢ 索引从 0 开始</li>
+<li>➢ 多维索引: 使用逗号分隔的元组 (tuple)，如 [row, col]</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl"><span class="n">A</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]])</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 1.访问特定元素</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span> <span class="c1">#输出1</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="c1">#输出3</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 2.访问整行或整列</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">([</span><span class="mi">0</span><span class="p">,:])</span> <span class="c1">#输出第一行所有元素</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">([:,</span><span class="mi">0</span><span class="p">])</span> <span class="c1">#输出第一列所有元素</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 3.访问子数组——一维数组切片</span>
+</span></span><span class="line"><span class="cl"><span class="n">B</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">➢ 沿用标准 Python 列表的切片操作：
+</span></span></span><span class="line"><span class="cl"><span class="s1">x[start:stop:step]
+</span></span></span><span class="line"><span class="cl"><span class="s1">➢ 参数说明：
+</span></span></span><span class="line"><span class="cl"><span class="s1">start: 起始索引（包含）：默认为 0
+</span></span></span><span class="line"><span class="cl"><span class="s1">stop: 结束索引（不包含）：默认为数组长度
+</span></span></span><span class="line"><span class="cl"><span class="s1">step: 步长：默认为 1
+</span></span></span><span class="line"><span class="cl"><span class="s1">
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 4.访问子数组二维数组切片——多维数组切片</span>
+</span></span><span class="line"><span class="cl"><span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]])</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#4.1 取子矩阵</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">[:</span><span class="mi">2</span><span class="p">,:</span><span class="mi">2</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#4.2 取逆序矩阵</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">,::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#4.3 降维访问</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span> <span class="c1">#--&gt; [1,4,7]</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="24-numpy数组的基本操作-数组重构">
+<a class="header-anchor" href="#24-numpy%e6%95%b0%e7%bb%84%e7%9a%84%e5%9f%ba%e6%9c%ac%e6%93%8d%e4%bd%9c-%e6%95%b0%e7%bb%84%e9%87%8d%e6%9e%84"></a>
+2.4 Numpy数组的基本操作-数组重构
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#1.使用reshape函数:改变数组维度，保持元素数量不变。</span>
+</span></span><span class="line"><span class="cl"><span class="n">array</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">array</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span><span class="c1">#重构为2行3列</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#2.使用np.newaxis增加一个维度</span>
+</span></span><span class="line"><span class="cl"><span class="n">array</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">col_vec</span><span class="o">=</span><span class="p">[:,</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">np.newaxis 放在哪个位置，就会给哪个位置增加维度
+</span></span></span><span class="line"><span class="cl"><span class="s1">x[:, np.newaxis] ，放在后面，会给列上增加维度
+</span></span></span><span class="line"><span class="cl"><span class="s1">x[np.newaxis, :] ，放在前面，会给行上增加维度
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="25-numpy数组的基本操作-数组分割">
+<a class="header-anchor" href="#25-numpy%e6%95%b0%e7%bb%84%e7%9a%84%e5%9f%ba%e6%9c%ac%e6%93%8d%e4%bd%9c-%e6%95%b0%e7%bb%84%e5%88%86%e5%89%b2"></a>
+2.5 Numpy数组的基本操作-数组分割
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#使用 np.split 进行通用分割</span>
+</span></span><span class="line"><span class="cl"><span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">90</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">np</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span><span class="c1">#在索引2和5之前进行分割</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#使用 np.vsplit 进行垂直分割</span>
+</span></span><span class="line"><span class="cl"><span class="n">m</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">upper</span><span class="p">,</span><span class="n">lower</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">vspilt</span><span class="p">(</span><span class="n">m</span><span class="p">,[</span><span class="mi">2</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="26-numpy数组基本操作-数组计算">
+<a class="header-anchor" href="#26-numpy%e6%95%b0%e7%bb%84%e5%9f%ba%e6%9c%ac%e6%93%8d%e4%bd%9c-%e6%95%b0%e7%bb%84%e8%ae%a1%e7%ae%97"></a>
+2.6 Numpy数组基本操作-数组计算
+</h3><ul>
+<li>Numpy 的基础算术运算（加减乘除）是针对数组中每一个元素分别进行的。</li>
+<li>使用逻辑运算符（如 &gt;, &lt;, ==）对数组进行比较时，会返回一个形状相同的布尔类型数组</li>
+<li>使用 +=, *=, /= 等操作符时，Numpy 会直接修改原数组的内容，而不会创建新的数组副本。</li>
+<li>通用函数是 numpy 中的一类特殊函数，旨在对数组中的元素逐一进行操作，同时支持高效的向量化计算。具体的各种等效通用函数参见<a href="https://numpy.com.cn/doc/stable/reference/ufuncs.html">Numpy官方文档</a></li>
+<li><strong>指定维度的聚合(Axes)</strong>
+axis 参数的作用：控制 Numpy 沿哪个轴进行操作。通常，指定的轴会被“压缩”消失，除非使用 keepdims=True
+➢ axis=0: 沿着 “行”维度（纵向）操作，计算每列的统计值（针对二维数组，计算的是每列的统计值）
+➢ axis=1: 沿着“列”维度（横向）操作，计算每行的统计值（针对二维数组，计算的是每行的统计值）</li>
+<li><strong>广播(Boardcasting Operation)</strong></li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">广播是 numpy 中处理数组运算的一种机制，用于处理不同形状的数组之间的运算。
+</span></span></span><span class="line"><span class="cl"><span class="s1">它可以让形状不同的数组在特定规则下对齐，从而实现高效的矢量化计算，而无需显式地复制数据。
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">b</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">10</span><span class="p">],[</span><span class="mi">20</span><span class="p">],[</span><span class="mi">30</span><span class="p">]])</span>
+</span></span><span class="line"><span class="cl"><span class="n">c</span><span class="o">=</span><span class="n">a</span><span class="o">+</span><span class="n">b</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Result: </span><span class="se">\n</span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div>
+        
+        <hr><p>本文2025-05-02首发于<a href='http://localhost:1313/'>Welcome to My Blog</a>，最后修改于2025-05-02</p>]]>
+      </description>
+      
+        <category>Python</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>Python异常,模块和包</title>
+      <link>http://localhost:1313/post/python%E5%BC%82%E5%B8%B8%E6%A8%A1%E5%9D%97%E5%92%8C%E5%8C%85/</link>
+      <pubDate>Fri, 02 May 2025 11:11:00 -1500</pubDate>
+      <author>2554181@tongji.edu.com (Cecilia)</author>
+      <guid>http://localhost:1313/post/python%E5%BC%82%E5%B8%B8%E6%A8%A1%E5%9D%97%E5%92%8C%E5%8C%85/</guid>
+      <description>
+        <![CDATA[<h1>Python异常,模块和包</h1><p>作者：Cecilia（2554181@tongji.edu.com）</p>
+        
+          <h1 id="python异常模块和包">
+<a class="header-anchor" href="#python%e5%bc%82%e5%b8%b8%e6%a8%a1%e5%9d%97%e5%92%8c%e5%8c%85"></a>
+Python&mdash;异常,模块和包
+</h1><h2 id="1-异常">
+<a class="header-anchor" href="#1-%e5%bc%82%e5%b8%b8"></a>
+1. 异常
+</h2><p>异常就是程序运行中出现的错误,即bug.</p>
+<h3 id="11-异常的捕获">
+<a class="header-anchor" href="#11-%e5%bc%82%e5%b8%b8%e7%9a%84%e6%8d%95%e8%8e%b7"></a>
+1.1 异常的捕获
+</h3><p>在可能发生异常的地方进行捕获.当异常出现时,提供解决方案,而不是任由其导致程序无法运行.</p>
+        
+        <hr><p>本文2025-05-02首发于<a href='http://localhost:1313/'>Welcome to My Blog</a>，最后修改于2025-05-02</p>]]>
+      </description>
+      
+        <category>Python</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>Python文件的读写</title>
+      <link>http://localhost:1313/post/python%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99/</link>
+      <pubDate>Fri, 02 May 2025 11:10:00 -1500</pubDate>
+      <author>2554181@tongji.edu.com (Cecilia)</author>
+      <guid>http://localhost:1313/post/python%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99/</guid>
+      <description>
+        <![CDATA[<h1>Python文件的读写</h1><p>作者：Cecilia（2554181@tongji.edu.com）</p>
+        
+          <h1 id="python文件的读写">
+<a class="header-anchor" href="#python%e6%96%87%e4%bb%b6%e7%9a%84%e8%af%bb%e5%86%99"></a>
+Python&mdash;文件的读写
+</h1><h3 id="文件的读取">
+<a class="header-anchor" href="#%e6%96%87%e4%bb%b6%e7%9a%84%e8%af%bb%e5%8f%96"></a>
+文件的读取
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">File_Name</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span><span class="n">mode</span><span class="p">,</span><span class="n">encoding</span><span class="p">)</span><span class="c1">#打开文件获取文件对象</span>
+</span></span><span class="line"><span class="cl">    <span class="n">File_Name</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">num</span><span class="p">)</span><span class="c1">#读取指定字节长度,不指定则读取全部内容</span>
+</span></span><span class="line"><span class="cl">    <span class="n">File_Name</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="c1">#读取一行</span>
+</span></span><span class="line"><span class="cl">    <span class="n">File_Name</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span><span class="c1">#读取全部行,形成列表</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">File_Name</span><span class="c1">#循环全部行,每一次循环读取一行</span>
+</span></span><span class="line"><span class="cl">    <span class="n">File_Name</span><span class="o">.</span><span class="n">close</span><span class="p">()</span><span class="n">关闭文件</span>
+</span></span><span class="line"><span class="cl">    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span><span class="n">mode</span><span class="p">,</span><span class="n">encoding</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="c1">#通过with.open读取,可以自动关闭</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><strong>注:</strong>
+mode一般包含三种:
+&ldquo;r&rdquo;:只读;&ldquo;w&rdquo;:写入(覆盖过往内容);&ldquo;a&rdquo;:追加写入(不覆盖过往内容)</p>
+        
+        <hr><p>本文2025-05-02首发于<a href='http://localhost:1313/'>Welcome to My Blog</a>，最后修改于2025-05-02</p>]]>
+      </description>
+      
+        <category>Python</category>
+      
+    </item>
     
     
 
@@ -139,6 +402,8 @@ Python数据容器
         
         <hr><p>本文2025-05-01首发于<a href='http://localhost:1313/'>Welcome to My Blog</a>，最后修改于2025-05-01</p>]]>
       </description>
+      
+        <category>Python</category>
       
     </item>
     
@@ -266,6 +531,8 @@ Python函数
         
         <hr><p>本文2025-05-01首发于<a href='http://localhost:1313/'>Welcome to My Blog</a>，最后修改于2025-05-01</p>]]>
       </description>
+      
+        <category>Python</category>
       
     </item>
     
