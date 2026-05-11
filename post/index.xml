@@ -30,49 +30,13 @@
       <description>
         <![CDATA[<h1>线性表（顺序结构）</h1><p>作者：Cecilia（2554181@tongji.edu.com）</p>
         
-          <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl"><span class="gh"># 线性表（顺序存储结构）在 C++ 中的实现：以多项式项为例
-</span></span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="gu">## 1. 引言
-</span></span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">线性表（Linear List）是数据结构中最基础、最常用的逻辑结构。顺序存储结构（Sequential Storage）则是线性表最直观的实现方式，它通过一段连续的内存地址来存储数据。
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">本文将以**一元多项式的项（系数与指数）**作为数据元素，展示如何用 C++ 实现一个健壮的顺序表，并重点讨论在开发过程中常见的逻辑陷阱及其修正方案。
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">---
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="gu">## 2. 核心定义
-</span></span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">为了处理多项式，我们将数据元素定义为一个包含系数（coef）和指数（expn）的结构体。
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="s">```cpp
-</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span></span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// 最大长度定义
-</span></span></span><span class="line"><span class="cl"><span class="cp">#define MAX_SIZE 100
-</span></span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// 定义多项式的项
-</span></span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">Term</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">float</span> <span class="n">coef</span><span class="p">;</span> <span class="c1">// 系数
-</span></span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">expn</span><span class="p">;</span>   <span class="c1">// 指数
-</span></span></span><span class="line"><span class="cl"><span class="p">};</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">typedef</span> <span class="n">Term</span> <span class="n">ElemType</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// 定义顺序表结构
-</span></span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">SqList</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="n">ElemType</span> <span class="o">*</span><span class="n">elem</span><span class="p">;</span> <span class="c1">// 存储空间的基地址
-</span></span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">length</span><span class="p">;</span>     <span class="c1">// 当前长度
-</span></span></span><span class="line"><span class="cl"><span class="p">};</span>
-</span></span><span class="line"><span class="cl"><span class="s">```</span>
-</span></span></code></pre></div><hr>
-<h2 id="3-基本操作实现与逻辑修正">
-<a class="header-anchor" href="#3-%e5%9f%ba%e6%9c%ac%e6%93%8d%e4%bd%9c%e5%ae%9e%e7%8e%b0%e4%b8%8e%e9%80%bb%e8%be%91%e4%bf%ae%e6%ad%a3"></a>
-3. 基本操作实现与逻辑修正
-</h2><h3 id="31-初始化与销毁资源管理">
-<a class="header-anchor" href="#31-%e5%88%9d%e5%a7%8b%e5%8c%96%e4%b8%8e%e9%94%80%e6%af%81%e8%b5%84%e6%ba%90%e7%ae%a1%e7%90%86"></a>
-3.1 初始化与销毁（资源管理）
-</h3><p>在 C++ 中，必须手动管理堆内存。我们使用 <code>new[]</code> 分配数组，并使用 <code>delete[]</code> 释放，防止内存泄漏。</p>
+          <h1 id="线性表顺序存储结构">
+<a class="header-anchor" href="#%e7%ba%bf%e6%80%a7%e8%a1%a8%e9%a1%ba%e5%ba%8f%e5%ad%98%e5%82%a8%e7%bb%93%e6%9e%84"></a>
+线性表（顺序存储结构）
+</h1><h2 id="1-引言">
+<a class="header-anchor" href="#1-%e5%bc%95%e8%a8%80"></a>
+1. 引言
+</h2><p>线性表（Linear List）是数据结构中最基础、最常用的逻辑结构。顺序存储结构（Sequential Storage）则是线性表最直观的实现方式，它通过一段连续的内存地址来存储数据。</p>
         
         <hr><p>本文2025-05-07首发于<a href='http://localhost:1313/'>Welcome to My Blog</a>，最后修改于2025-05-07</p>]]>
       </description>
