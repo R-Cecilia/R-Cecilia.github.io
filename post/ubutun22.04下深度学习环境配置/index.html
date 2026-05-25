@@ -162,12 +162,12 @@
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">8</div>
+    <div>文章</div><div class="sidebar-state-number">9</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
     <div class="sidebar-state-number">
-      4
+      5
     </div>
   </a>
   <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
@@ -315,21 +315,19 @@ Ubuntu 22.04 下深度学习环境配置
 </span></span><span class="line"><span class="cl"><span class="c1"># 注意：如果你之前曾按照 CUDA 安装指南添加过网络仓库，此步骤可顺利完成。</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># 如果提示找不到包，请参照下方的“故障排查”手动添加仓库。</span>
 </span></span></code></pre></div><p>故障排查（遇到“找不到包”错误时执行）：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">bash</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># 添加 CUDA 网络仓库（如果之前未操作）</span>
-</span></span><span class="line"><span class="cl"><span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">developer</span><span class="o">.</span><span class="n">download</span><span class="o">.</span><span class="n">nvidia</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">compute</span><span class="o">/</span><span class="n">cudnn</span><span class="o">/</span><span class="mf">9.8</span><span class="o">.</span><span class="mi">0</span><span class="o">/</span><span class="n">local_installers</span><span class="o">/</span><span class="n">cudnn</span><span class="o">-</span><span class="n">local</span><span class="o">-</span><span class="n">repo</span><span class="o">-</span><span class="n">ubuntu2204</span><span class="o">-</span><span class="mf">9.8</span><span class="o">.</span><span class="mi">0</span><span class="n">_1</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="mi">1</span><span class="n">_amd64</span><span class="o">.</span><span class="n">deb</span>
-</span></span><span class="line"><span class="cl"><span class="n">sudo</span> <span class="n">dpkg</span> <span class="o">-</span><span class="n">i</span> <span class="n">cudnn</span><span class="o">-</span><span class="n">local</span><span class="o">-</span><span class="n">repo</span><span class="o">-</span><span class="n">ubuntu2204</span><span class="o">-</span><span class="mf">9.8</span><span class="o">.</span><span class="mi">0</span><span class="n">_1</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="mi">1</span><span class="n">_amd64</span><span class="o">.</span><span class="n">deb</span>
-</span></span><span class="line"><span class="cl"><span class="n">sudo</span> <span class="n">cp</span> <span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">cudnn</span><span class="o">-</span><span class="n">local</span><span class="o">-</span><span class="n">repo</span><span class="o">-*/</span><span class="n">cudnn</span><span class="o">-*-</span><span class="n">keyring</span><span class="o">.</span><span class="n">gpg</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">keyrings</span><span class="o">/</span>
-</span></span><span class="line"><span class="cl"><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 添加 CUDA 网络仓库（如果之前未操作）</span>
+</span></span><span class="line"><span class="cl">wget https://developer.download.nvidia.com/compute/cudnn/9.8.0/local_installers/cudnn-local-repo-ubuntu2204-9.8.0_1.0-1_amd64.deb
+</span></span><span class="line"><span class="cl">sudo dpkg -i cudnn-local-repo-ubuntu2204-9.8.0_1.0-1_amd64.deb
+</span></span><span class="line"><span class="cl">sudo cp /var/cudnn-local-repo-*/cudnn-*-keyring.gpg /usr/share/keyrings/
+</span></span><span class="line"><span class="cl">sudo apt-get update
 </span></span></code></pre></div><p>然后重新执行安装命令</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo apt-get -y install cudnn9-cuda-12
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt-get -y install cudnn9-cuda-12
 </span></span></code></pre></div><ol start="2">
 <li>验证 cuDNN 安装
 安装完成后，可以通过查看版本文件来验证：</li>
 </ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">bash
-</span></span><span class="line"><span class="cl"># 方法1：查看头文件中的版本号
-</span></span><span class="line"><span class="cl">cat /usr/include/cudnn_version.h | grep CUDNN_MAJOR -A 2
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 方法1：查看头文件中的版本号</span>
+</span></span><span class="line"><span class="cl">cat /usr/include/cudnn_version.h <span class="p">|</span> grep CUDNN_MAJOR -A <span class="m">2</span>
 </span></span></code></pre></div><p>如果屏幕上输出了类似 # define CUDNN_MAJOR 9 的信息，就说明 cuDNN 安装成功了。</p>
 <h2 id="6安装tenorrt">
 <a class="header-anchor" href="#6%e5%ae%89%e8%a3%85tenorrt"></a>
@@ -456,7 +454,7 @@ pip 装好后，就可以继续执行之前的两步了：</li>
     aria-label="Article navigation"
     data-aos="fade-up"
   ><div class="article-nav-link-wrap left"><img
-              data-src="/images/cover9.jpeg"
+              data-src="/images/cover1.jpg"
               data-sizes="auto"
               alt="线性表（顺序结构）"
               class="lazyload"
@@ -467,6 +465,18 @@ pip 装好后，就可以继续执行之前的两步了：</li>
         ></a>
         <div class="article-nav-caption">前一篇</div>
         <h3 class="article-nav-title">线性表（顺序结构）</h3>
+      </div><div class="article-nav-link-wrap right"><img
+              data-src="/images/cover3.png"
+              data-sizes="auto"
+              alt="Git基本操作指南"
+              class="lazyload"
+            /><a
+          href="/post/git%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/"
+          aria-label="后一篇:Git基本操作指南"
+          title="后一篇:Git基本操作指南"
+        ></a>
+        <div class="article-nav-caption">后一篇</div>
+        <h3 class="article-nav-title">Git基本操作指南</h3>
       </div></nav></article></section>
         </div><footer id="footer" aria-label="Site footer">
   <div style="width: 100%; overflow: hidden">
@@ -488,10 +498,10 @@ pip 装好后，就可以继续执行之前的两步了：</li>
         >
       </div><div>
         <span class="icon-brush"
-          >&nbsp;11.5k</span
+          >&nbsp;13.5k</span
         >
         &nbsp;|&nbsp;
-        <span class="icon-coffee">&nbsp;00:27</span>
+        <span class="icon-coffee">&nbsp;00:31</span>
       </div></div>
 </footer>
 <div class="sidebar-top">
@@ -528,12 +538,12 @@ pip 装好后，就可以继续执行之前的两步了：</li>
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">8</div>
+    <div>文章</div><div class="sidebar-state-number">9</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
     <div class="sidebar-state-number">
-      4
+      5
     </div>
   </a>
   <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
