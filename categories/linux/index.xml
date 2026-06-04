@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Linux on Welcome to My Blog</title>
-    <link>http://localhost:1313/categories/linux/</link>
+    <link>http://localhost:1456/categories/linux/</link>
     <description>Recent content from Welcome to My Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
@@ -15,7 +15,7 @@
     <lastBuildDate>Tue, 20 May 2025 11:10:00 -1500</lastBuildDate>
     
     
-    <atom:link href="http://localhost:1313/categories/linux/index.xml" rel="self" type="application/rss&#43;xml" />
+    <atom:link href="http://localhost:1456/categories/linux/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
     
@@ -23,10 +23,10 @@
 
     <item>
       <title> Ubuntu 22.04 下深度学习环境配置</title>
-      <link>http://localhost:1313/post/ubutun22.04%E4%B8%8B%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</link>
+      <link>http://localhost:1456/post/ubutun22.04%E4%B8%8B%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</link>
       <pubDate>Tue, 20 May 2025 11:10:00 -1500</pubDate>
       <author>2554181@tongji.edu.com (Cecilia)</author>
-      <guid>http://localhost:1313/post/ubutun22.04%E4%B8%8B%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</guid>
+      <guid>http://localhost:1456/post/ubutun22.04%E4%B8%8B%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</guid>
       <description>
         <![CDATA[<h1> Ubuntu 22.04 下深度学习环境配置</h1><p>作者：Cecilia（2554181@tongji.edu.com）</p>
         
@@ -41,7 +41,7 @@ Ubuntu 22.04 下深度学习环境配置
 <strong>注意： 观看视频前请阅读一下内容</strong>
 <strong>多利用AI（推荐deepseek）解决问题，下面的教程都是我根据自己在ds上的对话总结的。</strong> 1.视频中不是每一节的内容都需要你去做，相信你自己有能力分辨哪些内容需要去做。如果不清楚，请在群里提问。2.磁盘分区这一步请至少分出150G的磁盘空间，不然基础环境配置的空间会不够。(环境大概占用70G的空间) 3.提前备份好自己重要的各种文件，在安装过程中可能存在个人操作失误的风险，所以请当心。4.新系统内可以自行安装QQ/微信等软件，详细操作询问deepseek即可。</p>
         
-        <hr><p>本文2025-05-20首发于<a href='http://localhost:1313/'>Welcome to My Blog</a>，最后修改于2025-05-20</p>]]>
+        <hr><p>本文2025-05-20首发于<a href='http://localhost:1456/'>Welcome to My Blog</a>，最后修改于2025-05-20</p>]]>
       </description>
       
         <category>linux</category><category>深度学习</category>
