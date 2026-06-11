@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Git on Welcome to My Blog</title>
-    <link>http://localhost:1456/categories/git/</link>
+    <link>http://localhost:1313/categories/git/</link>
     <description>Recent content from Welcome to My Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
@@ -15,7 +15,7 @@
     <lastBuildDate>Sat, 24 May 2025 11:10:00 -1500</lastBuildDate>
     
     
-    <atom:link href="http://localhost:1456/categories/git/index.xml" rel="self" type="application/rss&#43;xml" />
+    <atom:link href="http://localhost:1313/categories/git/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
     
@@ -23,10 +23,10 @@
 
     <item>
       <title>Git基本操作指南</title>
-      <link>http://localhost:1456/post/git%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</link>
+      <link>http://localhost:1313/post/git%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</link>
       <pubDate>Sat, 24 May 2025 11:10:00 -1500</pubDate>
       <author>2554181@tongji.edu.com (Cecilia)</author>
-      <guid>http://localhost:1456/post/git%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</guid>
+      <guid>http://localhost:1313/post/git%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</guid>
       <description>
         <![CDATA[<h1>Git基本操作指南</h1><p>作者：Cecilia（2554181@tongji.edu.com）</p>
         
@@ -43,7 +43,7 @@ Git基本操作
 2. git status ——查看仓库状态
 </h2><p>git status 用于显示Git仓库状态</p>
         
-        <hr><p>本文2025-05-24首发于<a href='http://localhost:1456/'>Welcome to My Blog</a>，最后修改于2025-05-24</p>]]>
+        <hr><p>本文2025-05-24首发于<a href='http://localhost:1313/'>Welcome to My Blog</a>，最后修改于2025-05-24</p>]]>
       </description>
       
         <category>Git</category>
