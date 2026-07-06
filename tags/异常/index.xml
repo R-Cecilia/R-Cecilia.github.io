@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>异常 on Welcome to My Blog</title>
+    <link>http://localhost:1313/tags/%E5%BC%82%E5%B8%B8/</link>
+    <description>Recent content from Welcome to My Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    
+    <managingEditor>2554181@tongji.edu.com (Cecilia)</managingEditor>
+    <webMaster>2554181@tongji.edu.com (Cecilia)</webMaster>
+    
+    <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
+    
+    <lastBuildDate>Sat, 05 Jul 2025 13:10:00 -1500</lastBuildDate>
+    
+    
+    <atom:link href="http://localhost:1313/tags/%E5%BC%82%E5%B8%B8/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+
+    
+    
+
+    <item>
+      <title>26summer-week1-C&#43;&#43;特性</title>
+      <link>http://localhost:1313/post/c&#43;&#43;%E7%89%B9%E6%80%A7/</link>
+      <pubDate>Sat, 05 Jul 2025 11:10:00 -1500</pubDate>
+      <author>2554181@tongji.edu.com (Cecilia)</author>
+      <guid>http://localhost:1313/post/c&#43;&#43;%E7%89%B9%E6%80%A7/</guid>
+      <description>
+        <![CDATA[<h1>26summer-week1-C++特性</h1><p>作者：Cecilia（2554181@tongji.edu.com）</p>
+        
+          <h2 id="一c特性">
+<a class="header-anchor" href="#%e4%b8%80c%e7%89%b9%e6%80%a7"></a>
+一、C++特性
+</h2><h3 id="11-异常">
+<a class="header-anchor" href="#11-%e5%bc%82%e5%b8%b8"></a>
+1.1 异常
+</h3><h4 id="111-抛出异常">
+<a class="header-anchor" href="#111-%e6%8a%9b%e5%87%ba%e5%bc%82%e5%b8%b8"></a>
+1.1.1 抛出异常
+</h4><p>异常表示程序出现的错误信息。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="cp">#抛出一个类型为char*的异常
+</span></span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">abc</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span><span class="kt">int</span> <span class="n">b</span><span class="p">,</span><span class="kt">int</span> <span class="n">c</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">a</span><span class="o">&lt;=</span><span class="mi">0</span><span class="o">||</span><span class="n">b</span><span class="o">&lt;=</span><span class="mi">0</span><span class="o">||</span><span class="n">c</span><span class="o">&lt;=</span><span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">throw</span> <span class="s">&#34;All paremeters should be &gt; 0&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">*</span><span class="n">c</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span></code></pre></div><h4 id="112-处理异常">
+<a class="header-anchor" href="#112-%e5%a4%84%e7%90%86%e5%bc%82%e5%b8%b8"></a>
+1.1.2 处理异常
+</h4><p>一段代码抛出的异常由包含这段代码的try块来处理。紧跟在try块后的是catch块。<br>
+每一个catch块都有一个参数，参数的类型决定了这个catch块要捕捉的异常类型。</p>
+        
+        <hr><p>本文2025-07-05首发于<a href='http://localhost:1313/'>Welcome to My Blog</a>，最后修改于2025-07-05</p>]]>
+      </description>
+      
+        <category>C&#43;&#43;</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>Python异常,模块和包</title>
+      <link>http://localhost:1313/post/python%E5%BC%82%E5%B8%B8%E6%A8%A1%E5%9D%97%E5%92%8C%E5%8C%85/</link>
+      <pubDate>Fri, 02 May 2025 11:11:00 -1500</pubDate>
+      <author>2554181@tongji.edu.com (Cecilia)</author>
+      <guid>http://localhost:1313/post/python%E5%BC%82%E5%B8%B8%E6%A8%A1%E5%9D%97%E5%92%8C%E5%8C%85/</guid>
+      <description>
+        <![CDATA[<h1>Python异常,模块和包</h1><p>作者：Cecilia（2554181@tongji.edu.com）</p>
+        
+          <h1 id="python异常模块和包">
+<a class="header-anchor" href="#python%e5%bc%82%e5%b8%b8%e6%a8%a1%e5%9d%97%e5%92%8c%e5%8c%85"></a>
+Python&mdash;异常,模块和包
+</h1><h2 id="1-异常">
+<a class="header-anchor" href="#1-%e5%bc%82%e5%b8%b8"></a>
+1. 异常
+</h2><p>异常就是程序运行中出现的错误,即bug.</p>
+<h3 id="11-异常的捕获">
+<a class="header-anchor" href="#11-%e5%bc%82%e5%b8%b8%e7%9a%84%e6%8d%95%e8%8e%b7"></a>
+1.1 异常的捕获
+</h3><p>在可能发生异常的地方进行捕获.当异常出现时,提供解决方案,而不是任由其导致程序无法运行.</p>
+        
+        <hr><p>本文2025-05-02首发于<a href='http://localhost:1313/'>Welcome to My Blog</a>，最后修改于2025-05-02</p>]]>
+      </description>
+      
+        <category>Python</category>
+      
+    </item>
+    
+  </channel>
+</rss>

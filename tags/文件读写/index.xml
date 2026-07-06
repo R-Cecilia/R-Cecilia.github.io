@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>文件读写 on Welcome to My Blog</title>
+    <link>http://localhost:1313/tags/%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99/</link>
+    <description>Recent content from Welcome to My Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    
+    <managingEditor>2554181@tongji.edu.com (Cecilia)</managingEditor>
+    <webMaster>2554181@tongji.edu.com (Cecilia)</webMaster>
+    
+    <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
+    
+    <lastBuildDate>Fri, 02 May 2025 11:10:00 -1500</lastBuildDate>
+    
+    
+    <atom:link href="http://localhost:1313/tags/%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+
+    
+    
+
+    <item>
+      <title>Python文件的读写</title>
+      <link>http://localhost:1313/post/python%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99/</link>
+      <pubDate>Fri, 02 May 2025 11:10:00 -1500</pubDate>
+      <author>2554181@tongji.edu.com (Cecilia)</author>
+      <guid>http://localhost:1313/post/python%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99/</guid>
+      <description>
+        <![CDATA[<h1>Python文件的读写</h1><p>作者：Cecilia（2554181@tongji.edu.com）</p>
+        
+          <h1 id="python文件的读写">
+<a class="header-anchor" href="#python%e6%96%87%e4%bb%b6%e7%9a%84%e8%af%bb%e5%86%99"></a>
+Python&mdash;文件的读写
+</h1><h3 id="文件的读取">
+<a class="header-anchor" href="#%e6%96%87%e4%bb%b6%e7%9a%84%e8%af%bb%e5%8f%96"></a>
+文件的读取
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">File_Name</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span><span class="n">mode</span><span class="p">,</span><span class="n">encoding</span><span class="p">)</span><span class="c1">#打开文件获取文件对象</span>
+</span></span><span class="line"><span class="cl">    <span class="n">File_Name</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">num</span><span class="p">)</span><span class="c1">#读取指定字节长度,不指定则读取全部内容</span>
+</span></span><span class="line"><span class="cl">    <span class="n">File_Name</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="c1">#读取一行</span>
+</span></span><span class="line"><span class="cl">    <span class="n">File_Name</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span><span class="c1">#读取全部行,形成列表</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">File_Name</span><span class="c1">#循环全部行,每一次循环读取一行</span>
+</span></span><span class="line"><span class="cl">    <span class="n">File_Name</span><span class="o">.</span><span class="n">close</span><span class="p">()</span><span class="n">关闭文件</span>
+</span></span><span class="line"><span class="cl">    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span><span class="n">mode</span><span class="p">,</span><span class="n">encoding</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="c1">#通过with.open读取,可以自动关闭</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><strong>注:</strong>
+mode一般包含三种:
+&ldquo;r&rdquo;:只读;&ldquo;w&rdquo;:写入(覆盖过往内容);&ldquo;a&rdquo;:追加写入(不覆盖过往内容)</p>
+        
+        <hr><p>本文2025-05-02首发于<a href='http://localhost:1313/'>Welcome to My Blog</a>，最后修改于2025-05-02</p>]]>
+      </description>
+      
+        <category>Python</category>
+      
+    </item>
+    
+  </channel>
+</rss>

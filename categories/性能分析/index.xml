@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>性能分析 on Welcome to My Blog</title>
+    <link>http://localhost:1313/categories/%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/</link>
+    <description>Recent content from Welcome to My Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    
+    <managingEditor>2554181@tongji.edu.com (Cecilia)</managingEditor>
+    <webMaster>2554181@tongji.edu.com (Cecilia)</webMaster>
+    
+    <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
+    
+    <lastBuildDate>Sun, 06 Jul 2025 11:10:00 -1500</lastBuildDate>
+    
+    
+    <atom:link href="http://localhost:1313/categories/%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+
+    
+    
+
+    <item>
+      <title>26summer-week2-程序性能分析</title>
+      <link>http://localhost:1313/post/%E7%A8%8B%E5%BA%8F%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/</link>
+      <pubDate>Sun, 06 Jul 2025 11:10:00 -1500</pubDate>
+      <author>2554181@tongji.edu.com (Cecilia)</author>
+      <guid>http://localhost:1313/post/%E7%A8%8B%E5%BA%8F%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/</guid>
+      <description>
+        <![CDATA[<h1>26summer-week2-程序性能分析</h1><p>作者：Cecilia（2554181@tongji.edu.com）</p>
+        
+          <h1 id="程序性能分析">
+<a class="header-anchor" href="#%e7%a8%8b%e5%ba%8f%e6%80%a7%e8%83%bd%e5%88%86%e6%9e%90"></a>
+程序性能分析
+</h1><h2 id="1基本概念">
+<a class="header-anchor" href="#1%e5%9f%ba%e6%9c%ac%e6%a6%82%e5%bf%b5"></a>
+1.基本概念
+</h2><h3 id="11-程序性能">
+<a class="header-anchor" href="#11-%e7%a8%8b%e5%ba%8f%e6%80%a7%e8%83%bd"></a>
+1.1 程序性能
+</h3><ul>
+<li>程序性能是指运行这个程序所需要的内存和时间的多少。</li>
+<li>一个程序的<strong>空间复杂度</strong>是指运行该程序所需要的内存大小。</li>
+<li>一个程序的<strong>时间复杂度</strong>是指运行程序所需要的时间。</li>
+</ul>
+<h3 id="12-空间复杂度">
+<a class="header-anchor" href="#12-%e7%a9%ba%e9%97%b4%e5%a4%8d%e6%9d%82%e5%ba%a6"></a>
+1.2 空间复杂度
+</h3><h4 id="121-空间复杂度的组成">
+<a class="header-anchor" href="#121-%e7%a9%ba%e9%97%b4%e5%a4%8d%e6%9d%82%e5%ba%a6%e7%9a%84%e7%bb%84%e6%88%90"></a>
+1.2.1 空间复杂度的组成
+</h4><ul>
+<li>指令空间:编译之后的程序指令所需要的存储空间。</li>
+<li>数据空间:所有常量和变量值所需要的存储空间。</li>
+<li>环境栈空间:环境栈用来保存暂停的函数和方法在恢复运行时所需要的信息</li>
+</ul>
+<h3 id="13-时间复杂度">
+<a class="header-anchor" href="#13-%e6%97%b6%e9%97%b4%e5%a4%8d%e6%9d%82%e5%ba%a6"></a>
+1.3 时间复杂度
+</h3><h4 id="131-时间复杂度的组成">
+<a class="header-anchor" href="#131-%e6%97%b6%e9%97%b4%e5%a4%8d%e6%9d%82%e5%ba%a6%e7%9a%84%e7%bb%84%e6%88%90"></a>
+1.3.1 时间复杂度的组成
+</h4><p>一个程序P所需要的时间是编译时间和运行时间之和。编译时间与实例特征无关。
+编译后的程序可以重复运行若干次而无需重新编译。运行时间则常常与实例特征有关。</p>
+        
+        <hr><p>本文2025-07-06首发于<a href='http://localhost:1313/'>Welcome to My Blog</a>，最后修改于2025-07-06</p>]]>
+      </description>
+      
+        <category>性能分析</category>
+      
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>冒泡排序 on Welcome to My Blog</title>
+    <link>http://localhost:1313/tags/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</link>
+    <description>Recent content from Welcome to My Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    
+    <managingEditor>2554181@tongji.edu.com (Cecilia)</managingEditor>
+    <webMaster>2554181@tongji.edu.com (Cecilia)</webMaster>
+    
+    <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
+    
+    <lastBuildDate>Sun, 06 Jul 2025 15:13:00 -1500</lastBuildDate>
+    
+    
+    <atom:link href="http://localhost:1313/tags/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+
+    
+    
+
+    <item>
+      <title>26summer-week2-三种基本排序方法</title>
+      <link>http://localhost:1313/post/%E4%B8%89%E7%A7%8D%E6%8E%92%E5%BA%8F%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Sun, 06 Jul 2025 13:10:00 -1500</pubDate>
+      <author>2554181@tongji.edu.com (Cecilia)</author>
+      <guid>http://localhost:1313/post/%E4%B8%89%E7%A7%8D%E6%8E%92%E5%BA%8F%E6%96%B9%E6%B3%95/</guid>
+      <description>
+        <![CDATA[<h1>26summer-week2-三种基本排序方法</h1><p>作者：Cecilia（2554181@tongji.edu.com）</p>
+        
+          <h1 id="三种基本排序方法">
+<a class="header-anchor" href="#%e4%b8%89%e7%a7%8d%e5%9f%ba%e6%9c%ac%e6%8e%92%e5%ba%8f%e6%96%b9%e6%b3%95"></a>
+三种基本排序方法
+</h1><h2 id="1-选择排序selection-sort">
+<a class="header-anchor" href="#1-%e9%80%89%e6%8b%a9%e6%8e%92%e5%ba%8fselection-sort"></a>
+1. 选择排序(selection sort)
+</h2><p>选择排序（Selection Sort）是一种简单直观的排序算法。它的核心思想是“分治”中的选择思维：每次从未排序部分选出最小（或最大）的元素，放到已排序部分的末尾。</p>
+        
+        <hr><p>本文2025-07-06首发于<a href='http://localhost:1313/'>Welcome to My Blog</a>，最后修改于2025-07-06</p>]]>
+      </description>
+      
+        <category>排序算法</category>
+      
+    </item>
+    
+  </channel>
+</rss>

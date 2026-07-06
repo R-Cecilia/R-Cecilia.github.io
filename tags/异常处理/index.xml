@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>异常处理 on Welcome to My Blog</title>
+    <link>http://localhost:1313/tags/%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/</link>
+    <description>Recent content from Welcome to My Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    
+    <managingEditor>2554181@tongji.edu.com (Cecilia)</managingEditor>
+    <webMaster>2554181@tongji.edu.com (Cecilia)</webMaster>
+    
+    <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
+    
+    <lastBuildDate>Fri, 02 May 2025 11:12:00 -1500</lastBuildDate>
+    
+    
+    <atom:link href="http://localhost:1313/tags/%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+
+    
+    
+
+    <item>
+      <title>Python异常,模块和包</title>
+      <link>http://localhost:1313/post/python%E5%BC%82%E5%B8%B8%E6%A8%A1%E5%9D%97%E5%92%8C%E5%8C%85/</link>
+      <pubDate>Fri, 02 May 2025 11:11:00 -1500</pubDate>
+      <author>2554181@tongji.edu.com (Cecilia)</author>
+      <guid>http://localhost:1313/post/python%E5%BC%82%E5%B8%B8%E6%A8%A1%E5%9D%97%E5%92%8C%E5%8C%85/</guid>
+      <description>
+        <![CDATA[<h1>Python异常,模块和包</h1><p>作者：Cecilia（2554181@tongji.edu.com）</p>
+        
+          <h1 id="python异常模块和包">
+<a class="header-anchor" href="#python%e5%bc%82%e5%b8%b8%e6%a8%a1%e5%9d%97%e5%92%8c%e5%8c%85"></a>
+Python&mdash;异常,模块和包
+</h1><h2 id="1-异常">
+<a class="header-anchor" href="#1-%e5%bc%82%e5%b8%b8"></a>
+1. 异常
+</h2><p>异常就是程序运行中出现的错误,即bug.</p>
+<h3 id="11-异常的捕获">
+<a class="header-anchor" href="#11-%e5%bc%82%e5%b8%b8%e7%9a%84%e6%8d%95%e8%8e%b7"></a>
+1.1 异常的捕获
+</h3><p>在可能发生异常的地方进行捕获.当异常出现时,提供解决方案,而不是任由其导致程序无法运行.</p>
+        
+        <hr><p>本文2025-05-02首发于<a href='http://localhost:1313/'>Welcome to My Blog</a>，最后修改于2025-05-02</p>]]>
+      </description>
+      
+        <category>Python</category>
+      
+    </item>
+    
+  </channel>
+</rss>

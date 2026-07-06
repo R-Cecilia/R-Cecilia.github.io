@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>函数 on Welcome to My Blog</title>
+    <link>http://localhost:1313/tags/%E5%87%BD%E6%95%B0/</link>
+    <description>Recent content from Welcome to My Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    
+    <managingEditor>2554181@tongji.edu.com (Cecilia)</managingEditor>
+    <webMaster>2554181@tongji.edu.com (Cecilia)</webMaster>
+    
+    <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
+    
+    <lastBuildDate>Thu, 01 May 2025 11:08:00 -1000</lastBuildDate>
+    
+    
+    <atom:link href="http://localhost:1313/tags/%E5%87%BD%E6%95%B0/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+
+    
+    
+
+    <item>
+      <title>Python函数</title>
+      <link>http://localhost:1313/post/python%E5%87%BD%E6%95%B0/</link>
+      <pubDate>Thu, 01 May 2025 11:08:00 -1000</pubDate>
+      <author>2554181@tongji.edu.com (Cecilia)</author>
+      <guid>http://localhost:1313/post/python%E5%87%BD%E6%95%B0/</guid>
+      <description>
+        <![CDATA[<h1>Python函数</h1><p>作者：Cecilia（2554181@tongji.edu.com）</p>
+        
+          <h1 id="python函数">
+<a class="header-anchor" href="#python%e5%87%bd%e6%95%b0"></a>
+Python函数
+</h1><h2 id="1-函数的定义">
+<a class="header-anchor" href="#1-%e5%87%bd%e6%95%b0%e7%9a%84%e5%ae%9a%e4%b9%89"></a>
+1. 函数的定义
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#函数定义(无需声明)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">calc</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">#无返回值函数</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">message</span><span class="p">(</span><span class="n">msg</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">#不支持重载，用默认参数实现重载功能</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">greeting</span><span class="o">=</span><span class="s2">&#34;Hello&#34;</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">greeting</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">#类型提示</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">#调用函数</span>
+</span></span><span class="line"><span class="cl">    <span class="n">result</span> <span class="o">=</span> <span class="n">calc</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="c1"># result = 8</span>
+</span></span><span class="line"><span class="cl">    <span class="n">message</span><span class="p">(</span><span class="s2">&#34;Hello, World!&#34;</span><span class="p">)</span> <span class="c1"># 输出: Hello, World!</span>
+</span></span><span class="line"><span class="cl">    <span class="n">greeting_message</span> <span class="o">=</span> <span class="n">greet</span><span class="p">(</span><span class="s2">&#34;Alice&#34;</span><span class="p">)</span> <span class="c1"># greeting_message = &#34;Hello, Alice!&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">added_value</span> <span class="o">=</span> <span class="n">add</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span> <span class="c1"># added_value = 30</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="2-参数传递">
+<a class="header-anchor" href="#2-%e5%8f%82%e6%95%b0%e4%bc%a0%e9%80%92"></a>
+2. 参数传递
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#python中参数传递是通过引用传递的，这意味着当你将一个可变对象（如列表或字典）作为参数传递给函数时，函数内部对该对象的修改会影响到函数外部的对象。</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">modify_immutable</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">x</span><span class="o">=</span><span class="mi">100</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">modify_list</span><span class="p">(</span><span class="n">lst</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">lst</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#使用</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">=</span><span class="mi">10</span>
+</span></span><span class="line"><span class="cl"><span class="n">lst</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">modify_immutable</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="c1"># 输出: 10 (a的值没有改变)</span>
+</span></span><span class="line"><span class="cl"><span class="n">modify_list</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span> <span class="c1"># 输出: [1, 2, 3, 4] (lst的值被修改了)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">关键:可变和不可变对象的区别在于是否可以修改对象本身的内容。
+</span></span></span><span class="line"><span class="cl"><span class="s1">不可变对象（如整数、字符串、元组）不能修改其内容，
+</span></span></span><span class="line"><span class="cl"><span class="s1">而可变对象（如列表、字典、集合）可以修改其内容。
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="3-关键字参数">
+<a class="header-anchor" href="#3-%e5%85%b3%e9%94%ae%e5%ad%97%e5%8f%82%e6%95%b0"></a>
+3. 关键字参数
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#关键字参数允许你在调用函数时使用参数名称来指定参数的值，这样可以提高代码的可读性。</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">creat_user</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="n">age</span><span class="o">=</span><span class="mi">18</span><span class="p">,</span><span class="n">role</span><span class="o">=</span><span class="s2">&#34;user&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">#位置调用</span>
+</span></span><span class="line"><span class="cl">    <span class="n">creat_user</span><span class="p">(</span><span class="s2">&#34;Alice&#34;</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="s2">&#34;admin&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">#关键字调用(顺序任意)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">creat_user</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&#34;Bob&#34;</span><span class="p">,</span><span class="n">role</span><span class="o">=</span><span class="s2">&#34;editor&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">#混合调用(位置参数在前)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">creat_user</span><span class="p">(</span><span class="s2">&#34;Eve&#34;</span><span class="p">,</span><span class="n">role</span><span class="o">=</span><span class="s2">&#34;admin&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">#参数解包(unpacking)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">arg</span><span class="o">=</span><span class="p">[</span><span class="s2">&#34;Eve&#34;</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="s2">&#34;admin&#34;</span><span class="p">]</span><span class="c1">#(解包列表或元组)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">create_user</span><span class="p">(</span><span class="o">*</span><span class="n">arg</span><span class="p">)</span> <span class="c1">#解包为位置参数</span>
+</span></span><span class="line"><span class="cl">    <span class="n">kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">&#34;name&#34;</span><span class="p">:</span><span class="s2">&#34;Frank&#34;</span><span class="p">,</span><span class="s2">&#34;role&#34;</span><span class="p">:</span><span class="s2">&#34;superuser&#34;</span><span class="p">}</span><span class="c1">#(解包字典)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">create_user</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="c1">#解包为关键字参数</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#四种参数混用，位置参数在前，然后是关键字参数，最后依次是*和**可变参数。</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="4-返回值多值返回">
+<a class="header-anchor" href="#4-%e8%bf%94%e5%9b%9e%e5%80%bc%e5%a4%9a%e5%80%bc%e8%bf%94%e5%9b%9e"></a>
+4. 返回值:多值返回
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">divide</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">a</span><span class="o">//</span><span class="n">b</span><span class="p">,</span><span class="n">a</span><span class="o">%</span><span class="n">b</span>
+</span></span><span class="line"><span class="cl">    <span class="n">quoient</span><span class="p">,</span><span class="n">reminder</span><span class="o">=</span><span class="n">divide</span><span class="p">(</span><span class="mi">17</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Python实际返回一个元组，然后自动解包到多个变量，这让代码更加清晰易读。</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="5-lambda表达式">
+<a class="header-anchor" href="#5-lambda%e8%a1%a8%e8%be%be%e5%bc%8f"></a>
+5. Lambda表达式
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">基本语法
+</span></span></span><span class="line"><span class="cl"><span class="s1">lambda 参数:表达式
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#简单Lambda</span>
+</span></span><span class="line"><span class="cl"><span class="n">add</span><span class="o">=</span><span class="k">lambda</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">:</span><span class="n">a</span><span class="o">+</span><span class="n">b</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#单参数</span>
+</span></span><span class="line"><span class="cl"><span class="n">square</span><span class="o">=</span><span class="k">lambda</span> <span class="n">a</span><span class="p">:</span><span class="n">a</span><span class="o">**</span><span class="mi">2</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#与内置函数结合</span>
+</span></span><span class="line"><span class="cl"><span class="n">numbers</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#map:对每个元素应用函数</span>
+</span></span><span class="line"><span class="cl"><span class="n">squares</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="n">numbers</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#filter</span>
+</span></span><span class="line"><span class="cl"><span class="n">evens</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span><span class="o">%</span><span class="mi">2</span><span class="o">==</span><span class="mi">0</span><span class="p">,</span><span class="n">numbers</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div>
+        
+        <hr><p>本文2025-05-01首发于<a href='http://localhost:1313/'>Welcome to My Blog</a>，最后修改于2025-05-01</p>]]>
+      </description>
+      
+        <category>Python</category>
+      
+    </item>
+    
+  </channel>
+</rss>
