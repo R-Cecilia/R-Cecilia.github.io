@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>C&#43;&#43;迭代器 on Welcome to My Blog</title>
+    <link>http://localhost:1313/tags/c&#43;&#43;%E8%BF%AD%E4%BB%A3%E5%99%A8/</link>
+    <description>Recent content from Welcome to My Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    
+    <managingEditor>2554181@tongji.edu.com (Cecilia)</managingEditor>
+    <webMaster>2554181@tongji.edu.com (Cecilia)</webMaster>
+    
+    <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
+    
+    <lastBuildDate>Sun, 06 Jul 2025 15:13:00 -1500</lastBuildDate>
+    
+    
+    <atom:link href="http://localhost:1313/tags/c&#43;&#43;%E8%BF%AD%E4%BB%A3%E5%99%A8/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+
+    
+    
+
+    <item>
+      <title>26summer-w3-线性表(顺序描述)</title>
+      <link>http://localhost:1313/post/26summer-w3-%E7%BA%BF%E6%80%A7%E8%A1%A8%E6%95%B0%E7%BB%84%E6%8F%8F%E8%BF%B0/</link>
+      <pubDate>Sun, 06 Jul 2025 13:10:00 -1500</pubDate>
+      <author>2554181@tongji.edu.com (Cecilia)</author>
+      <guid>http://localhost:1313/post/26summer-w3-%E7%BA%BF%E6%80%A7%E8%A1%A8%E6%95%B0%E7%BB%84%E6%8F%8F%E8%BF%B0/</guid>
+      <description>
+        <![CDATA[<h1>26summer-w3-线性表(顺序描述)</h1><p>作者：Cecilia（2554181@tongji.edu.com）</p>
+        
+          <h1 id="线性表数组描述">
+<a class="header-anchor" href="#%e7%ba%bf%e6%80%a7%e8%a1%a8%e6%95%b0%e7%bb%84%e6%8f%8f%e8%bf%b0"></a>
+线性表(数组描述)
+</h1><h2 id="1-数据对象和数据结构">
+<a class="header-anchor" href="#1-%e6%95%b0%e6%8d%ae%e5%af%b9%e8%b1%a1%e5%92%8c%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84"></a>
+1. 数据对象和数据结构
+</h2><p>数据对象是一组实例或者值，例如:</p>
+<ol>
+<li>letter={a,b,c,d&hellip;x,y,z}</li>
+<li>digit={0,1,2,3,4,5,6,7,8,9}</li>
+<li>naturalNumber={0,1,2,3&hellip;}</li>
+<li>string={a,b,c,d,aa,bb,cc,dd&hellip;}</li>
+</ol>
+<ul>
+<li><strong>数据对象(data object)<strong>的一个实例，要么是不可再分的</strong>原子</strong>，要么是由另一个数据对象的实例作为成员复合而成的，这些成员称之为<strong>元素</strong>。</li>
+<li>**数据结构(data structure)**是一个数据对象，同时这个对象的实例以及构成实例的元素都存在着联系，而且这些联系都由相关的函数来规定。</li>
+<li>研究数据结构，我们关心的是数据对象的描述以及相关函数的具体实现。</li>
+</ul>
+<h2 id="2-线性表数据结构">
+<a class="header-anchor" href="#2-%e7%ba%bf%e6%80%a7%e8%a1%a8%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84"></a>
+2. 线性表数据结构
+</h2><ul>
+<li>线性表(linear list)的每一个实例都是元素的一个有序集合。每一个实例的形式为(e0,e1,e2&hellip;e(n-1)),其中n是有穷自然数，也是线性表的长度或者大小，ei是线性表的元素，i是元素的索引。</li>
+<li>e(0)是线性表的首元素，e(n-1)是线性表的最后一个元素，可以认为:e0先于e1,e2先于e(n-1)这种先后关系是线性表的唯一关系。</li>
+</ul>
+<h2 id="3数组描述">
+<a class="header-anchor" href="#3%e6%95%b0%e7%bb%84%e6%8f%8f%e8%bf%b0"></a>
+3.数组描述
+</h2><h3 id="31-描述">
+<a class="header-anchor" href="#31-%e6%8f%8f%e8%bf%b0"></a>
+3.1 描述
+</h3><p>数组描述的线性表指的是用数组来存储线性表中的元素，一般一个实例用用一个数组来存储。</p>
+        
+        <hr><p>本文2025-07-06首发于<a href='http://localhost:1313/'>Welcome to My Blog</a>，最后修改于2025-07-06</p>]]>
+      </description>
+      
+        <category>数据结构</category>
+      
+    </item>
+    
+  </channel>
+</rss>
