@@ -1,0 +1,1152 @@
+<!doctype html>
+<html
+  lang="en-us" 
+  data-theme-mode="auto"
+  >
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, shrink-to-fit=no"
+/><title>
+  26summer-w4-线性表(链式描述) | Cecilia
+</title>
+<meta name="description" content="链表描述下的线性表和相关的应用，包括箱子排序和基数排序"/><script>
+  window.siteConfig = JSON.parse("{\"anchor_icon\":null,\"base\":\"http://localhost:1313/\",\"clipboard\":{\"copyright\":{\"count\":50,\"enable\":false,\"license_type\":\"by-nc-sa\"},\"fail\":{\"en\":\"Copy failed (ﾟ⊿ﾟ)ﾂ\",\"ja\":\"コピー失敗 (ﾟ⊿ﾟ)ﾂ\",\"pt-br\":\"Falha ao copiar (ﾟ⊿ﾟ)ﾂ\",\"zh-cn\":\"复制失败 (ﾟ⊿ﾟ)ﾂ\",\"zh-tw\":\"複製失敗 (ﾟ⊿ﾟ)ﾂ\"},\"success\":{\"en\":\"Copy successfully (*^▽^*)\",\"ja\":\"コピー成功 (*^▽^*)\",\"pt-br\":\"Copiado com sucesso (*^▽^*)\",\"zh-cn\":\"复制成功 (*^▽^*)\",\"zh-tw\":\"複製成功 (*^▽^*)\"}},\"code_block\":{\"expand\":true},\"icon_font\":\"4552607_a0oqhord1y\",\"outdate\":{\"daysago\":180,\"enable\":false,\"message\":{\"en\":\"This article was last updated on {time}. Please note that the content may no longer be applicable.\",\"ja\":\"この記事は最終更新日：{time}。記載内容が現在有効でない可能性がありますのでご注意ください。\",\"pt-br\":\"Este artigo foi atualizado pela última vez em {time}. Observe que o conteúdo pode não ser mais aplicável.\",\"zh-cn\":\"本文最后更新于 {time}，请注意文中内容可能已不适用。\",\"zh-tw\":\"本文最後更新於 {time}，請注意文中內容可能已不適用。\"}}}");
+  
+</script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  rel="preload"
+  as="style"
+  href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7cNoto%20Serif%20SC:400,400italic,700,700italic%7c&amp;display=swap"
+/>
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7cNoto%20Serif%20SC:400,400italic,700,700italic%7c&amp;display=swap"
+  media="print"
+  onload="this.media='all'"
+/>
+<link
+    rel="preload"
+    href="//at.alicdn.com/t/c/font_4552607_a0oqhord1y.woff2"
+    as="font"
+    type="font/woff2"
+    crossorigin="anonymous"
+  /><link rel="stylesheet" href="/css/loader.css" /><meta property="og:type" content="website" />
+  <meta property="og:title" content="26summer-w4-线性表(链式描述) | Cecilia" />
+  <meta
+    property="og:description"
+    content="链表描述下的线性表和相关的应用，包括箱子排序和基数排序"
+  />
+  <meta property="og:url" content="http://localhost:1313/post/26summer-w4-%E7%BA%BF%E6%80%A7%E8%A1%A8%E9%93%BE%E5%BC%8F%E6%8F%8F%E8%BF%B0/" />
+  <meta
+    property="og:site_name"
+    content="Welcome to My Blog"
+  />
+  <meta property="og:image" content="http://localhost:1313/images/cover17.jpg" />
+  <meta property="article:author" content="Cecilia" />
+  <meta property="article:published_time" content="2025-07-18T13:10:00-15:00" />
+  <meta property="article:modified_time" content="2025-07-18T15:13:00-15:00" /><meta property="article:tag" content="线性表, 链表, 箱子排序, 基数排序" /><meta name="twitter:card" content="summary" /><meta name="twitter:image" content="http://localhost:1313/images/cover17.jpg" />
+<link rel="shortcut icon" href="/favicon.ico"><link rel="stylesheet" href="/css/main.css" /><link
+    rel="preload"
+    as="style"
+    href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css"
+    integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei&#43;Zx/1oA/0l8ysE" crossorigin="anonymous"
+    onload="this.onload=null;this.rel='stylesheet'"
+  /><link
+    rel="preload"
+    as="style"
+    href="https://npm.webcache.cn/katex@0.16.24/dist/katex.min.css"
+    integrity="sha384-tTgKLjMYmJr94v8qu2PE5MUGSMbyN2xiH266JUB3gpm8vnnJywd1dWSOEfrFz&#43;YI" crossorigin="anonymous"
+    onload="this.onload=null;this.rel='stylesheet'"
+  /><link
+    rel="stylesheet"
+    href="https://npm.webcache.cn/gitalk@1.8.0/dist/gitalk.css"
+    integrity="sha384-X7z7PUv2B67D8sPJyzDyGZSco1ADwmdI7ed4eCGtTKkClfyDFpPL9WgAn9XVr/Io" crossorigin="anonymous"/><script
+    src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js"
+    
+    
+    
+    
+    integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"></script><link
+    rel="stylesheet"
+    href="https://npm.webcache.cn/@reimujs/aos@0.1.2/dist/aos.css"
+    integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous"/></head>
+  <body><div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi rotate"><svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
+            <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
+          M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
+          </svg></div><div class="loading-word">Loading...</div>
+    </div>
+  </div>
+  </div>
+  <script>
+    var time = null;
+    var loaderEl = document.getElementById('loader');
+    var startLoading = () => {
+      time = Date.now();
+      loaderEl.classList.remove("loading");
+    }
+    var hideLoader = () => {
+      document.body.style.overflow = 'auto';
+      loader.classList.add('loading');
+    };
+
+    var endLoading = () => {
+      if (!time) {
+        hideLoader();
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          hideLoader();
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    loaderEl.addEventListener('click', endLoading);
+  </script><div id="copy-tooltip"></div>
+<div id="lang-tooltip">
+本文章没有找到对应的语言版本
+</div>
+<div id="heatmap-tooltip"></div><div id="container">
+      <div id="wrap"><div id="header-nav">
+  <nav id="main-nav" aria-label="Primary navigation"><a class="main-nav-link-wrap" href="/"><div class='main-nav-icon icon rotate'>&#xe62b;</div><span class="main-nav-link">首页</span>
+      </a><a class="main-nav-link-wrap" href="/archives"><div class='main-nav-icon icon rotate'>&#xe62b;</div><span class="main-nav-link">归档</span>
+      </a><a class="main-nav-link-wrap" href="/about"><div class='main-nav-icon icon rotate'>&#xe62b;</div><span class="main-nav-link">关于</span>
+      </a><a class="main-nav-link-wrap" href="/friend"><div class='main-nav-icon icon rotate'>&#xe62b;</div><span class="main-nav-link">友链</span>
+      </a><a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
+  </nav>
+  <nav id="sub-nav" aria-label="Secondary navigation"></nav></div>
+<header id="header" aria-label="Site header"><picture></picture>
+    <img crossorigin="anonymous" fetchpriority="high" src="/images/cover17.jpg" alt="26summer-w4-线性表(链式描述)"><div id="header-outer">
+    <div id="header-title"><span id="logo">
+            <h1 data-aos="slide-up">26summer-w4-线性表(链式描述)</h1>
+          </span><h2 id="subtitle-wrap" data-aos="slide-down"></h2></div>
+  </div>
+</header><div id="content"
+          aria-label="Page content"
+          
+          class="sidebar-right"  ><aside id="sidebar" aria-label="Sidebar"><div class="sidebar-wrapper-container sticky"><div class="sidebar-wrapper">
+    <div
+      class="sidebar-wrap"
+      data-aos="fade-up"
+    ><div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
+<div class="sidebar-toc-wrapper toc-div-class">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1单向链表">1.单向链表</a>
+      <ul>
+        <li><a href="#11-描述">1.1 描述</a></li>
+        <li><a href="#12-结构chiannode">1.2 结构chianNode</a></li>
+        <li><a href="#13-类chain">1.3 类chain</a></li>
+      </ul>
+    </li>
+    <li><a href="#2循环链表与头节点">2.循环链表与头节点</a></li>
+    <li><a href="#3双向链表">3.双向链表</a></li>
+    <li><a href="#3链表的应用">3.链表的应用</a>
+      <ul>
+        <li><a href="#31-箱子排序bin-sort">3.1 箱子排序(bin sort)</a></li>
+        <li><a href="#32-基数排序radix-sort">3.2 基数排序(radix sort)</a></li>
+        <li><a href="#33-并查集">3.3 并查集</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div></div>
+          <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img
+    data-src="/avatar/avatar.webp"
+    data-sizes="auto"
+    alt="Cecilia"
+    class="lazyload"
+  />
+  <div class="sidebar-author-name">Cecilia</div>
+  <div class="sidebar-description">循此苦旅，终抵群星</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>文章</div><div class="sidebar-state-number">14</div>
+  </div>
+  <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
+    <div>分类</div>
+    <div class="sidebar-state-number">
+      7
+    </div>
+  </a>
+  <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
+    <div>标签</div>
+    <div class="sidebar-state-number">26</div>
+  </a>
+</div>
+<div class="sidebar-social" ><div class="icon-github sidebar-social-icon">
+        <a
+          href="https://github.com/R-Cecilia/"
+          itemprop="url"
+          target="_blank"
+          aria-label="github"
+          rel="noopener nofollow noreferrer"
+        ></a>
+      </div><div class="icon-email sidebar-social-icon">
+        <a
+          href="503577584@qq.com"
+          itemprop="url"
+          target="_blank"
+          aria-label="email"
+          rel="noopener nofollow noreferrer"
+        ></a>
+      </div></div><div class="sidebar-menu"><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/"
+        aria-label="首页"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">首页</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/archives"
+        aria-label="归档"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">归档</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/about"
+        aria-label="关于"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">关于</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/friend"
+        aria-label="友链"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">友链</div>
+    </div></div></div><div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div></div>
+  </div><div class="sidebar-widget"></div></div></aside>
+<section id="main" aria-label="Main content"><article
+  class="h-entry article"
+  itemscope
+  itemtype="https://schema.org/BlogPosting"
+>
+  <div
+    class="article-inner"
+    data-aos="fade-up"
+  >
+    <div class="article-meta"><div class="article-date">
+  <span
+    class="article-date-link icon-calendar"
+    data-aos="zoom-in"
+  >
+    <time datetime="2025-07-18 13:10:00 -1500 -1500" itemprop="datePublished"
+      >2025-07-18</time
+    >
+    <time style="display: none;" id="post-update-time"
+      >2025-07-18</time
+    >
+  </span></div>
+</div><div class="hr-line"></div><div class="e-content article-entry" itemprop="articleBody"><h1 id="线性表链式描述">
+<a class="header-anchor" href="#%e7%ba%bf%e6%80%a7%e8%a1%a8%e9%93%be%e5%bc%8f%e6%8f%8f%e8%bf%b0"></a>
+线性表(链式描述)
+</h1><h2 id="1单向链表">
+<a class="header-anchor" href="#1%e5%8d%95%e5%90%91%e9%93%be%e8%a1%a8"></a>
+1.单向链表
+</h2><h3 id="11-描述">
+<a class="header-anchor" href="#11-%e6%8f%8f%e8%bf%b0"></a>
+1.1 描述
+</h3><p>在链式描述中，数据对象的实例的每一个元素都用一个单元或者一个节点来描述。节点不必是数据成员，因此不是用公式来确定元素的位置。
+实际上，每一个节点都明确包含另一个相关节点的位置信息，这个信息称为指针(pointer)或者链(link)。</p>
+<p>设L是一个线性表，在这个线性表可能的一种链式描述中，每个元素都在单独的一个节点中描述，每个节点都有一个链域，它的值是线性表的下一个元素的位置，即地址。</p>
+<p>当每一个节点只有一个链，这种结构称为单向链表(singly linked)。链表从左到右，每一个节点(除最后一个节点)都链接者下一个节点，最后一个节点的链域值为NULL。这样的结构也称为链条(chain)。</p>
+<h3 id="12-结构chiannode">
+<a class="header-anchor" href="#12-%e7%bb%93%e6%9e%84chiannode"></a>
+1.2 结构chianNode
+</h3><p>定义一个chainNode结构，从而为单向链表的节点定义了数据类型。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">chainNode</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//数据成员
+</span></span></span><span class="line"><span class="cl">    <span class="n">T</span> <span class="n">element</span><span class="p">;</span><span class="c1">//element是节点的数据域，储存表的元素
+</span></span></span><span class="line"><span class="cl">    <span class="n">chainNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">*</span><span class="n">next</span><span class="p">;</span><span class="c1">//next是节点的链域，是一个指向chainNode数据类型的指针
+</span></span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">//方法
+</span></span></span><span class="line"><span class="cl">    <span class="n">chainNode</span><span class="p">(</span><span class="k">const</span><span class="o">&amp;</span> <span class="n">T</span> <span class="n">element</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="o">-&gt;</span><span class="n">element</span><span class="o">=</span><span class="n">element</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">chainNode</span><span class="p">(</span><span class="k">const</span><span class="o">&amp;</span> <span class="n">T</span> <span class="n">element</span><span class="p">,</span><span class="n">chainNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">*</span><span class="n">next</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="o">-&gt;</span><span class="n">element</span><span class="o">=</span><span class="n">element</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">=</span><span class="n">next</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//结构chainNode的构造函数用了this指针，这是因为对象的数据成员和函数形参同名，只有使用这种语法才能把它们区分开。
+</span></span></span><span class="line"><span class="cl">    <span class="c1">//补充:通过使用 this 指针，我们可以在成员函数中访问当前对象的成员变量，即使它们与函数参数或局部变量同名，这样可以避免命名冲突，并确保我们访问的是正确的变量。
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="13-类chain">
+<a class="header-anchor" href="#13-%e7%b1%bbchain"></a>
+1.3 类chain
+</h3><h4 id="131-链表chain的构造函数复制构造函数和析构函数">
+<a class="header-anchor" href="#131-%e9%93%be%e8%a1%a8chain%e7%9a%84%e6%9e%84%e9%80%a0%e5%87%bd%e6%95%b0%e5%a4%8d%e5%88%b6%e6%9e%84%e9%80%a0%e5%87%bd%e6%95%b0%e5%92%8c%e6%9e%90%e6%9e%84%e5%87%bd%e6%95%b0"></a>
+1.3.1 链表chain的构造函数、复制构造函数和析构函数
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="n">chain</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">chain</span><span class="p">(</span><span class="kt">int</span> <span class="n">initialCapacity</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="c1">//构造函数
+</span></span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="n">initialCapaciy</span><span class="o">&lt;</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">throw</span> <span class="n">illegalParameterValue</span><span class="p">();</span><span class="c1">//抛出异常，具体内容略
+</span></span></span><span class="line"><span class="cl">    <span class="n">firstNode</span><span class="o">=</span><span class="nb">NULL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">listSize</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="n">chain</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">chain</span><span class="p">(</span><span class="k">const</span> <span class="n">chain</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span> <span class="n">theList</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="c1">//复制构造函数
+</span></span></span><span class="line"><span class="cl">    <span class="n">listSize</span><span class="o">=</span><span class="n">theList</span><span class="p">.</span><span class="n">listSize</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="n">listSize</span><span class="o">==</span><span class="mi">0</span><span class="p">){</span><span class="c1">//链表为空
+</span></span></span><span class="line"><span class="cl">        <span class="n">firstNode</span><span class="o">=</span><span class="nb">NULL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">//链表非空
+</span></span></span><span class="line"><span class="cl">    <span class="n">chianNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span> <span class="n">sourceNode</span><span class="o">=</span><span class="n">theList</span><span class="p">.</span><span class="n">firstNode</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">firstNode</span><span class="o">=</span><span class="k">new</span> <span class="n">chainNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">sourceNode</span><span class="o">-&gt;</span><span class="n">element</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sourceNode</span><span class="o">=</span><span class="n">sourceNode</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">chianNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span> <span class="n">targetNode</span><span class="o">=</span><span class="n">firstNode</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span><span class="p">(</span><span class="n">sourceNode</span><span class="o">!=</span><span class="nb">NULL</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="n">targetNode</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">=</span><span class="k">new</span> <span class="n">chainNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">sourceNode</span><span class="o">-&gt;</span><span class="n">element</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">targetNode</span><span class="o">=</span><span class="n">targetNode</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">sourceNode</span><span class="o">=</span><span class="n">sourceNode</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">targetNode</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">=</span><span class="nb">NULL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">chain</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::~</span><span class="n">chain</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="c1">//链表析构函数,删除链表的所有节点
+</span></span></span><span class="line"><span class="cl">    <span class="k">while</span><span class="p">(</span><span class="n">firstNode</span><span class="o">!=</span><span class="nb">NULL</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="n">chainNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span><span class="n">nextNode</span><span class="o">=</span><span class="n">firstNode</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">delete</span> <span class="n">firstNode</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">firstNode</span><span class="o">=</span><span class="n">nextNode</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h4 id="132-链表的get">
+<a class="header-anchor" href="#132-%e9%93%be%e8%a1%a8%e7%9a%84get"></a>
+1.3.2 链表的get
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="n">T</span><span class="o">&amp;</span> <span class="n">chain</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">get</span><span class="p">(</span><span class="kt">int</span> <span class="n">theIndex</span><span class="p">)</span> <span class="k">const</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">chainNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span><span class="n">currentNode</span><span class="o">=</span><span class="n">firstNode</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">theIndex</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="n">currentNode</span><span class="o">=</span><span class="n">currentNode</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span><span class="p">(</span><span class="n">currentNode</span><span class="o">-&gt;</span><span class="n">element</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h4 id="133-链表的indexof">
+<a class="header-anchor" href="#133-%e9%93%be%e8%a1%a8%e7%9a%84indexof"></a>
+1.3.3 链表的indexOf
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">chain</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">indexOf</span><span class="p">(</span><span class="k">const</span><span class="o">&amp;</span> <span class="n">T</span> <span class="n">theElement</span><span class="p">)</span> <span class="k">const</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="c1">//返回元素theElement首次出现时的索引
+</span></span></span><span class="line"><span class="cl"> <span class="c1">//若元素不存在，则返回-1
+</span></span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">chainNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span> <span class="n">currentNode</span><span class="o">=</span><span class="n">firstNode</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">index</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">while</span><span class="p">(</span><span class="n">currentNode</span><span class="o">!=</span><span class="nb">NULL</span><span class="o">&amp;&amp;</span><span class="n">currentNode</span><span class="o">-&gt;</span><span class="n">element</span><span class="o">!=</span><span class="n">theElement</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="n">currentNode</span><span class="o">=</span><span class="n">currentNode</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">index</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="n">currentNode</span><span class="o">==</span><span class="nb">NULL</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">index</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h4 id="134-链表的erase">
+<a class="header-anchor" href="#134-%e9%93%be%e8%a1%a8%e7%9a%84erase"></a>
+1.3.4 链表的erase
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="n">chain</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">erase</span><span class="p">(</span><span class="kt">int</span> <span class="n">theIndex</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="c1">//删除索引为theIndex的元素
+</span></span></span><span class="line"><span class="cl">    <span class="n">chainNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span> <span class="n">deleteNode</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="n">theIndex</span><span class="o">=</span><span class="mi">0</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="n">deleteNode</span><span class="o">=</span><span class="n">firstNode</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">firstNode</span><span class="o">=</span><span class="n">firstNode</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">{</span><span class="c1">//用指针*p指向要删除的节点的前驱节点
+</span></span></span><span class="line"><span class="cl">    <span class="n">chainNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span> <span class="n">p</span><span class="o">=</span><span class="n">firstNode</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">theIndex</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">p</span><span class="o">=</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">deleteNode</span><span class="o">=</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">=</span><span class="n">deleteNode</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">delete</span> <span class="n">deleteNode</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">listSize</span><span class="o">--</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h4 id="135-链表的insert">
+<a class="header-anchor" href="#135-%e9%93%be%e8%a1%a8%e7%9a%84insert"></a>
+1.3.5 链表的insert
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="n">chain</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">insert</span><span class="p">(</span><span class="kt">int</span> <span class="n">theIndex</span><span class="p">,</span><span class="n">cosnt</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">theElement</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="c1">//在theIndex位置插入元素theElement
+</span></span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="n">theIndex</span><span class="o">==</span><span class="mi">0</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="n">firstNode</span><span class="o">=</span><span class="k">new</span> <span class="n">chainNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">theElement</span><span class="p">,</span><span class="n">firstNode</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">chainNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span> <span class="n">p</span><span class="o">=</span><span class="n">firstNode</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">theIndex</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">p</span><span class="o">=</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">=</span><span class="k">new</span> <span class="n">chianNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">theElement</span><span class="p">,</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">listSize</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="2循环链表与头节点">
+<a class="header-anchor" href="#2%e5%be%aa%e7%8e%af%e9%93%be%e8%a1%a8%e4%b8%8e%e5%a4%b4%e8%8a%82%e7%82%b9"></a>
+2.循环链表与头节点
+</h2><p>应用下面两条措施可以使得链表的应用代码简洁而高效</p>
+<ol>
+<li>把线性表描述成一个单向循环链表，而不是单向链表。</li>
+<li>在链表前面增加一个节点，称为头节点(header Node),只要将单向链表的尾节点与头节点链接起来，单向链表就成为了循环链表。</li>
+</ol>
+<h2 id="3双向链表">
+<a class="header-anchor" href="#3%e5%8f%8c%e5%90%91%e9%93%be%e8%a1%a8"></a>
+3.双向链表
+</h2><p>每个元素节点既有指向后继的指针，又有指向前驱的指针，双向链表就是这样一个有序的节点序列。
+每一个节点都有两个指针next和previous。next指针指向右边节点，previous指针指向左边节点。</p>
+<h2 id="3链表的应用">
+<a class="header-anchor" href="#3%e9%93%be%e8%a1%a8%e7%9a%84%e5%ba%94%e7%94%a8"></a>
+3.链表的应用
+</h2><h3 id="31-箱子排序bin-sort">
+<a class="header-anchor" href="#31-%e7%ae%b1%e5%ad%90%e6%8e%92%e5%ba%8fbin-sort"></a>
+3.1 箱子排序(bin sort)
+</h3><p>例:假设要对一个班级的学生的总分进行排序，如果使用冒泡、选择或者插入排序，时间复杂度都为<strong>O(n^2^)</strong>。现在我们使用箱子排序，这种排序首先把份数相同的节点放在同一个箱子里，然后把箱子链接起来就得到了有序的链表。</p>
+<ul>
+<li>每一个箱子都是一个链表，一个箱子的节点数目在0~n之间。开始时，箱子是空的。
+箱子排序需要做的事情是:</li>
+</ul>
+<ol>
+<li>逐个删除输入链表的节点，把删除的节点分配到对应的箱子里；</li>
+<li>把每一个箱子里的链表收集并链接起来，使其成为一个有序链表。</li>
+</ol>
+<p>下面以为学生成绩总分排序为例</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="c1">//先为学生记录定义一个结构体studentRecord
+</span></span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">studentRecord</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">score</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">string</span><span class="o">*</span> <span class="n">name</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="k">operator</span> <span class="o">!=</span><span class="p">(</span><span class="k">const</span> <span class="n">studentRecord</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">)</span> <span class="k">const</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span><span class="k">return</span> <span class="p">(</span><span class="n">score</span><span class="o">!=</span><span class="n">x</span><span class="p">.</span><span class="n">score</span><span class="p">);}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">operator</span> <span class="nf">int</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span><span class="k">return</span> <span class="n">score</span><span class="p">;}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="n">ostream</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">ostream</span><span class="o">&amp;</span> <span class="n">out</span><span class="p">,</span><span class="k">const</span> <span class="n">studentRecord</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="n">out</span><span class="o">&lt;&lt;</span><span class="n">x</span><span class="p">.</span><span class="n">score</span><span class="o">&lt;&lt;</span><span class="s">&#34; &#34;</span><span class="o">&lt;&lt;*</span><span class="n">x</span><span class="p">.</span><span class="n">name</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="o">&gt;&gt;</span><span class="p">;</span><span class="k">return</span> <span class="n">out</span><span class="p">;}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//使用链表的多个方法进行箱子排序
+</span></span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">binSort</span><span class="p">(</span><span class="n">chain</span><span class="o">&lt;</span><span class="n">structRecord</span><span class="o">&gt;&amp;</span> <span class="n">theChain</span><span class="p">,</span><span class="kt">int</span> <span class="n">range</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//对箱子初始化
+</span></span></span><span class="line"><span class="cl">    <span class="n">chain</span><span class="o">&lt;</span><span class="n">structRecord</span><span class="o">&gt;</span> <span class="o">*</span><span class="n">bin</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">bin</span> <span class="o">=</span> <span class="k">new</span> <span class="n">chain</span><span class="o">&lt;</span><span class="n">structRecord</span><span class="o">&gt;</span><span class="p">[</span><span class="n">range</span><span class="o">+</span><span class="mi">1</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">//把学生从链表里取出，放进各个箱子里
+</span></span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">numbersofElements</span> <span class="o">=</span> <span class="n">theChain</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">numbersofElemnts</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="n">studentRecord</span> <span class="n">x</span><span class="o">=</span><span class="n">theChain</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">theChain</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">bin</span><span class="p">[</span><span class="n">x</span><span class="p">.</span><span class="n">score</span><span class="p">].</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">x</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">//从箱子中收集元素
+</span></span></span><span class="line"><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="n">range</span><span class="p">;</span><span class="n">j</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">;</span><span class="n">j</span><span class="o">--</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">bin</span><span class="p">[</span><span class="n">j</span><span class="p">].</span><span class="n">empty</span><span class="p">()){</span>
+</span></span><span class="line"><span class="cl">            <span class="n">studentRecord</span> <span class="n">x</span><span class="o">=</span><span class="n">bin</span><span class="p">[</span><span class="n">j</span><span class="p">].</span><span class="n">get</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">bin</span><span class="p">[</span><span class="n">j</span><span class="p">].</span><span class="n">erase</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">theChain</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">delete</span> <span class="p">[]</span><span class="n">bin</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>箱子排序作为链表chain的一个成员函数</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="n">chain</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">binSort</span><span class="p">(</span><span class="kt">int</span> <span class="n">range</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//创建并初始化箱子
+</span></span></span><span class="line"><span class="cl">    <span class="n">chainNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;**</span><span class="n">bottom</span><span class="p">,</span><span class="o">**</span><span class="n">top</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">bottom</span><span class="o">=</span><span class="k">new</span> <span class="n">chainNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span> <span class="p">[</span><span class="n">range</span><span class="o">+</span><span class="mi">1</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="n">top</span><span class="o">=</span><span class="k">new</span> <span class="n">chainNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span> <span class="p">[</span><span class="n">range</span><span class="o">+</span><span class="mi">1</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">b</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">b</span><span class="o">&lt;=</span><span class="n">range</span><span class="p">;</span><span class="n">b</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">bottom</span><span class="p">[</span><span class="n">b</span><span class="p">]</span><span class="o">=</span><span class="nb">NULL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">//把链表的节点分配到箱子
+</span></span></span><span class="line"><span class="cl">    <span class="k">for</span><span class="p">(;</span><span class="n">firstNode</span><span class="o">!=</span><span class="nb">NULL</span><span class="p">;</span><span class="n">firstNode</span><span class="o">=</span><span class="n">firstNode</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span><span class="c1">//把首节点firstNode加入到箱子中
+</span></span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">theBin</span><span class="o">=</span><span class="n">firstNode</span><span class="o">-&gt;</span><span class="n">element</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">bottom</span><span class="p">[</span><span class="n">theBin</span><span class="p">]</span><span class="o">==</span><span class="nb">NULL</span><span class="p">)</span><span class="c1">//箱子为空
+</span></span></span><span class="line"><span class="cl">            <span class="n">bottom</span><span class="p">[</span><span class="n">theBin</span><span class="p">]</span><span class="o">=</span><span class="n">top</span><span class="p">[</span><span class="n">theBin</span><span class="p">]</span><span class="o">=</span><span class="n">firstNode</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">{</span><span class="c1">//箱子不空
+</span></span></span><span class="line"><span class="cl">            <span class="n">top</span><span class="p">[</span><span class="n">theBin</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">=</span><span class="n">firstNode</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">top</span><span class="p">[</span><span class="n">theBin</span><span class="p">]</span><span class="o">=</span><span class="n">firstNode</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">//把箱子中的节点收集到有序链表中
+</span></span></span><span class="line"><span class="cl">    <span class="n">chainNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">*</span><span class="n">y</span><span class="o">=</span><span class="nb">NULL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">theBin</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">theBin</span><span class="o">&lt;=</span><span class="n">range</span><span class="p">;</span><span class="n">theBin</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">bottom</span><span class="p">[</span><span class="n">theBin</span><span class="p">]</span><span class="o">!=</span><span class="nb">NULL</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span><span class="p">(</span><span class="n">y</span><span class="o">==</span><span class="nb">NULL</span><span class="p">)</span><span class="c1">//第一个非空箱子
+</span></span></span><span class="line"><span class="cl">                <span class="n">firstNode</span><span class="o">=</span><span class="n">bottom</span><span class="p">[</span><span class="n">theBin</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="c1">//不是第一个非空箱子
+</span></span></span><span class="line"><span class="cl">                <span class="n">y</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">=</span><span class="n">bottom</span><span class="p">[</span><span class="n">theBin</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">            <span class="n">y</span><span class="o">=</span><span class="n">top</span><span class="p">[</span><span class="n">theBin</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">y</span><span class="o">!=</span><span class="nb">NULL</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">y</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">=</span><span class="nb">NULL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">delete</span> <span class="p">[]</span><span class="n">top</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">delete</span> <span class="p">[]</span><span class="n">bottom</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ul>
+<li>总时间复杂度<strong>O(n+range)</strong>。</li>
+<li>该成员函数不会改变分数相同的节点之间的相对次序。
+<strong>如果一个排序方法能够保持同值元素之间的相对次序，则该方法称为稳定排序(stable sort)</strong>。</li>
+</ul>
+<h3 id="32-基数排序radix-sort">
+<a class="header-anchor" href="#32-%e5%9f%ba%e6%95%b0%e6%8e%92%e5%ba%8fradix-sort"></a>
+3.2 基数排序(radix sort)
+</h3><p>基数排序（Radix Sort）是一种非比较型的排序算法，它通过逐位比较元素的每一位（从最低位到最高位）来实现排序。基数排序的核心思想是将整数按位数切割成不同的数字，然后按每个位数分别进行排序。基数排序的时间复杂度为 O(n * k)，其中 n 是列表长度，k 是最大数字的位数。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">maxbit</span><span class="p">(</span><span class="kt">int</span> <span class="n">data</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="c1">//辅助函数，求数据的最大位数
+</span></span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">maxData</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>              <span class="c1">///&lt; 最大数
+</span></span></span><span class="line"><span class="cl">    <span class="c1">/// 先求出最大数，再求其位数，这样有原先依次每个数判断其位数，稍微优化点。
+</span></span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">maxData</span> <span class="o">&lt;</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">            <span class="n">maxData</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">d</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">p</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="n">maxData</span> <span class="o">&gt;=</span> <span class="n">p</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//p *= 10; // Maybe overflow
+</span></span></span><span class="line"><span class="cl">        <span class="n">maxData</span> <span class="o">/=</span> <span class="mi">10</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">++</span><span class="n">d</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">d</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="n">chain</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">radixSort</span><span class="p">(</span><span class="kt">int</span> <span class="n">d</span><span class="p">)</span>  <span class="c1">// d为最大位数
+</span></span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 创建并初始化10个箱子（0-9）
+</span></span></span><span class="line"><span class="cl">    <span class="n">chainNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;**</span> <span class="n">bottom</span><span class="p">,</span> <span class="o">**</span><span class="n">top</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">bottom</span> <span class="o">=</span> <span class="k">new</span> <span class="n">chainNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span> <span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="n">top</span> <span class="o">=</span> <span class="k">new</span> <span class="n">chainNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span> <span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">radix</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>  <span class="c1">// 当前处理的位数：1,10,100,...
+</span></span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 进行d次分配和收集
+</span></span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">d</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 初始化箱子
+</span></span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">b</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">b</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">bottom</span><span class="p">[</span><span class="n">b</span><span class="p">]</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 把链表的节点分配到箱子
+</span></span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(;</span> <span class="n">firstNode</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">;</span> <span class="n">firstNode</span> <span class="o">=</span> <span class="n">firstNode</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 计算当前位的数字
+</span></span></span><span class="line"><span class="cl">            <span class="kt">int</span> <span class="n">theBin</span> <span class="o">=</span> <span class="p">(</span><span class="n">firstNode</span><span class="o">-&gt;</span><span class="n">element</span> <span class="o">/</span> <span class="n">radix</span><span class="p">)</span> <span class="o">%</span> <span class="mi">10</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">bottom</span><span class="p">[</span><span class="n">theBin</span><span class="p">]</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>  <span class="c1">// 箱子为空
+</span></span></span><span class="line"><span class="cl">                <span class="n">bottom</span><span class="p">[</span><span class="n">theBin</span><span class="p">]</span> <span class="o">=</span> <span class="n">top</span><span class="p">[</span><span class="n">theBin</span><span class="p">]</span> <span class="o">=</span> <span class="n">firstNode</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span> <span class="p">{</span>  <span class="c1">// 箱子不空
+</span></span></span><span class="line"><span class="cl">                <span class="n">top</span><span class="p">[</span><span class="n">theBin</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">firstNode</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="n">top</span><span class="p">[</span><span class="n">theBin</span><span class="p">]</span> <span class="o">=</span> <span class="n">firstNode</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 把箱子中的节点收集到有序链表中
+</span></span></span><span class="line"><span class="cl">        <span class="n">chainNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span> <span class="n">y</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">theBin</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">theBin</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">theBin</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">bottom</span><span class="p">[</span><span class="n">theBin</span><span class="p">]</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="p">(</span><span class="n">y</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>  <span class="c1">// 第一个非空箱子
+</span></span></span><span class="line"><span class="cl">                    <span class="n">firstNode</span> <span class="o">=</span> <span class="n">bottom</span><span class="p">[</span><span class="n">theBin</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">                <span class="k">else</span>  <span class="c1">// 不是第一个非空箱子
+</span></span></span><span class="line"><span class="cl">                    <span class="n">y</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">bottom</span><span class="p">[</span><span class="n">theBin</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">                <span class="n">y</span> <span class="o">=</span> <span class="n">top</span><span class="p">[</span><span class="n">theBin</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">y</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">y</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">radix</span> <span class="o">*=</span> <span class="mi">10</span><span class="p">;</span>  <span class="c1">// 处理下一位
+</span></span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">delete</span><span class="p">[]</span> <span class="n">top</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">delete</span><span class="p">[]</span> <span class="n">bottom</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="cm">/*基数排序实则是对所要排序的所有数的每一位数字使用箱子排序*/</span>
+</span></span></code></pre></div><h3 id="33-并查集">
+<a class="header-anchor" href="#33-%e5%b9%b6%e6%9f%a5%e9%9b%86"></a>
+3.3 并查集
+</h3><h4 id="331-等价类的定义">
+<a class="header-anchor" href="#331-%e7%ad%89%e4%bb%b7%e7%b1%bb%e7%9a%84%e5%ae%9a%e4%b9%89"></a>
+3.3.1 等价类的定义
+</h4><p>在集合论中，如果在一个集合 S上定义了一个等价关系 ∼即满足自反性、对称性、传递性的关系），那么对于 S中的任意元素 a，a的等价类就是所有与 a等价的元素组成的集合，记作：
+[a]={x∈S∣x∼a}
+关键性质：集合S中的所有元素会被这些等价类完全划分（不相交且覆盖全集），这就是著名的“商集”概念。</p>
+<h4 id="332-等价类的分类">
+<a class="header-anchor" href="#332-%e7%ad%89%e4%bb%b7%e7%b1%bb%e7%9a%84%e5%88%86%e7%b1%bb"></a>
+3.3.2 等价类的分类
+</h4><ol>
+<li>离线等价类(offline equiralence class):</li>
+</ol>
+<ul>
+<li>定义：在算法开始执行之前，所有的数据（元素个数、所有“等价对”关系）都已经完整地存储在内存中。算法读完所有数据后，一次性计算出所有的等价类划分。</li>
+<li>核心数据结构：静态数组 + 深度优先搜索（DFS）/ 广度优先搜索（BFS），或者先读取全部数据再构建并查集。</li>
+</ul>
+<ol start="2">
+<li>在线等价类(online equiralence class)</li>
+</ol>
+<ul>
+<li>定义：算法运行的过程中，等价关系是逐步（动态）给出的。每给出一个新关系，程序必须立即更新当前元素所属的等价类，并能够随时回答“这两个元素当前是否等价？”这个问题。算法不知道未来还会输入什么关系。</li>
+<li>核心数据结构：并查集（Union-Find）。它专门用来高效处理这种动态合并、即时查询的问题（近乎O(1)的时间复杂度）。</li>
+</ul>
+<h4 id="333-链表实现的并查集">
+<a class="header-anchor" href="#333-%e9%93%be%e8%a1%a8%e5%ae%9e%e7%8e%b0%e7%9a%84%e5%b9%b6%e6%9f%a5%e9%9b%86"></a>
+3.3.3 链表实现的并查集
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="c1">// 链表节点
+</span></span></span><span class="line"><span class="cl"><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">chainNode</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">T</span> <span class="n">element</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">chainNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span> <span class="n">next</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">chainNode</span><span class="p">()</span> <span class="o">:</span> <span class="n">next</span><span class="p">(</span><span class="nb">NULL</span><span class="p">)</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">chainNode</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">element</span><span class="p">)</span> <span class="o">:</span> <span class="n">element</span><span class="p">(</span><span class="n">element</span><span class="p">),</span> <span class="n">next</span><span class="p">(</span><span class="nb">NULL</span><span class="p">)</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 并查集类（链表实现）
+</span></span></span><span class="line"><span class="cl"><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">UnionFind</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">private</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">chainNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;**</span> <span class="n">head</span><span class="p">;</span>    <span class="c1">// head[i] 指向元素 i 所在链表的头结点
+</span></span></span><span class="line"><span class="cl">    <span class="n">chainNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;**</span> <span class="n">tail</span><span class="p">;</span>    <span class="c1">// tail[i] 指向元素 i 所在链表的尾结点
+</span></span></span><span class="line"><span class="cl">    <span class="kt">int</span><span class="o">*</span> <span class="n">length</span><span class="p">;</span>            <span class="c1">// length[i] 记录以 i 为头结点的链表长度
+</span></span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">capacity</span><span class="p">;</span>           <span class="c1">// 元素个数
+</span></span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 构造函数：初始化 n 个元素，每个自成一个等价类
+</span></span></span><span class="line"><span class="cl">    <span class="n">UnionFind</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="o">:</span> <span class="n">capacity</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">head</span> <span class="o">=</span> <span class="k">new</span> <span class="n">chainNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span><span class="p">[</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="n">tail</span> <span class="o">=</span> <span class="k">new</span> <span class="n">chainNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span><span class="p">[</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="n">length</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">head</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">chainNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">tail</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">head</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">            <span class="n">length</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 析构函数：释放内存
+</span></span></span><span class="line"><span class="cl">    <span class="o">~</span><span class="n">UnionFind</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">capacity</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">head</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">chainNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">head</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">                <span class="k">while</span> <span class="p">(</span><span class="n">p</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">chainNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span> <span class="n">q</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">delete</span> <span class="n">q</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">delete</span><span class="p">[]</span> <span class="n">head</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">delete</span><span class="p">[]</span> <span class="n">tail</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">delete</span><span class="p">[]</span> <span class="n">length</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 查找：返回元素 x 所在链表的头结点（O(1)）
+</span></span></span><span class="line"><span class="cl">    <span class="n">chainNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span> <span class="n">find</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">head</span><span class="p">[</span><span class="n">x</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 合并：将 x 和 y 所在集合合并（短链并入长链）
+</span></span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="nf">unite</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">chainNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span> <span class="n">headX</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">chainNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span> <span class="n">headY</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">headX</span> <span class="o">==</span> <span class="n">headY</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>  <span class="c1">// 已在同一集合
+</span></span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">rootX</span> <span class="o">=</span> <span class="n">headX</span><span class="o">-&gt;</span><span class="n">element</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">rootY</span> <span class="o">=</span> <span class="n">headY</span><span class="o">-&gt;</span><span class="n">element</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 保证 rootX 是短链，rootY 是长链
+</span></span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">length</span><span class="p">[</span><span class="n">rootX</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">length</span><span class="p">[</span><span class="n">rootY</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">chainNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span> <span class="n">tempHead</span> <span class="o">=</span> <span class="n">headX</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">headX</span> <span class="o">=</span> <span class="n">headY</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">headY</span> <span class="o">=</span> <span class="n">tempHead</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="kt">int</span> <span class="n">tempRoot</span> <span class="o">=</span> <span class="n">rootX</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">rootX</span> <span class="o">=</span> <span class="n">rootY</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">rootY</span> <span class="o">=</span> <span class="n">tempRoot</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 将短链（rootX）接到长链（rootY）尾部
+</span></span></span><span class="line"><span class="cl">        <span class="n">tail</span><span class="p">[</span><span class="n">rootY</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">headX</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">tail</span><span class="p">[</span><span class="n">rootY</span><span class="p">]</span> <span class="o">=</span> <span class="n">tail</span><span class="p">[</span><span class="n">rootX</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 遍历短链，更新所有元素的 head 指针
+</span></span></span><span class="line"><span class="cl">        <span class="n">chainNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">headX</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="p">(</span><span class="n">p</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">head</span><span class="p">[</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">element</span><span class="p">]</span> <span class="o">=</span> <span class="n">headY</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 更新长度
+</span></span></span><span class="line"><span class="cl">        <span class="n">length</span><span class="p">[</span><span class="n">rootY</span><span class="p">]</span> <span class="o">+=</span> <span class="n">length</span><span class="p">[</span><span class="n">rootX</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="n">length</span><span class="p">[</span><span class="n">rootX</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div></div>
+    <footer class="article-footer"><ul class="article-category-list"><li class="article-tag-list-item" data-aos="zoom-in">
+    <a
+      class="article-category-link"
+      href="/categories/%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84"
+      data-aos="zoom-in"
+      >数据结构</a
+    >
+    </li></ul>
+<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in">
+      <a
+        class="article-tag-list-link"
+        href="/tags/%e7%ba%bf%e6%80%a7%e8%a1%a8"
+        rel="tag"
+        >线性表</a
+      >
+    </li><li class="article-tag-list-item" data-aos="zoom-in">
+      <a
+        class="article-tag-list-link"
+        href="/tags/%e9%93%be%e8%a1%a8"
+        rel="tag"
+        >链表</a
+      >
+    </li><li class="article-tag-list-item" data-aos="zoom-in">
+      <a
+        class="article-tag-list-link"
+        href="/tags/%e7%ae%b1%e5%ad%90%e6%8e%92%e5%ba%8f"
+        rel="tag"
+        >箱子排序</a
+      >
+    </li><li class="article-tag-list-item" data-aos="zoom-in">
+      <a
+        class="article-tag-list-link"
+        href="/tags/%e5%9f%ba%e6%95%b0%e6%8e%92%e5%ba%8f"
+        rel="tag"
+        >基数排序</a
+      >
+    </li></ul>
+</footer>
+  </div><nav
+    id="article-nav"
+    aria-label="Article navigation"
+    data-aos="fade-up"
+  ><div class="article-nav-link-wrap left"><img
+            data-src="/images/cover16.jpg"
+            data-sizes="auto"
+            alt="26summer-w3-线性表(顺序描述)"
+            class="lazyload"
+          /><a
+          href="/post/26summer-w3-%E7%BA%BF%E6%80%A7%E8%A1%A8%E6%95%B0%E7%BB%84%E6%8F%8F%E8%BF%B0/"
+          aria-label="前一篇:26summer-w3-线性表(顺序描述)"
+          title="前一篇:26summer-w3-线性表(顺序描述)"
+        ></a>
+        <div class="article-nav-caption">前一篇</div>
+        <h3 class="article-nav-title">26summer-w3-线性表(顺序描述)</h3>
+      </div><div class="article-nav-link-wrap right"><img
+            data-src="/images/cover18.jpg"
+            data-sizes="auto"
+            alt="26summer-w5-栈"
+            class="lazyload"
+          /><a
+          href="/post/26summer-w5-%E6%A0%88/"
+          aria-label="后一篇:26summer-w5-栈"
+          title="后一篇:26summer-w5-栈"
+        ></a>
+        <div class="article-nav-caption">后一篇</div>
+        <h3 class="article-nav-title">26summer-w5-栈</h3>
+      </div></nav></article><section id="comments" data-aos="fade-up">
+<div class="comment-header"><h2 class="comment-title">Leave a comment</h2>
+  <div class="comment-selector">
+    <div class="comment-selector-wrap"><div class="selector-item" data-selector="gitalk">
+          <span>gitalk</span>
+        </div></div>
+  </div>
+</div>
+
+<div class="comment-content"><div class="comment gitalk-comment" data-aos="fade-up"
+     id="gitalk-comment">
+    </div></div>
+</section></section>
+        </div><footer id="footer" aria-label="Site footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info"><div>
+      <span class="icon-copyright"></span>2026<span class="footer-info-sep rotate"></span>Cecilia
+    </div><div>
+        基于&nbsp;<a
+          href="https://gohugo.io/"
+          target="_blank"
+          rel="noopener nofollow noreferrer"
+          >Hugo</a
+        >&nbsp;Theme.<a
+          href="https://github.com/D-Sketon/hugo-theme-reimu"
+          target="_blank"
+          rel="noopener nofollow noreferrer"
+          >Reimu</a
+        >
+      </div><div>
+        <span class="icon-brush"
+          >&nbsp;20.7k</span
+        >
+        &nbsp;|&nbsp;
+        <span class="icon-coffee">&nbsp;00:49</span>
+      </div></div>
+</footer>
+<div class="sidebar-top">
+            <div class="sidebar-top-taichi rotate"></div>
+            <div class="arrow-up"></div>
+          </div><div id="mask" class="hide"></div>
+      </div><nav id="mobile-nav" aria-label="Mobile navigation">
+  <div class="sidebar-wrap"><div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
+<div class="sidebar-toc-wrapper toc-div-class">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1单向链表">1.单向链表</a>
+      <ul>
+        <li><a href="#11-描述">1.1 描述</a></li>
+        <li><a href="#12-结构chiannode">1.2 结构chianNode</a></li>
+        <li><a href="#13-类chain">1.3 类chain</a></li>
+      </ul>
+    </li>
+    <li><a href="#2循环链表与头节点">2.循环链表与头节点</a></li>
+    <li><a href="#3双向链表">3.双向链表</a></li>
+    <li><a href="#3链表的应用">3.链表的应用</a>
+      <ul>
+        <li><a href="#31-箱子排序bin-sort">3.1 箱子排序(bin sort)</a></li>
+        <li><a href="#32-基数排序radix-sort">3.2 基数排序(radix sort)</a></li>
+        <li><a href="#33-并查集">3.3 并查集</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div></div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img
+    data-src="/avatar/avatar.webp"
+    data-sizes="auto"
+    alt="Cecilia"
+    class="lazyload"
+  />
+  <div class="sidebar-author-name">Cecilia</div>
+  <div class="sidebar-description">循此苦旅，终抵群星</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>文章</div><div class="sidebar-state-number">14</div>
+  </div>
+  <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
+    <div>分类</div>
+    <div class="sidebar-state-number">
+      7
+    </div>
+  </a>
+  <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
+    <div>标签</div>
+    <div class="sidebar-state-number">26</div>
+  </a>
+</div>
+<div class="sidebar-social" ><div class="icon-github sidebar-social-icon">
+        <a
+          href="https://github.com/R-Cecilia/"
+          itemprop="url"
+          target="_blank"
+          aria-label="github"
+          rel="noopener nofollow noreferrer"
+        ></a>
+      </div><div class="icon-email sidebar-social-icon">
+        <a
+          href="503577584@qq.com"
+          itemprop="url"
+          target="_blank"
+          aria-label="email"
+          rel="noopener nofollow noreferrer"
+        ></a>
+      </div></div><div class="sidebar-menu"><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/"
+        aria-label="首页"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">首页</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/archives"
+        aria-label="归档"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">归档</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/about"
+        aria-label="关于"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">关于</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/friend"
+        aria-label="友链"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">友链</div>
+    </div></div></div></div><div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div></nav>
+</div><script
+    src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js"
+    
+    
+    
+    
+    integrity="sha384-3gT/vsepWkfz/ff7PpWNUeMzeWoH3cDhm/A8jM7ouoAK0/fP/9bcHHR5kHq2nf&#43;e" crossorigin="anonymous"></script><script
+    src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js"
+    
+    
+    
+    
+    integrity="sha384-J08i8An/QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"></script><script
+    src="https://npm.webcache.cn/material-theme@1.0.0/dist/material-theme.umd.js"
+    
+    
+    
+    
+    integrity="sha384-vLev0II0HKFaxkcm&#43;/7kX5IGwVFBASkGchU311wmU/veIj2bB0UcBkQbW6yw2asK" crossorigin="anonymous"></script><script src="/js/main.js"  ></script><script src="/js/aos.js"  ></script><script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", aosInit);
+    } else {
+      aosInit();
+    }
+  </script><script src="/js/pjax_main.js" data-pjax ></script>
+
+<div id="lazy-script">
+  <div><script data-pjax>
+        window.REIMU_POST = {
+          author: "Cecilia",
+          title: "26summer-w4-线性表(链式描述)",
+          url: "http:\/\/localhost:1313\/post\/26summer-w4-%E7%BA%BF%E6%80%A7%E8%A1%A8%E9%93%BE%E5%BC%8F%E6%8F%8F%E8%BF%B0\/",
+          description: "链表描述下的线性表和相关的应用，包括箱子排序和基数排序",
+          cover: "http:\/\/localhost:1313\/images\/cover17.jpg",
+        };
+      </script><script src="/js/insert_highlight.js" data-pjax ></script><script src="/js/tabs.js" data-pjax defer></script><script type="module" data-pjax>const PhotoSwipeLightbox = (await safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js", "sha384-DiL6M\/gG\u002bwmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF\/N6lrZi\/")).default;const initPswp = (gallery, children) => {
+          if (_$$(`${gallery} ${children}`).length > 0) {
+            new PhotoSwipeLightbox({
+              gallery,
+              children,pswpModule: () => safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8\u002boTJ7m3DfYEWX1fu1scuS4\u002bs")}).init();
+          }
+        }
+        const pswp = () => {
+          initPswp('.article-entry', 'a.article-gallery-item');
+          initPswp('.article-gallery', 'a.article-gallery-item');
+        }
+        pswp()
+      </script><script data-pjax>
+  var loadScript = (src, integrity) => {
+    const script = document.createElement('script');
+    script.src = src;
+    if (integrity) script.integrity = integrity;
+    script.crossOrigin = 'anonymous';
+    return script;
+  };
+  var commentConfigKeys = ['valine', 'waline', 'twikoo', 'gitalk', 'giscus', 'disqus', 'utterances'];
+  var commentConfig = {gitalk: {
+      enable: true,
+      load: () => {
+        const container = document.querySelector('.gitalk-comment');
+        if (!container) return;
+        container.style.display = 'block';
+
+        const script = loadScript(
+          'https:\/\/npm.webcache.cn\/gitalk@1.8.0\/dist\/gitalk.min.js',
+          !'webcache|gitalk@1.8.0\/dist\/gitalk.min.js'.startsWith('local') ? 'sha384-kspnZUWBoSWwoJHa0hBCXYbHGbhvU\/lcEH5O8eVbSDhbPwsiVUTp\/aGX\/z\/5EuMA' : undefined
+        );
+        script.onload = () => {
+          if ( false ) {
+            
+            const md5Script = loadScript(
+              'https:\/\/npm.webcache.cn\/blueimp-md5@2.19.0\/js\/md5.min.js',
+              !'webcache|blueimp-md5@2.19.0\/js\/md5.min.js'.startsWith('local') ? 'sha384-JmVtRz6RWiXnA14QbIOJzPuU3MidULOpBP66deeLLyyoF4Tr\/gZlbkHkL6vTthxH' : undefined
+            );
+            md5Script.onload = initGitalk;
+            document.head.appendChild(md5Script);
+          } else {
+            
+            initGitalk();
+          }
+        };
+        document.head.appendChild(script);
+
+        function initGitalk() {
+          let gitalk = new Gitalk({
+            clientID: 'Ov23liPPoJYfB6PTPwSP',
+            clientSecret: 'dfbc6b03e96a7facc8135416f8b347f6da1601f0',
+            repo: 'My_Blog-Comments-Database',
+            owner: 'R-Cecilia',
+            admin: JSON.parse("[\"R-Cecilia\"]"),
+            id: location.pathname,
+            distractionFreeMode: false,
+            language: document.documentElement.lang || 'en',
+          });
+          gitalk.render('gitalk-comment');
+        }
+      }
+    },};
+  commentConfig.enable = commentConfigKeys.some(key => commentConfig?.[key]?.enable);
+
+  var defaultComment = '';
+  if (commentConfig.enable) {
+    
+    var savedCommentType = localStorage.getItem('commentType');
+    
+    
+    if (savedCommentType) {
+      if (commentConfig[savedCommentType]?.enable) {
+        defaultComment = savedCommentType;
+      }
+    }
+    
+    
+    if (!defaultComment) {
+      var configDefault = 'waline';
+      if (commentConfig[configDefault]?.enable) {
+        defaultComment = configDefault;
+      }
+    }
+    
+    
+    if (!defaultComment) {
+      defaultComment = commentConfigKeys.find(sys => commentConfig?.[sys]?.enable) || '';
+    }
+  }
+
+  function loadComments() {
+    if (!commentConfig.enable) return;
+    
+    const loadedComments = {
+      valine: false,
+      waline: false,
+      twikoo: false,
+      gitalk: false,
+      giscus: false
+    };
+
+    
+    const hideAllComments = () => {
+      const commentContainers = document.querySelectorAll('.comment');
+      commentContainers.forEach(container => {
+        container.style.display = 'none';
+      });
+    };
+
+    
+    const loadCommentSystem = (type) => {
+      if (loadedComments[type]) {
+        
+        document.querySelector(`.${type}-comment`).style.display = 'block';
+        return;
+      }
+
+      
+      commentConfig[type]?.load();
+      loadedComments[type] = true;
+    };
+
+    
+    const changeActiveCommentItems = (item) => {
+      const commentItems = document.querySelectorAll('.selector-item');
+      for (let i = 0; i < commentItems.length; i++) {
+        commentItems[i].classList.remove('active');
+      }
+      item.classList.add('active');
+
+      
+      const commentType = item.getAttribute('data-selector');
+
+      
+      hideAllComments();
+
+      
+      loadCommentSystem(commentType);
+    };
+
+    const commentInit = () => {
+      
+      const commentItems = document.querySelectorAll('.selector-item');
+      for (let item of commentItems) {
+        item.addEventListener('click', () => {
+          
+          const commentType = item.getAttribute('data-selector');
+          window.localStorage.setItem('commentType', commentType);
+          
+          changeActiveCommentItems(item);
+        });
+      }
+
+      
+      if (defaultComment) {
+        const defaultSelectorItem = document.querySelector(`[data-selector="${defaultComment}"]`);
+        if (!defaultSelectorItem) return;
+        defaultSelectorItem.style.display = 'block';
+        defaultSelectorItem.classList.add('active');
+        loadCommentSystem(defaultComment);
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', commentInit);
+    } else {
+      commentInit();
+    }
+  };
+  loadComments();
+</script></div>
+</div><script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then((registrations) => {
+        for (let registration of registrations) {
+          registration.unregister();
+        }
+      });
+    }
+  </script><script>
+  const reimuCopyright = String.raw`
+   ______     ______     __     __    __     __  __    
+  /\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+  \ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+   \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+    \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                    
+  `;
+  console.log(String.raw`%c ${reimuCopyright}`, "color: #ff5252;");
+  console.log(
+    "%c Theme.Reimu" + " %c https://github.com/D-Sketon/hugo-theme-reimu ",
+    "color: white; background: #ff5252; padding:5px 0;",
+    "padding:4px;border:1px solid #ff5252;",
+  );
+</script></body>
+</html>
