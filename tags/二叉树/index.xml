@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>二叉树 on Welcome to My Blog</title>
+    <link>http://localhost:1313/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/</link>
+    <description>Recent content from Welcome to My Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    
+    <managingEditor>2554181@tongji.edu.com (Cecilia)</managingEditor>
+    <webMaster>2554181@tongji.edu.com (Cecilia)</webMaster>
+    
+    <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
+    
+    <lastBuildDate>Thu, 24 Jul 2025 15:13:00 -1500</lastBuildDate>
+    
+    
+    <atom:link href="http://localhost:1313/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+
+    
+    
+
+    <item>
+      <title>26summer-w6-二叉树</title>
+      <link>http://localhost:1313/post/26summer-w6-%E4%BA%8C%E5%8F%89%E6%A0%91/</link>
+      <pubDate>Thu, 24 Jul 2025 13:10:00 -1500</pubDate>
+      <author>2554181@tongji.edu.com (Cecilia)</author>
+      <guid>http://localhost:1313/post/26summer-w6-%E4%BA%8C%E5%8F%89%E6%A0%91/</guid>
+      <description>
+        <![CDATA[<h1>26summer-w6-二叉树</h1><p>作者：Cecilia（2554181@tongji.edu.com）</p>
+        
+          <h1 id="二叉树">
+<a class="header-anchor" href="#%e4%ba%8c%e5%8f%89%e6%a0%91"></a>
+二叉树
+</h1><h2 id="1-树的基本定义">
+<a class="header-anchor" href="#1-%e6%a0%91%e7%9a%84%e5%9f%ba%e6%9c%ac%e5%ae%9a%e4%b9%89"></a>
+1. 树的基本定义
+</h2><ul>
+<li>一棵树t是一个非空的有限元素集合，其中一个元素为根(root)，其余的元素组成t的子树(subtree)。</li>
+<li>树中没有子代的元素称为叶子(leaf)。</li>
+<li>一棵树的高度(height)或者深度(depth)是树中级(level)的个数。</li>
+<li>一个元素的度(degree of an element)是指其孩子的个数。一棵树的度(degree of a tree)是指其元素的度的最大值。</li>
+</ul>
+<h2 id="2-二叉树">
+<a class="header-anchor" href="#2-%e4%ba%8c%e5%8f%89%e6%a0%91"></a>
+2. 二叉树
+</h2><h3 id="21-基本定义">
+<a class="header-anchor" href="#21-%e5%9f%ba%e6%9c%ac%e5%ae%9a%e4%b9%89"></a>
+2.1 基本定义
+</h3><ul>
+<li>定义: 一个二叉树(binary tree)t是有限个元素的集合(可以为空)。当二叉树非空时，其中一个元素称为根，余下的元素杯划分为两棵二叉树，分别称为t的左子树和右子树。
+注:</li>
+<li>二叉树的每个元素恰好有两棵子树(其中一个或者两个可能为空)，而树的每一个元素可以有任意数量的子树。</li>
+<li>在二叉树中，每个元素的子树都是有序的，也就是说，有左子树和右子树之分。而树的子树是无序的。</li>
+</ul>
+<h3 id="22-二叉树的特性">
+<a class="header-anchor" href="#22-%e4%ba%8c%e5%8f%89%e6%a0%91%e7%9a%84%e7%89%b9%e6%80%a7"></a>
+2.2 二叉树的特性
+</h3><ul>
+<li>
+<p>一棵二叉树有n个元素，n&gt;0，它有n-1条边。</p>
+        
+        <hr><p>本文2025-07-24首发于<a href='http://localhost:1313/'>Welcome to My Blog</a>，最后修改于2025-07-24</p>]]>
+      </description>
+      
+        <category>数据结构</category>
+      
+    </item>
+    
+  </channel>
+</rss>
