@@ -17,13 +17,13 @@ cover: /images/cover20.webp
 
 ### 1.1 发展历程
 
-![Agent发展历程](D:/My_Code/web-program/hugo/my_blog/static/images/Image/1.1.png)
+![Agent发展历程](/images/Image/1.1.png)
 
 ### 1.2 AI Agent Stack
 
 来自Letta团队在2024年发布的Agent技术栈总览。
 原帖来自https://www.letta.com/blog/ai-agents-stack/
-![AI Agent Stack](D:/My_Code/web-program/hugo/my_blog/static/images/Image/1.2.webp)
+![AI Agent Stack](/images/Image/1.2.webp)
 
 2024年，该团队将Agent技术栈分为了6层:
 
@@ -36,7 +36,7 @@ cover: /images/cover20.webp
 
 两年后，随着技术发展，新的Agent Stack如下
 原帖来自https://www.oreilly.com/radar/the-ai-agents-stack-2026-edition/
-![AI Agent Stack](D:/My_Code/web-program/hugo/my_blog/static/images/Image/1.3.png)
+![AI Agent Stack](/images/Image/1.3.png)
 
 当前(2026年)下，新的技术栈特征呈现如下趋势:
 
@@ -56,7 +56,7 @@ cover: /images/cover20.webp
 #### 2.1.1统计语言模型与N-gram的思想
 
 在深度学习兴起之前，统计方法是语言模型的主流。其核心思想是，一个句子出现的概率，等于该句子中每个词出现的条件概率的连乘。
-![](D:/My_Code/web-program/hugo/my_blog/static/images/Image/2.1.png)
+![](/images/Image/2.1.png)
 这个公式被称为概率的链式法则。
 然而，直接计算这个公式几乎是不可能的因为像
 P(w~m~∣w~1~,⋯ ,w~m-1~)这样的条件概率太难从语料库中估计了，词序列 w~1~,⋯ ,w~m−1~可能从未在训练数据中出现过。
@@ -73,7 +73,7 @@ N-gram 模型的根本缺陷在于它将词视为孤立、离散的符号。为�
 
 - 构建一个语义空间：创建一个高维的连续向量空间，然后将词汇表中的每个词都映射为该空间中的一个点。这个点（即向量）就被称为词嵌入 (Word Embedding) 或词向量。在这个空间里，语义上相近的词，它们对应的向量在空间中的位置也相近。例如，agent 和 robot 的向量会靠得很近，而 agent 和 apple 的向量会离得很远。
 - 学习从上下文到下一个词的映射：利用神经网络的强大拟合能力，来学习一个函数。这个函数的输入是前 n−1 个词的词向量，输出是词汇表中每个词在当前上下文后出现的概率分布。
-  ![](D:/My_Code/web-program/hugo/my_blog/static/images/Image/2.2.png)
+  ![](/images/Image/2.2.png)
   在这个架构中，词嵌入是在模型训练过程中自动学习得到的。模型为了完成“预测下一个词”这个任务，会不断调整每个词的向量位置，最终使这些向量能够蕴含丰富的语义信息。一旦我们将词转换成了向量，我们就可以用数学工具来度量它们之间的关系。最常用的方法是余弦相似度 (Cosine Similarity) ，它通过计算两个向量夹角的余弦值来衡量它们的相似性。
   神经网络语言模型通过词嵌入，成功解决了 N-gram 模型的泛化能力差的问题。然而，它仍然有一个类似 N-gram 的限制：上下文窗口是固定的。它只能考虑固定数量的前文，这为能处理任意长序列的循环神经网络埋下了伏笔。
 
@@ -81,7 +81,7 @@ N-gram 模型的根本缺陷在于它将词视为孤立、离散的符号。为�
 
 神经网络语言模型虽然引入了词嵌入解决了泛化问题，但它和 N-gram 模型一样，上下文窗口是固定大小的。为了预测下一个词，它只能看到前 n−1 个词，再早的历史信息就被丢弃了。这显然不符合我们人类理解语言的方式。为了打破固定窗口的限制，循环神经网络 (Recurrent Neural Network, RNN) 应运而生，其核心思想非常直观：为网络增加“记忆”能力。
 RNN 的设计引入了一个隐藏状态 (hidden state) 向量，我们可以将其理解为网络的短期记忆。在处理序列的每一步，网络都会读取当前的输入词，并结合它上一刻的记忆（即上一个时间步的隐藏状态），然后生成一个新的记忆（即当前时间步的隐藏状态）传递给下一刻。这个循环往复的过程，使得信息可以在序列中不断向后传递。
-![](D:/My_Code/web-program/hugo/my_blog/static/images/Image/2.3.png)
+![](/images/Image/2.3.png)
 然而，标准的 RNN 在实践中存在一个严重的问题：长期依赖问题 (Long-term Dependency Problem) 。在训练过程中，模型需要通过反向传播算法根据输出端的误差来调整网络深处的权重。对于 RNN 而言，序列的长度就是网络的深度。当序列很长时，梯度在从后向前传播的过程中会经过多次连乘，这会导致梯度值快速趋向于零（梯度消失）或变得极大（梯度爆炸）。梯度消失使得模型无法有效学习到序列早期信息对后期输出的影响，即难以捕捉长距离的依赖关系。
 
 为了解决长期依赖问题，长短时记忆网络 (Long Short-Term Memory, LSTM) 被设计出来。LSTM 是一种特殊的 RNN，其核心创新在于引入了细胞状态 (Cell State) 和一套精密的门控机制 (Gating Mechanism) 。细胞状态可以看作是一条独立于隐藏状态的信息通路，允许信息在时间步之间更顺畅地传递。门控机制则是由几个小型神经网络构成，它们可以学习如何有选择地让信息通过，从而控制细胞状态中信息的增加与移除。这些门包括：
@@ -92,7 +92,7 @@ RNN 的设计引入了一个隐藏状态 (hidden state) 向量，我们可以将
 
 #### 2.1.4 Transformer架构
 
-![](D:/My_Code/web-program/hugo/my_blog/static/images/Image/2.4.png)
+![](/images/Image/2.4.png)
 
 #### 2.1.4 Decoder-only架构
 

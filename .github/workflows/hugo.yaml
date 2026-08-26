@@ -32,6 +32,9 @@ jobs:
         with:
           fetch-depth: 1
 
+      - name: Check Markdown image links
+        run: python3 scripts/check_markdown_images.py
+
       - name: Configure GitHub Pages
         id: pages
         uses: actions/configure-pages@v6

@@ -15,7 +15,7 @@ cover: /images/cover20.webp
 
 ## 1 Agent链路和工程体系
 
-![](D:/My_Code/web-program/hugo/my_blog/static/images/Image/chapter_intro_agent_chain.svg)
+![](/images/Image/chapter_intro_agent_chain.svg)
 
 ## 2 ReAct
 
@@ -26,7 +26,7 @@ ReAct的巧妙之处在于，它认识到思考与行动是相辅相成的。思
 - Action (行动)： 这是智能体决定采取的具体动作，通常是调用一个外部工具。
 - Observation (观察)： 这是执行Action后从外部工具返回的结果，例如搜索结果的摘要或API的返回值。
 
-![](D:/My_Code/web-program/hugo/my_blog/static/images/Image/ReAct.png)
+![](/images/Image/ReAct.png)
 
 这种机制特别适用于以下场景：
 
@@ -43,7 +43,7 @@ Plan-and-Solve Prompting 由 Lei Wang 在2023年提出。其核心动机是为�
 1. 规划阶段 (Planning Phase)： 首先，智能体会接收用户的完整问题。它的第一个任务不是直接去解决问题或调用工具，而是将问题分解，并制定出一个清晰、分步骤的行动计划。这个计划本身就是一次大语言模型的调用产物。
 2. 执行阶段 (Solving Phase)： 在获得完整的计划后，智能体进入执行阶段。它会严格按照计划中的步骤，逐一执行。每一步的执行都可能是一次独立的 LLM 调用，或者是对上一步结果的加工处理，直到计划中的所有步骤都完成，最终得出答案。
 
-![](D:/My_Code/web-program/hugo/my_blog/static/images/Image/Plan-and-Solve.png)
+![](/images/Image/Plan-and-Solve.png)
 
 Plan-and-Solve 尤其适用于那些结构性强、可以被清晰分解的复杂任务，例如：
 
@@ -63,7 +63,7 @@ Reflection 机制的灵感来源于人类的学习过程：我们完成初稿后
    - 遗漏信息：是否忽略了问题的某些关键约束或方面？ 根据评估，它会生成一段结构化的反馈 (Feedback)，指出具体的问题所在和改进建议。
 3. 优化 (Refinement)：最后，智能体将“初稿”和“反馈”作为新的上下文，再次调用大语言模型，要求它根据反馈内容对初稿进行修正，生成一个更完善的“修订稿”。
 
-![](D:/My_Code/web-program/hugo/my_blog/static/images/Image/Reflecting.png)
+![](/images/Image/Reflecting.png)
 
 与前两种范式相比，Reflection 的价值在于：
 
