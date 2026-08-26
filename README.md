@@ -6,17 +6,25 @@ files under `public/` are not committed to this branch.
 
 ## Local development
 
+Install Hugo Extended 0.161.1 or newer and make sure `hugo` is available on
+`PATH`. On Windows, the official Winget package can be installed with:
+
+```powershell
+winget install Hugo.Hugo.Extended
+hugo version
+```
+
 Start the local development server on Windows:
 
 ```powershell
-.\hugo.exe server -D
+hugo server -D
 ```
 
 Run a production-style build check without overwriting the local `public/`
 deployment repository:
 
 ```powershell
-.\hugo.exe --renderToMemory --noBuildLock --gc --minify
+hugo --renderToMemory --noBuildLock --gc --minify
 ```
 
 ## Deployment

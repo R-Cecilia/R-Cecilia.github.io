@@ -8,7 +8,7 @@ categories: ["数据结构"]
 tags: ["图", "DFS", "BFS"]
 description: "图和搜索算法"
 
-cover: /images/cover20.jpg
+cover: /images/cover20.webp
 ---
 
 # 图(graph)

@@ -8,7 +8,7 @@ categories: ["Git"]
 tags: ["Git"]
 description: "基本的git操作"
 
-cover: /images/cover2.png
+cover: /images/cover2.webp
 ---
 
 # Git基本操作

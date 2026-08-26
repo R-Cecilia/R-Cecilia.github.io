@@ -8,7 +8,7 @@ categories: ["数据结构"]
 tags: ["线性表", "数组", "C++迭代器", "vector"]
 description: "数组描述下的线性表"
 
-cover: /images/cover16.jpg
+cover: /images/cover16.webp
 ---
 
 # 线性表(数组描述)

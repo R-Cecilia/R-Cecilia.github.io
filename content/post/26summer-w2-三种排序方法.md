@@ -8,7 +8,7 @@ categories: ["排序算法"]
 tags: ["选择排序", "冒泡排序", "插入排序"]
 description: "选择排序、冒泡排序和插入排序"
 
-cover: /images/cover15.jpg
+cover: /images/cover15.webp
 ---
 
 # 三种基本排序方法

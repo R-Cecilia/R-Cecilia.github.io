@@ -8,7 +8,7 @@ categories: ["性能分析"]
 tags: ["复杂度", "渐近记法"]
 description: "评价程序性能的空间复杂度和时间复杂度、大O记法"
 
-cover: /images/cover14.png
+cover: /images/cover14.webp
 ---
 
 # 程序性能分析

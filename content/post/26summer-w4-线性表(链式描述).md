@@ -8,7 +8,7 @@ categories: ["数据结构"]
 tags: ["线性表", "链表", "箱子排序", "基数排序"]
 description: "链表描述下的线性表和相关的应用，包括箱子排序和基数排序"
 
-cover: /images/cover17.jpg
+cover: /images/cover17.webp
 ---
 
 # 线性表(链式描述)

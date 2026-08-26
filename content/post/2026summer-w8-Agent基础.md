@@ -8,7 +8,7 @@ categories: ["Agent开发"]
 tags: ["Agent Stack", "神经网络", "Transformer"]
 description: "Agent发展和LLM基础"
 
-cover: /images/cover20.jpg
+cover: /images/cover20.webp
 ---
 
 # Agent基础

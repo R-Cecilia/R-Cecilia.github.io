@@ -7,7 +7,7 @@ lastmod: 2025-05-20T11:10:00+08:00
 categories: ["深度学习"]
 tags: ["linux", "深度学习"]
 description: "介绍了在已经安装Windows11的电脑的基础上，如何安装Ubuntu 22.04 linux操作系统。同时，在Linux系统内配置有关深度学习的相关环境。"
-cover: /images/cover11.jpg
+cover: /images/cover11.webp
 ---
 
 # Ubuntu 22.04 下深度学习环境配置

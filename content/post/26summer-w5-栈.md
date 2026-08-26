@@ -8,7 +8,7 @@ categories: ["数据结构"]
 tags: ["栈"]
 description: "链表描述和数组描述下的栈"
 
-cover: /images/cover18.jpg
+cover: /images/cover18.webp
 ---
 
 # 栈(stack)

@@ -8,7 +8,7 @@ categories: ["Python"]
 tags: ["Python", "文件读写"]
 description: "Python读取(read)，写入(write)等"
 
-cover: /images/cover5.png
+cover: /images/cover5.webp
 ---
 
 # Python---文件的读写

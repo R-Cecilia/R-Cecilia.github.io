@@ -8,7 +8,7 @@ categories: ["C++"]
 tags: ["异常", "动态存储空间", "类和对象", "递归", "STL"]
 description: "C++特性回顾(异常、动态存储空间分配、类和对象、递归、测试与调试、STL)"
 
-cover: /images/cover13.png
+cover: /images/cover13.webp
 ---
 
 ## 一、C++特性

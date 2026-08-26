@@ -8,7 +8,7 @@ categories: ["数据结构"]
 tags: ["二叉树"]
 description: "树和二叉树"
 
-cover: /images/cover19.jpg
+cover: /images/cover19.webp
 ---
 
 # 二叉树

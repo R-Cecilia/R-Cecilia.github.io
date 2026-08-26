@@ -8,7 +8,7 @@ categories: ["Python"]
 tags: ["Python", "数据容器"]
 description: "Python相关的列表、元组、字符串、集合和字典等数据容器"
 
-cover: /images/cover4.png
+cover: /images/cover4.webp
 ---
 
 # Python数据容器

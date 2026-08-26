@@ -8,7 +8,7 @@ categories: ["Python"]
 tags: ["Python", "函数"]
 description: "Python函数有关内容"
 
-cover: /images/cover3.png
+cover: /images/cover3.webp
 ---
 
 # Python函数

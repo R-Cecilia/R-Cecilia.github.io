@@ -7,7 +7,7 @@ lastmod: 2025-05-02T11:12:00+08:00
 categories: ["Python"]
 tags: ["Python", "异常"]
 description: "Python异常处理，模块和包的导入"
-cover: /images/cover8.jpeg
+cover: /images/cover8.webp
 ---
 
 # Python---异常,模块和包

@@ -7,7 +7,7 @@ lastmod: 2025-05-02T11:13:00+08:00
 categories: ["Python"]
 tags: ["Python", "Numpy"]
 description: "Python中经典数据处理包Numpy的一些用法"
-cover: /images/cover10.jpg
+cover: /images/cover10.webp
 ---
 
 # Python中的Numpy
