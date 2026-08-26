@@ -1,8 +1,8 @@
 ---
 title: "Python文件的读写"
 
-date: 2025-05-02T11:10:00-15:00
-lastmod: 2025-05-02T11:10:00-15:00
+date: 2025-05-02T11:10:00+08:00
+lastmod: 2025-05-02T11:10:00+08:00
 
 categories: ["Python"]
 tags: ["Python", "文件读写"]

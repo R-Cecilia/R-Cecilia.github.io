@@ -1,8 +1,8 @@
 ---
 title: "深度学习环境配置"
 
-date: 2025-05-20T11:10:00-15:00
-lastmod: 2025-05-20T11:10:00-15:00
+date: 2025-05-20T11:10:00+08:00
+lastmod: 2025-05-20T11:10:00+08:00
 
 categories: ["深度学习"]
 tags: ["linux", "深度学习"]
@@ -197,7 +197,7 @@ python3 -m pip install --upgrade tensorrt-cu12 -i https://pypi.tuna.tsinghua.edu
 **这一步可能需要花费很长时间请待心等待**
 提示：在 Ubuntu 系统里，我们习惯用 python3 -m pip 而不是直接敲 pip，这样可以确保 pip 对应到你正在使用的 Python 版本，避免权限和路径混乱。
 
-<br>4.验证
+### 4. 验证
 把整段代码复制到终端里粘贴执行：
 
 ```bash

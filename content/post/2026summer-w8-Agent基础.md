@@ -1,8 +1,8 @@
 ---
 title: "26summer-w8-Agent基础"
 
-date: 2025-08-16T13:10:00-15:00
-lastmod: 2025-08-16T15:13:00-15:00
+date: 2025-08-16T13:10:00+08:00
+lastmod: 2025-08-16T15:13:00+08:00
 
 categories: ["Agent开发"]
 tags: ["Agent Stack", "神经网络", "Transformer"]

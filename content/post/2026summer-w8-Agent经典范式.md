@@ -1,8 +1,8 @@
 ---
 title: "26summer-w8-Agent经典范式"
 
-date: 2025-08-23T13:10:00-15:00
-lastmod: 2025-08-23T15:13:00-15:00
+date: 2025-08-23T13:10:00+08:00
+lastmod: 2025-08-23T15:13:00+08:00
 
 categories: ["Agent开发"]
 tags: ["ReAct", "Plan-and-Solve", "Reflecting"]

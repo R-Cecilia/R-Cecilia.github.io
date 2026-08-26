@@ -408,9 +408,9 @@ twikoo:
 
 # https://github.com/gitalk/gitalk/blob/master/readme-cn.md
 gitalk:
-  enable: true
-  clientID: "Ov23liPPoJYfB6PTPwSP"
-  clientSecret: "dfbc6b03e96a7facc8135416f8b347f6da1601f0"
+  enable: false
+  clientID:
+  clientSecret:
   repo: "My_Blog-Comments-Database"
   owner: "R-Cecilia"
   admin: ["R-Cecilia"]

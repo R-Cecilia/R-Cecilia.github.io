@@ -1,8 +1,8 @@
 ---
 title: "26summer-w7-图"
 
-date: 2025-08-09T13:10:00-15:00
-lastmod: 2025-08-09T15:13:00-15:00
+date: 2025-08-09T13:10:00+08:00
+lastmod: 2025-08-09T15:13:00+08:00
 
 categories: ["数据结构"]
 tags: ["图", "DFS", "BFS"]
@@ -397,7 +397,7 @@ virtual void bfs(int v,int reach[],int label)
 
 深度优先搜索代码和二叉树的前序遍历很相似。
 下面是公有方法graph::dfs和保护方法graph::rDfs的代码。
-它假设graph<T>::reach和graph<T>::label是类graph的静态数据成员。
+它假设 `graph<T>::reach` 和 `graph<T>::label` 是类 `graph` 的静态数据成员。
 
 ```C++
 void dfs(int v,int reach[],int label)

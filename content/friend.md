@@ -10,4 +10,4 @@ lastmod: 2025-05-01T20:12:52+08:00
 
 {{< friendsLink >}}
 
-<iframe src="https://pixiv.mokeyjay.com" style="width:240px; height:380px; border: 0"></iframe>
+{{< secureIframe src="https://pixiv.mokeyjay.com" title="Pixiv 插画展示" width="240" height="380" >}}

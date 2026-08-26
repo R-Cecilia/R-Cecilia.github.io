@@ -1,8 +1,8 @@
 ---
 title: "Python函数"
 
-date: 2025-05-01T11:08:00-10:00
-lastmod: 2025-05-01T11:08:00-10:00
+date: 2025-05-01T11:08:00+08:00
+lastmod: 2025-05-01T11:08:00+08:00
 
 categories: ["Python"]
 tags: ["Python", "函数"]

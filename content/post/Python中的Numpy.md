@@ -1,8 +1,8 @@
 ---
 title: "Numpy的介绍和使用"
 
-date: 2025-05-02T11:12:00-15:00
-lastmod: 2025-05-02T11:13:00-15:00
+date: 2025-05-02T11:12:00+08:00
+lastmod: 2025-05-02T11:13:00+08:00
 
 categories: ["Python"]
 tags: ["Python", "Numpy"]

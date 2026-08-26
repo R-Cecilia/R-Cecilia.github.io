@@ -21,5 +21,7 @@ delimiters.block = [["\\[", "\\]"], ["$$", "$$"]]
 delimiters.inline = [["\\(", "\\)"], ["$", "$"]]
 
 [caches]
+[caches.assets]
+dir = ':cacheDir/assets'
 [caches.images]
 dir = ':cacheDir/images'

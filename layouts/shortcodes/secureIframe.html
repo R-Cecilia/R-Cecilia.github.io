@@ -1,0 +1,17 @@
+{{- $src := .Get "src" -}}
+{{- if not $src -}}
+  {{- errorf "secureIframe shortcode requires a src parameter: %s" .Position -}}
+{{- end -}}
+{{- if not (strings.HasPrefix $src "https://") -}}
+  {{- errorf "secureIframe only permits HTTPS sources: %s" .Position -}}
+{{- end -}}
+<iframe
+  src="{{ $src | safeURL }}"
+  title="{{ .Get "title" | default "Embedded content" }}"
+  width="{{ .Get "width" | default "240" }}"
+  height="{{ .Get "height" | default "380" }}"
+  style="max-width: 100%; border: 0"
+  loading="lazy"
+  referrerpolicy="strict-origin-when-cross-origin"
+  sandbox="allow-forms allow-popups allow-same-origin allow-scripts"
+></iframe>
