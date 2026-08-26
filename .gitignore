@@ -1,0 +1,11 @@
+# Hugo generated output
+/public/
+/resources/_gen/
+.hugo_build.lock
+
+# Local Windows Hugo binary
+/hugo.exe
+
+# Operating system files
+Thumbs.db
+.DS_Store
