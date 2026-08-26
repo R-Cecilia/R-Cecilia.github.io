@@ -25,8 +25,10 @@ Push a commit to `source`. The workflow in `.github/workflows/hugo.yaml` builds
 the site with Hugo Extended 0.161.1 and deploys the generated `public/` artifact
 to GitHub Pages.
 
-The legacy generated site remains on the `main` branch for rollback during the
-migration period.
+The legacy generated site is preserved by the
+`legacy-pages-before-actions` tag. The former `main` deployment branch and the
+local nested `public/` repository were removed after the Actions deployment was
+verified. To inspect the old site, create a temporary branch from that tag.
 
 ## Theme maintenance
 
