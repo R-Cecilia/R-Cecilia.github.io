@@ -1,7 +1,7 @@
 {{- $site := .Site -}}
 {{- $params := .Site.Params -}}
-{{- $js := .Site.Data.vendor.js -}}
-{{- $css := .Site.Data.vendor.css -}}
+{{- $js := hugo.Data.vendor.js -}}
+{{- $css := hugo.Data.vendor.css -}}
 
 {{- partial "helpers/cdnJs.html" (dict "name" "lazysizes" "ctx" .) }}
 {{- partial "helpers/cdnJs.html" (dict "name" "clipboard" "ctx" .) }}
@@ -217,6 +217,9 @@
     {{- end -}}
     {{- if not .IsHome -}}
       {{- partial "helpers/ts.html" (dict "source" "js/insert_highlight.ts" "pjax" true "ctx" .) -}}
+      {{- if or $params.anchor.explicit.enable $params.anchor.auto.enable -}}
+        {{- partial "helpers/ts.html" (dict "source" "js/anchor.ts" "pjax" true "ctx" .) -}}
+      {{- end -}}
       {{- partial "helpers/ts.html" (dict "source" "js/tabs.ts" "pjax" true "ctx" . "defer" true) -}}
       {{- $photoswipe_lightbox := index (partial "helpers/vendorCdn.html" (dict "item" $js.photoswipe_lightbox "ctx" $site)) 0 -}}
       {{- $photoswipe_lightbox_integrity := index (partial "helpers/vendorCdnIntegrity.html" (dict "item" $js.photoswipe_lightbox)) 0 -}}
@@ -268,6 +271,7 @@
                 { left: "\\(", right: "\\)", display: false },
               ],
             });
+            window.katexTagOverflowHandler?.();
           };
           if (document.readyState === "loading") {
             document.addEventListener("DOMContentLoaded", renderMath, { once: true });
@@ -406,7 +410,8 @@
     <script>
     var setupAPlayer = () => {
       if (!{{ $params.player.disable_on_mobile | default false }} || !window.matchMedia('(max-width: 768px)').matches) {
-        if (window.matchMedia('(max-width: 959px)').matches) {
+        const isMobile = window.matchMedia('(max-width: 959px)').matches;
+        if (isMobile) {
         const aplayer = _$('#aplayer');
           if (aplayer) {
             const aside = aplayer.parentNode?.parentNode;

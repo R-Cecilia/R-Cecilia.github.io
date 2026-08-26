@@ -26,6 +26,35 @@ var scrollIntoViewAndWait = (element: HTMLElement) => {
   });
 };
 
+var scrollToHashTarget = (hash = window.location.hash) => {
+  if (!hash || hash === "#") return;
+
+  let targetId = hash.slice(1);
+  try {
+    targetId = decodeURIComponent(targetId);
+  } catch (error) {
+    console.warn(`[anchor] invalid hash "${hash}"`, error);
+  }
+
+  if (!targetId) return;
+
+  const target = document.getElementById(targetId);
+  if (!target) return;
+
+  const reduceMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
+
+  target.scrollIntoView({
+    behavior: reduceMotion ? "auto" : "smooth",
+    block: "center",
+  });
+};
+
+requestAnimationFrame(() => {
+  scrollToHashTarget();
+});
+
 // anchor
 _$$(
   ".article-entry h1>a.header-anchor, .article-entry h2>a.header-anchor, .article-entry h3>a.header-anchor, .article-entry h4>a.header-anchor, .article-entry h5>a.header-anchor, .article-entry h6>a.header-anchor",
@@ -428,3 +457,30 @@ if (imgElement.src || imgElement.style.background) {
 }
 
 window.generateSchemeHandler?.();
+
+// KaTeX tag overflow
+var __katexTagOverflowHandler: (() => void) | undefined;
+
+if (__katexTagOverflowHandler) {
+  window.removeEventListener("resize", __katexTagOverflowHandler);
+}
+
+// https://github.com/KaTeX/KaTeX/issues/1983
+__katexTagOverflowHandler = () => {
+  _$$(".katex-display").forEach((elem) => {
+    const ts = elem.querySelectorAll(".tag");
+    const eqns = elem.querySelectorAll(".base");
+    if (ts.length === 0 || eqns.length === 0) return;
+    const t = ts[0] as HTMLElement;
+    const lastEqn = eqns[eqns.length - 1] as HTMLElement;
+    const firstEqn = eqns[0] as HTMLElement;
+    if (lastEqn.getBoundingClientRect().right > t.getBoundingClientRect().left) {
+      t.classList.add("tag-overflowed");
+    } else if (firstEqn.getBoundingClientRect().left - elem.getBoundingClientRect().left >= t.offsetWidth / 2) {
+      t.classList.remove("tag-overflowed");
+    }
+  });
+};
+
+window.addEventListener("resize", __katexTagOverflowHandler);
+window.katexTagOverflowHandler = __katexTagOverflowHandler;

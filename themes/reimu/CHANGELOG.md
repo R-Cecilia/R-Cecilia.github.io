@@ -1,3 +1,181 @@
+## 0.16.1
+
+**2026-08-02**
+
+### 修复
+
+- 修复主题切换逻辑，确保在非暗黑模式下正确移除 `data-theme` 属性
+- 修复 Giscus 评论 `data-mapping` 误绑定 `strict` 配置的问题，现在正确使用 `mapping` 配置
+- 修复 KaTeX 带 `\tag` 的公式在窄屏下与左侧公式重叠的问题，现在会自动判断并切换到可滚动布局
+
+### 特性
+
+- 新增 spoiler（剧透/遮罩）短代码，支持亮色与暗黑模式，可遮罩文本、图片与 Emoji
+  ```markdown
+  {{</* spoiler */>}}这是被遮罩的内容{{</* /spoiler */>}}
+  ```
+- 暗黑模式配置重构：`dark_mode.enable` 更名为 `dark_mode.type`（兼容旧格式），新增 `dark_mode.button` 控制是否显示手动切换按钮
+  ```yaml
+  dark_mode:
+    type: auto  # true | false | auto
+    button: true  # true | false
+  ```
+- 朋友链接新增 `shuffle` 配置项，支持随机打乱列表顺序
+  ```yaml
+  friends:
+    shuffle: false  # whether to shuffle the friend links
+  ```
+- friendsLink 友链卡片新增展示风格选项，支持 `standard`（默认）、`compact`（紧凑）、`detailed`（详细），并支持徽章与备注字段
+  ```markdown
+  {{</* friendsLink compact */>}}
+  {{</* friendsLink detailed */>}}
+  ```
+
+### 重构
+
+- 更新 `mermaid` 至 v11.16.0、`meting` 至 v2.0.2、`@fortawesome/fontawesome-free` 至 v7.3.1、`@reimujs/aos` 至 v0.1.3、`katex` 至 v0.16.47
+
+---
+
+### Fixes
+
+- Fixed theme switching logic to properly remove the `data-theme` attribute in non-dark mode
+- Fixed the Giscus `data-mapping` being incorrectly bound to the `strict` config; it now correctly uses the `mapping` config
+- Fixed the KaTeX `\tag` formula overlapping the left formula on narrow screens; now it auto-detects and switches to a scrollable layout
+
+### Features
+
+- Added spoiler shortcode with light/dark mode support, can mask text, images, and Emoji
+  ```markdown
+  {{</* spoiler */>}}This is the masked content{{</* /spoiler */>}}
+  ```
+- Refactored dark mode configuration: renamed `dark_mode.enable` to `dark_mode.type` (backward compatible), added `dark_mode.button` to control the toggle button visibility
+  ```yaml
+  dark_mode:
+    type: auto  # true | false | auto
+    button: true  # true | false
+  ```
+- Added `shuffle` config option to friend links to randomize display order
+  ```yaml
+  friends:
+    shuffle: false  # whether to shuffle the friend links
+  ```
+- Added display style options to the friendsLink friend card, supporting `standard` (default), `compact`, and `detailed`, along with badge and remark fields
+  ```markdown
+  {{</* friendsLink compact */>}}
+  {{</* friendsLink detailed */>}}
+  ```
+
+### Refactor
+
+- Updated `mermaid` to v11.16.0, `meting` to v2.0.2, `@fortawesome/fontawesome-free` to v7.3.1, `@reimujs/aos` to v0.1.3、`katex` to v0.16.47
+
+## 0.16.0
+
+**2026-05-16**
+
+### 重大修改
+
+- Hugo 最低版本要求升级至 v0.158.0 及以上
+
+### 特性
+
+- 新增文章段落锚点能力（Paragraph Anchor），支持为段落与列表项生成可跳转锚点
+  ```yaml
+  anchor:
+    explicit:
+      enable: false
+      marker: "{#anchor-"
+      prefix: "anchor-"
+    auto:
+      enable: false
+      length: 60
+  ```
+  - `explicit` 模式支持在 Markdown 中通过 `{#anchor-xxx}` 显式声明锚点
+  - `auto` 模式支持为段落自动生成唯一 ID
+- 调整多语言与数据引用相关逻辑，提升新版本兼容性
+
+---
+
+### Major Changes
+
+- Minimum Hugo version requirement upgraded to v0.158.0 or higher
+
+### Features
+
+- Added paragraph anchor support for article content, enabling jumpable anchors for paragraphs and list items
+  ```yaml
+  anchor:
+    explicit:
+      enable: false
+      marker: "{#anchor-"
+      prefix: "anchor-"
+    auto:
+      enable: false
+      length: 60
+  ```
+  - `explicit` mode supports manually declaring anchors in Markdown via `{#anchor-xxx}`
+  - `auto` mode supports auto-generating unique IDs for paragraphs
+- Adjusted multilingual/data reference logic for better compatibility
+
+## 0.15.5
+
+**2026-05-03**
+
+### 修复
+
+- 修复 `only_show_capsule_in_index` 开启时 taxonomy/term 页面仍显示胶囊列表的问题
+- 修复播放器初始化流程中 `isMobile` 变量缺失导致的异常
+
+### 特性
+
+- 新增 [Beaudar](https://beaudar.lipk.org/) 评论系统支持
+  ```yaml
+  beaudar:
+    enable: true
+    repo: owner/repo
+    branch: main
+    issue_term: pathname
+    issue_number:
+    theme: github-light
+  ```
+- 新增 Bluesky 社交图标与分享链接支持
+  ```yaml
+  social:
+    bluesky: https://bsky.app/profile/yourname
+
+  share:
+    - bluesky
+  ```
+
+---
+
+### Fixes
+
+- Fix capsule lists still showing on taxonomy/term pages when `only_show_capsule_in_index` is enabled
+- Fix missing `isMobile` variable in player initialization flow
+
+### Features
+
+- Added support for the [Beaudar](https://beaudar.lipk.org/) comment system
+  ```yaml
+  beaudar:
+    enable: true
+    repo: owner/repo
+    branch: main
+    issue_term: pathname
+    issue_number:
+    theme: github-light
+  ```
+- Added Bluesky social icon and share link support
+  ```yaml
+  social:
+    bluesky: https://bsky.app/profile/yourname
+
+  share:
+    - bluesky
+  ```
+
 ## 0.15.4
 
 **2026-03-30**

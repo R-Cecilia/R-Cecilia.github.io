@@ -18,6 +18,10 @@ menu:
     url: "friend"
     icon:
 
+# friend links
+friends:
+  shuffle: false
+
 mainSections: ["post"]
 # 年，月，日及时间的格式化样式
 # Format style for year,month,date & time
@@ -224,7 +228,7 @@ reimu_cursor:
     pointer: ../images/cursor/reimu-cursor-pointer.png
     text: ../images/cursor/reimu-cursor-text.png
 
-icon_font: 4552607_a0oqhord1y
+icon_font: 4552607_ex15nbittbh
 
 # Font loading strategy
 # Custom Font -> Google Fonts -> Local FallBack Font
@@ -263,10 +267,12 @@ local_font:
     - monospace
 
 dark_mode:
+  # whether to show the dark mode toggle button
+  button: true
   # true means that the dark mode is enabled by default
   # false means that the dark mode is disabled by default
   # auto means that the dark mode is automatically switched according to the system settings
-  enable: auto # true | false | auto
+  type: auto # true | false | auto
 
 ########################################
 # Analytics
@@ -341,6 +347,16 @@ math:
         },
       ]
 
+# Paragraph anchors are available in Reimu v0.16+, but remain opt-in.
+anchor:
+  explicit:
+    enable: false
+    marker: "{#anchor-"
+    prefix: "anchor-"
+  auto:
+    enable: false
+    length: 60
+
 ########################################
 # Comment system
 ########################################
@@ -348,7 +364,7 @@ math:
 # global control of the comment system
 # you can use multiple comment systems at the same time
 # load order: localStorage(user manually selects) -> default
-# -> valine -> waline -> twikoo -> gitalk -> giscus -> disqus
+# -> valine -> waline -> twikoo -> gitalk -> giscus -> utterances -> beaudar -> disqus
 comment:
   # comment system title
   title:
@@ -444,6 +460,20 @@ utterances:
   repo: owner/repo # Change this to "Your GitHub Username/The Repository Name" used for storing blog comments
   issue_term: title
   theme: auto # auto means to automatically adapt to dark and light themes, you can also use specific themes like github-light, github-dark, preferred-color-scheme, etc.
+
+# https://beaudar.lipk.org/
+beaudar:
+  enable: false
+  repo: owner/repo
+  branch: main
+  issue_term: title
+  issue_number:
+  theme: auto
+  label:
+  input_position: top
+  comment_order: desc
+  keep_theme:
+  loading:
 
 ########################################
 # Search
