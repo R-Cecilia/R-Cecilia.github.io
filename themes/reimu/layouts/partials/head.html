@@ -81,6 +81,8 @@
     {{- $ogImage = .Params.cover | absURL -}}
   {{- else if and .Params.banner (not (strings.HasPrefix .Params.banner "rgb")) -}}
     {{- $ogImage = .Params.banner | absURL -}}
+  {{- else if $openGraphOptions.image -}}
+    {{- $ogImage = $openGraphOptions.image | absURL -}}
   {{- else -}}
     {{- $ogImage = .Site.Params.banner | absURL -}}
   {{- end -}}

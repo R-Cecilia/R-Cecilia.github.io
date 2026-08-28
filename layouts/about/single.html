@@ -1,0 +1,165 @@
+{{- define "main" -}}
+  {{- $profile := .Params.profile -}}
+  <main class="about-page">
+    <section class="about-profile glass-panel" aria-labelledby="about-name">
+      <div class="about-avatar-wrap">
+        <img class="about-avatar" src="{{ printf "avatar/%s" .Site.Params.avatar | relURL }}" alt="{{ $profile.name }}">
+        <span class="about-availability">持续学习中</span>
+      </div>
+      <div class="about-profile-copy">
+        <span class="about-kicker">ABOUT / {{ $profile.english_name }}</span>
+        <h2 id="about-name">你好，我是{{ $profile.name }}</h2>
+        <p class="about-tagline">{{ $profile.tagline }}</p>
+        <div class="about-bio">{{ .Content }}</div>
+        <div class="about-meta" aria-label="个人信息">
+          <span>{{ $profile.location }}</span>
+          <span>{{ $profile.school }}</span>
+          <span>{{ $profile.role }}</span>
+        </div>
+        <div class="about-actions">
+          {{- range .Params.links -}}
+            <a href="{{ .url }}"{{ if strings.HasPrefix .url "http" }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ .label }} <span aria-hidden="true">↗</span></a>
+          {{- end -}}
+        </div>
+      </div>
+    </section>
+
+    <section class="about-dashboard" aria-label="学习概况">
+      <div class="about-education glass-panel">
+        <span class="about-section-index">01</span>
+        <div class="about-section-title">
+          <span>EDUCATION</span>
+          <h2>教育经历</h2>
+        </div>
+        {{- range .Params.education -}}
+          <div class="education-item">
+            <time>{{ .period }}</time>
+            <div>
+              <h3>{{ .school }}</h3>
+              <p>{{ .major }}</p>
+              <small>相关课程：{{ .details }}</small>
+            </div>
+          </div>
+        {{- end -}}
+      </div>
+
+      <div class="about-current glass-panel">
+        <span class="about-section-index">02</span>
+        <div class="about-section-title">
+          <span>NOW</span>
+          <h2>最近状态</h2>
+        </div>
+        <dl>
+          {{- range .Params.current -}}
+            <div><dt>{{ .label }}</dt><dd>{{ .value }}</dd></div>
+          {{- end -}}
+        </dl>
+      </div>
+    </section>
+
+    <section class="about-section" aria-labelledby="projects-title">
+      <header class="about-section-header">
+        <div>
+          <span class="about-section-index">03</span>
+          <span class="about-kicker">SELECTED WORK</span>
+          <h2 id="projects-title">项目经历</h2>
+        </div>
+        <p>记录我真正完成、持续维护或正在探索的作品。</p>
+      </header>
+      <div class="project-grid">
+        {{- with .Params.projects -}}
+          {{- range . -}}
+            <article class="project-card glass-panel">
+              <div class="project-card-top">
+                <div>
+                  <span class="project-period">{{ .period }}</span>
+                  <h3>{{ .title }}</h3>
+                </div>
+                <span class="project-status">{{ .status }}</span>
+              </div>
+              <p>{{ .description }}</p>
+              {{- with .highlights -}}
+                <ul class="project-highlights">
+                  {{- range . -}}<li>{{ . }}</li>{{- end -}}
+                </ul>
+              {{- end -}}
+              <div class="about-tags">
+                {{- range .tech -}}<span>{{ . }}</span>{{- end -}}
+              </div>
+              {{- with .links -}}
+                <div class="project-links">
+                  {{- range . -}}
+                    <a href="{{ .url }}"{{ if strings.HasPrefix .url "http" }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ .label }} <span aria-hidden="true">→</span></a>
+                  {{- end -}}
+                </div>
+              {{- end -}}
+            </article>
+          {{- end -}}
+        {{- else -}}
+          <div class="about-empty glass-panel"><strong>项目经历持续整理中</strong><span>下一次完成，也会成为这里的一颗星。</span></div>
+        {{- end -}}
+      </div>
+    </section>
+
+    <section class="about-section" aria-labelledby="competitions-title">
+      <header class="about-section-header">
+        <div>
+          <span class="about-section-index">04</span>
+          <span class="about-kicker">COMPETITIONS</span>
+          <h2 id="competitions-title">竞赛经历</h2>
+        </div>
+        <p>关注赛题、方法、团队角色与最终沉淀，而不只记录奖项。</p>
+      </header>
+      <div class="competition-list glass-panel">
+        {{- with .Params.competitions -}}
+          {{- range . -}}
+            <article class="competition-item">
+              <div class="competition-marker" aria-hidden="true"></div>
+              <time>{{ .period }}</time>
+              <div class="competition-copy">
+                <div class="competition-heading">
+                  <h3>{{ .name }}</h3>
+                  <span>{{ .award }}</span>
+                </div>
+                <p class="competition-context">{{ .organizer }}{{ with .role }} · {{ . }}{{ end }}</p>
+                <p>{{ .description }}</p>
+                <div class="about-tags">{{ range .tags }}<span>{{ . }}</span>{{ end }}</div>
+              </div>
+            </article>
+          {{- end -}}
+        {{- else -}}
+          <div class="about-empty competition-empty"><strong>竞赛经历持续更新中</strong><span>正在积累数学建模与数据分析相关能力。</span></div>
+        {{- end -}}
+      </div>
+    </section>
+
+    <section class="about-section" aria-labelledby="skills-title">
+      <header class="about-section-header compact">
+        <div>
+          <span class="about-section-index">05</span>
+          <span class="about-kicker">TOOLKIT</span>
+          <h2 id="skills-title">能力与方向</h2>
+        </div>
+      </header>
+      <div class="skill-grid">
+        {{- range .Params.skills -}}
+          <article class="skill-card glass-panel">
+            <h3>{{ .name }}</h3>
+            <div class="about-tags">{{ range .items }}<span>{{ . }}</span>{{ end }}</div>
+          </article>
+        {{- end -}}
+      </div>
+    </section>
+
+    <section class="about-contact glass-panel">
+      <span class="about-kicker">LET'S CONNECT</span>
+      <h2>一起探索下一颗星。</h2>
+      <p>欢迎交流编程学习、数据结构、Agent 开发与数学建模。</p>
+      <div class="about-actions">
+        {{- range .Params.links -}}
+          <a href="{{ .url }}"{{ if strings.HasPrefix .url "http" }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ .label }} <span aria-hidden="true">↗</span></a>
+        {{- end -}}
+      </div>
+    </section>
+  </main>
+{{- end -}}

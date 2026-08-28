@@ -1,0 +1,83 @@
+{{- define "main" -}}
+  {{- $friends := hugo.Data.friends -}}
+  <main class="friend-page">
+    <section class="friend-hero glass-panel">
+      <div class="friend-hero-copy">
+        <span class="friend-kicker">LINK CONSTELLATION</span>
+        <h2>连接散落在网络中的<br>知识与灵感。</h2>
+        <p>{{ .Description }}</p>
+      </div>
+      <dl class="friend-stats" aria-label="链接统计">
+        <div><dt>{{ len $friends }}</dt><dd>个精选站点</dd></div>
+        <div><dt>{{ len .Params.friend_categories }}</dt><dd>个探索方向</dd></div>
+      </dl>
+    </section>
+
+    <section class="friend-library" aria-labelledby="friend-library-title">
+      <header class="friend-section-heading">
+        <div>
+          <span class="friend-kicker">CURATED LINKS</span>
+          <h2 id="friend-library-title">探索链接</h2>
+        </div>
+        <p>按使用场景整理，每一项都是值得再次打开的入口。</p>
+      </header>
+
+      <nav class="friend-filters" aria-label="链接分类筛选">
+        <button class="active" type="button" data-friend-filter="all" aria-pressed="true">全部</button>
+        {{- range .Params.friend_categories -}}
+          <button type="button" data-friend-filter="{{ . }}" aria-pressed="false">{{ . }}</button>
+        {{- end -}}
+      </nav>
+
+      <p class="friend-filter-status" aria-live="polite">正在显示全部 {{ len $friends }} 个站点</p>
+
+      <div class="friend-directory">
+        {{- range .Params.friend_categories -}}
+          {{- $category := . -}}
+          {{- $entries := where $friends "category" $category -}}
+          {{- if $entries -}}
+            <section class="friend-category" data-friend-category="{{ $category }}">
+              <div class="friend-category-heading">
+                <h3>{{ $category }}</h3>
+                <span>{{ len $entries }} 个站点</span>
+              </div>
+              <div class="friend-card-grid">
+                {{- range $entries -}}
+                  <article class="friend-card glass-panel">
+                    <a class="friend-card-link" href="{{ .url }}" target="_blank" rel="noopener nofollow noreferrer" aria-label="访问 {{ .name }}"></a>
+                    <div class="friend-card-icon">
+                      <span aria-hidden="true">{{ substr .name 0 1 }}</span>
+                      <img src="{{ .image | relURL }}" alt="" loading="lazy" onerror="this.hidden=true">
+                    </div>
+                    <div class="friend-card-copy">
+                      <div class="friend-card-title">
+                        <h4>{{ .name }}</h4>
+                        <span aria-hidden="true">↗</span>
+                      </div>
+                      <p>{{ .desc }}</p>
+                      <small>{{ $category }}</small>
+                    </div>
+                  </article>
+                {{- end -}}
+              </div>
+            </section>
+          {{- end -}}
+        {{- end -}}
+      </div>
+    </section>
+
+    {{- $application := .Params.application -}}
+    <section class="friend-application glass-panel" aria-labelledby="friend-application-title">
+      <div class="friend-application-copy">
+        <span class="friend-kicker">MAKE A CONNECTION</span>
+        <h2 id="friend-application-title">{{ $application.title }}</h2>
+        <p>{{ $application.description }}</p>
+        <a href="{{ $application.contact }}">发送申请 <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="friend-principles">
+        <span>收录原则</span>
+        <ul>{{ range $application.principles }}<li>{{ . }}</li>{{ end }}</ul>
+      </div>
+    </section>
+  </main>
+{{- end -}}

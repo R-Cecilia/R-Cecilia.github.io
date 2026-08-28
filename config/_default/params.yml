@@ -32,7 +32,7 @@ timeFormat: "2006-01-02 15:04:05"
 
 author: Cecilia
 email: 2554181@tongji.edu.com
-description: "循此苦旅，终抵群星"
+description: "记录编程、算法与人工智能学习路径"
 # subtitle: "少女祈祷中..."
 subtitle:
   typing:
@@ -53,7 +53,7 @@ subtitle:
     showCursor: true # 是否显示闪烁的字符
     cursorChar: "|" # 字符
     smartBackspace: false # 智能退格，只删除不同的部分
-  text: "梦虽遥，追则能达；愿虽艰，持则可圆" # 当 typing.enable = false 时使用
+  text: "循此苦旅，终抵群星" # 当 typing.enable = false 时使用
 
 banner: "/images/background.webp"
 # You can also write it in the form of the following url
@@ -85,10 +85,11 @@ toc: true
 open_graph:
   enable: true
   options:
+    image: /images/og-stellar.png
     #twitter_card: <twitter:card>
     #twitter_id: <twitter:creator>
     #twitter_site: <twitter:site>
-    #twitter_image: <twitter:image>
+    twitter_image: /images/og-stellar.png
     #google_plus: <g+:profile_link>
     #fb_admins: <fb:admin_id>
     #fb_app_id: <fb:app_id>
@@ -123,7 +124,7 @@ sidebar:
   position: right
   menu: true # whether to show the sidebar menu button, ignored on mobile devices
   article:
-    show_common: true # whether to show common sidebar, ignored on mobile devices
+    show_common: false # article pages keep a focused table of contents
 
 social:
   - name: github
@@ -246,12 +247,10 @@ custom_font:
 font:
   enable: true
   article:
-    - Mulish
-    - Noto Serif SC
+    - Inter
+    - Noto Sans SC
   code:
-    # - Ubuntu Mono
-    # - Source Code Pro
-    # - JetBrains Mono
+    - JetBrains Mono
 
 # Local FallBack Font
 local_font:
@@ -492,7 +491,7 @@ algolia_search:
 ########################################
 
 preloader:
-  enable: true
+  enable: false
   text:
     zh-CN: 少女祈祷中...
     zh-TW: 少女祈禱中...
@@ -504,7 +503,7 @@ preloader:
 
 # see https://github.com/D-Sketon/aos.js
 animation:
-  enable: true
+  enable: false
   options:
     header:
       title: slide-up
@@ -647,9 +646,9 @@ home_categories:
 # Make sure your code snippet is safeHTML
 injector:
   head_begin: # Inject code snippet right after <head>
-  head_end: # Inject code snippet right before </head>
+  head_end: '<link rel="stylesheet" href="/css/stellar.css">' # site-specific visual layer
   body_begin: # Inject code snippet right after <body>
-  body_end: # Inject code snippet right before </body>
+  body_end: '<script src="/js/stellar.js" defer></script>' # small reading-progress enhancement
   sidebar_begin: # Inject code snippet right after <aside>
   sidebar_end: # Inject code snippet right before </aside>
 
@@ -686,7 +685,7 @@ live2d_widgets:
 
 # https://github.com/CodeByZach/pace
 pace:
-  enable: true
+  enable: false
 
 # Experimental
 # Please turn on pjax to use this feature
@@ -737,20 +736,20 @@ material_theme:
   # more information: https://github.com/2061360308/material-theme
   # notice: when you enable this feature, all the covers will be automatically added "crossorigin" attribute to support the dynamic color scheme
   # so make sure your custom covers will not be blocked by the browser's CORS policy
-  enable: true # enable material_theme to generate dynamic color schemes based on the banner image
+  enable: false # keep a stable starfield brand palette
 
 internal_theme:
   light:
-    --red-0: "#ff0000"
-    --red-1: "#ff5252"
-    --red-2: "#ff7c7c"
-    --red-3: "#ffafaf"
-    --red-4: "#ffd0d0"
-    --red-5: "#ffecec"
-    --red-5-5: "#fff3f3"
-    --red-6: "#fff7f7"
-    --color-red-6-shadow: "rgba(255, 78, 78, 0.6)"
-    --color-red-3-shadow: "rgba(255, 78, 78, 0.3)"
+    --red-0: "#255fdb"
+    --red-1: "#3478f6"
+    --red-2: "#5f8ff5"
+    --red-3: "#a9c4ff"
+    --red-4: "#d7e4ff"
+    --red-5: "#eaf1ff"
+    --red-5-5: "#f3f7ff"
+    --red-6: "#f8faff"
+    --color-red-6-shadow: "rgba(52, 120, 246, 0.20)"
+    --color-red-3-shadow: "rgba(52, 120, 246, 0.12)"
 
     --highlight-nav: "#f5f5f5"
     --highlight-scrollbar: "#d6d6d6"
@@ -770,10 +769,10 @@ internal_theme:
     --highlight-addition: "#22863a"
     --highlight-addition-bg: "#f0fff4"
   dark:
-    --red-4: "rgba(255, 208, 208, 0.5)"
-    --red-5: "rgba(255,228,228,0.15)"
-    --red-5-5: "rgba(255,236,236,0.05)"
-    --red-6: "rgba(255, 243, 243, 0.2)"
+    --red-4: "rgba(117, 167, 255, 0.46)"
+    --red-5: "rgba(117, 167, 255, 0.15)"
+    --red-5-5: "rgba(117, 167, 255, 0.08)"
+    --red-6: "rgba(117, 167, 255, 0.20)"
 
     --highlight-nav: "#222830"
     --highlight-scrollbar: "#454d59"

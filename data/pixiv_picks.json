@@ -1,0 +1,79 @@
+{
+  "updated_at": "2026-08-28T07:36:10+00:00",
+  "ranking_date": "2026-08-27",
+  "mode": "daily",
+  "source_url": "https://www.pixiv.net/ranking.php?mode=daily&content=illust",
+  "image_proxy": "https://i.pixiv.re",
+  "items": [
+    {
+      "id": "148882180",
+      "rank": 1,
+      "title": "びしょ濡れアンドロメダ",
+      "artist": "lack",
+      "artist_id": "83739",
+      "artwork_url": "https://www.pixiv.net/artworks/148882180",
+      "artist_url": "https://www.pixiv.net/users/83739",
+      "image_url": "https://i.pixiv.re/c/480x960/img-master/img/2026/08/26/00/00/29/148882180_p0_master1200.jpg",
+      "width": 1061,
+      "height": 1500,
+      "page_count": 1,
+      "is_original": false
+    },
+    {
+      "id": "148920422",
+      "rank": 2,
+      "title": "初心にかえって初期衣装を描いてみた㉔",
+      "artist": "Sa-fu",
+      "artist_id": "77915733",
+      "artwork_url": "https://www.pixiv.net/artworks/148920422",
+      "artist_url": "https://www.pixiv.net/users/77915733",
+      "image_url": "https://i.pixiv.re/c/480x960/img-master/img/2026/08/27/00/00/14/148920422_p0_master1200.jpg",
+      "width": 1378,
+      "height": 2039,
+      "page_count": 1,
+      "is_original": false
+    },
+    {
+      "id": "148949024",
+      "rank": 3,
+      "title": "金木犀のケーキ",
+      "artist": "チャイ",
+      "artist_id": "1096811",
+      "artwork_url": "https://www.pixiv.net/artworks/148949024",
+      "artist_url": "https://www.pixiv.net/users/1096811",
+      "image_url": "https://i.pixiv.re/c/480x960/img-master/img/2026/08/27/20/30/02/148949024_p0_master1200.jpg",
+      "width": 2000,
+      "height": 2000,
+      "page_count": 1,
+      "is_original": true
+    },
+    {
+      "id": "148882106",
+      "rank": 4,
+      "title": "清宵",
+      "artist": "Hood",
+      "artist_id": "15408136",
+      "artwork_url": "https://www.pixiv.net/artworks/148882106",
+      "artist_url": "https://www.pixiv.net/users/15408136",
+      "image_url": "https://i.pixiv.re/c/480x960/img-master/img/2026/08/26/00/00/16/148882106_p0_master1200.jpg",
+      "width": 2615,
+      "height": 3700,
+      "page_count": 1,
+      "is_original": false
+    },
+    {
+      "id": "148882880",
+      "rank": 5,
+      "title": "壁抜けの邪仙",
+      "artist": "久蒼穹",
+      "artist_id": "66038798",
+      "artwork_url": "https://www.pixiv.net/artworks/148882880",
+      "artist_url": "https://www.pixiv.net/users/66038798",
+      "image_url": "https://i.pixiv.re/c/480x960/img-master/img/2026/08/26/00/09/53/148882880_p0_master1200.jpg",
+      "width": 1447,
+      "height": 2047,
+      "page_count": 1,
+      "is_original": false
+    }
+  ]
+}

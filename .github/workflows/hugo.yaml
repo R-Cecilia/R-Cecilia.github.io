@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - source
+  schedule:
+    - cron: "30 4 * * *"
   workflow_dispatch:
 
 permissions:
@@ -34,6 +36,9 @@ jobs:
 
       - name: Check Markdown image links
         run: python3 scripts/check_markdown_images.py
+
+      - name: Refresh Pixiv Picks
+        run: python3 scripts/update_pixiv_picks.py
 
       - name: Configure GitHub Pages
         id: pages

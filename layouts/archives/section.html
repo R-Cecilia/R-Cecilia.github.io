@@ -1,0 +1,168 @@
+{{- define "main" -}}
+  {{- $pages := (where .Site.RegularPages "Section" "in" .Site.Params.mainSections).ByDate.Reverse -}}
+  {{- $years := $pages.GroupByDate .Site.Params.yearFormat -}}
+  {{- $categories := .Site.Taxonomies.categories -}}
+  {{- $tags := .Site.Taxonomies.tags -}}
+  {{- $total := len $pages -}}
+
+  <div class="archive-page">
+    <section class="archive-overview glass-panel" aria-labelledby="archive-overview-title">
+      <div class="archive-overview-copy">
+        <span class="archive-kicker">KNOWLEDGE TRAJECTORY</span>
+        <h2 id="archive-overview-title">沿着时间，重访每一次思考。</h2>
+        <p>从编程基础到 Agent 实践，这里收录了持续学习留下的知识坐标。</p>
+      </div>
+
+      <dl class="archive-stats" aria-label="归档统计">
+        <div>
+          <dt>{{ $total }}</dt>
+          <dd>篇文章</dd>
+        </div>
+        <div>
+          <dt>{{ len $categories }}</dt>
+          <dd>个分类</dd>
+        </div>
+        <div>
+          <dt>{{ len $tags }}</dt>
+          <dd>个标签</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section class="archive-explorer glass-panel" aria-labelledby="archive-explorer-title">
+      <div class="archive-section-heading">
+        <div>
+          <span class="archive-kicker">EXPLORE THE ARCHIVE</span>
+          <h2 id="archive-explorer-title">检索归档</h2>
+        </div>
+        <p>通过关键词或分类，快速定位一篇旧文章。</p>
+      </div>
+
+      <div class="archive-search-wrap">
+        <span class="archive-search-icon" aria-hidden="true"></span>
+        <label class="sr-only" for="archive-search">搜索文章</label>
+        <input
+          id="archive-search"
+          type="search"
+          inputmode="search"
+          autocomplete="off"
+          placeholder="搜索标题、分类或标签…"
+          data-archive-search
+        >
+        <button type="button" class="archive-search-clear" data-archive-clear hidden>清除</button>
+      </div>
+
+      <nav class="archive-filters" aria-label="文章分类筛选">
+        <button type="button" class="active" data-archive-filter="all" aria-pressed="true">全部</button>
+        {{- range $categories.ByCount -}}
+          <button type="button" data-archive-filter="{{ .Page.Title }}" aria-pressed="false">
+            {{ .Page.Title }} <small>{{ .Count }}</small>
+          </button>
+        {{- end -}}
+      </nav>
+
+      {{- with $tags.ByCount -}}
+        <details class="archive-tag-drawer">
+          <summary>
+            <span>浏览全部标签</span>
+            <small>{{ len $tags }} 个</small>
+          </summary>
+          <div class="archive-tag-cloud">
+            {{- range . -}}
+              <a href="{{ .Page.RelPermalink }}">
+                <span>{{ .Page.Title }}</span>
+                <small>{{ .Count }}</small>
+              </a>
+            {{- end -}}
+          </div>
+        </details>
+      {{- end -}}
+    </section>
+
+    <div class="archive-directory-heading">
+      <div>
+        <span class="archive-kicker">CHRONOLOGICAL NOTES</span>
+        <h2>时间轴</h2>
+      </div>
+      <p class="archive-result-status" data-archive-status aria-live="polite">正在显示 {{ $total }} 篇文章</p>
+    </div>
+
+    <div class="archive-directory-layout">
+      <nav class="archive-year-nav glass-panel" aria-label="按年份浏览">
+        <span>年份</span>
+        {{- range $years -}}
+          <a href="#archive-year-{{ .Key }}" data-archive-year-link="{{ .Key }}">
+            <strong>{{ .Key }}</strong>
+            <small>{{ len .Pages }}</small>
+          </a>
+        {{- end -}}
+      </nav>
+
+      <div class="archive-timeline" data-archive-timeline>
+        {{- range $years -}}
+          <section class="archive-year-section glass-panel" id="archive-year-{{ .Key }}" data-archive-year="{{ .Key }}">
+            <header class="archive-year-heading">
+              <div>
+                <span>{{ .Key }}</span>
+                <small>YEAR</small>
+              </div>
+              <p data-archive-year-count>{{ len .Pages }} 篇</p>
+            </header>
+
+            <ol class="archive-timeline-list">
+              {{- range .Pages -}}
+                {{- $categoryNames := "" -}}
+                {{- with .Params.categories -}}
+                  {{- $categoryNames = delimit . "|" -}}
+                {{- end -}}
+                {{- $tagNames := "" -}}
+                {{- with .Params.tags -}}
+                  {{- $tagNames = delimit . "|" -}}
+                {{- end -}}
+                <li
+                  class="archive-timeline-item"
+                  data-archive-item
+                  data-archive-categories="{{ $categoryNames }}"
+                  data-archive-search="{{ lower (printf "%s %s %s %s" .Title .Description $categoryNames $tagNames) }}"
+                >
+                  <time datetime="{{ .Date.Format "2006-01-02" }}">
+                    <strong>{{ .Date.Format "01.02" }}</strong>
+                    <span>{{ .Date.Format "Mon" }}</span>
+                  </time>
+
+                  <div class="archive-item-copy">
+                    <div class="archive-item-meta">
+                      {{- range first 1 (.GetTerms "categories") -}}
+                        <a class="archive-category-chip" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+                      {{- end -}}
+                      <span>{{ .ReadingTime }} MIN READ</span>
+                    </div>
+                    <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+                    {{- with .Description -}}
+                      <p>{{ . }}</p>
+                    {{- end -}}
+                    {{- with .GetTerms "tags" -}}
+                      <div class="archive-item-tags" aria-label="文章标签">
+                        {{- range first 3 . -}}
+                          <a href="{{ .RelPermalink }}">#{{ .LinkTitle }}</a>
+                        {{- end -}}
+                      </div>
+                    {{- end -}}
+                  </div>
+
+                  <a class="archive-item-arrow" href="{{ .RelPermalink }}" aria-label="阅读《{{ .Title }}》">↗</a>
+                </li>
+              {{- end -}}
+            </ol>
+          </section>
+        {{- end -}}
+
+        <div class="archive-empty glass-panel" data-archive-empty hidden>
+          <span aria-hidden="true">⌕</span>
+          <h3>暂时没有匹配的文章</h3>
+          <p>换一个关键词，或切换到“全部”分类试试。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+{{- end -}}

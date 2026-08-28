@@ -1,160 +1,160 @@
-# ========== 1. AI自学方向 ==========
+# ========== 1. AI 与 Agent ==========
 - name: Hello-Agent
   url: https://hello-agents.datawhale.cc/#/
   desc: Hello-Agent
   image: https://github.com/favicon.ico
-  category: AI学习
+  category: AI 与 Agent
 
 - name: Agent
   url: https://haozhe-xing.github.io/agent_learning/zh/
   desc: 从零开始学习Agent
   image: https://github.com/favicon.ico
-  category: AI学习
+  category: AI 与 Agent
 
 - name: AI Infra
   url: https://caomaolufei.github.io/AIInfraGuide/
   desc: AI Infra全栈开发
   image: https://github.com/favicon.ico
-  category: AI学习
-# ========== 2. 校内系统 ==========
+  category: AI 与 Agent
+# ========== 2. 校园与课程 ==========
 - name: YourTJ选课社区
   url: https://xk.yourtj.de/
   desc: 选课社区
   image: /images/YourTJ.svg
-  category: 校内系统
+  category: 校园与课程
 
 - name: 同济大学邮件系统
   url: https://mail.tongji.edu.cn/
   desc: 学校官方邮箱
   image: https://mail.tongji.edu.cn/favicon.ico
-  category: 校内系统
+  category: 校园与课程
 
 - name: 同济大学教学信息管理系统
   url: https://1.tongji.edu.cn/
   desc: 选课、查成绩、培养方案
   image: /images/TJ.png
-  category: 校内系统
+  category: 校园与课程
 
 - name: 同济大学Canvas平台
   url: https://canvas.tongji.edu.cn
   desc: 在线课程学习平台
   image: https://canvas.tongji.edu.cn/favicon.ico
-  category: 校内系统
+  category: 校园与课程
 
 - name: 同济大学创新创业服务平台
   url: https://cxcy.tongji.edu.cn/pt/
   desc: 大创项目申报与管理
   image: /images/TJ.png
-  category: 校内系统
+  category: 校园与课程
 
 - name: 工程智能基础课程平台
   url: https://face.tongji.edu.cn/course
   desc: 工程智能相关课程
   image: /images/TJ.png
-  category: 校内系统
+  category: 校园与课程
 
 - name: 同济大学物理实验课程平台
   url: http://mphylab.tongji.edu.cn/sysindex
   desc: 物理实验报告提交
   image: /images/TJ.png
-  category: 校内系统
+  category: 校园与课程
 
-# ========== 3. 在线学习平台 ==========
+# 在线课程平台归入“校园与课程”
 - name: 智慧树
   url: https://passport.zhihuishu.com/
   desc: 在线通识课程
   image: https://www.zhihuishu.com/favicon.ico
-  category: 在线学习
+  category: 校园与课程
 
 - name: 学习通
   url: https://v8.chaoxing.com/
   desc: 超星学习平台
   image: /images/xuexitong.png
-  category: 在线学习
+  category: 校园与课程
 
-# ========== 4. AI工具 ==========
+# AI 工具与学习资料统一归入“AI 与 Agent”
 - name: DMXAPI
   url: https://www.dmxapi.cn
   desc: 多模态大模型API聚合平台
   image: /images/D.png
-  category: AI工具
+  category: AI 与 Agent
 
 - name: DeepSeek
   url: https://www.deepseek.com/
   desc: 国产AI对话助手
   image: https://www.deepseek.com/favicon.ico
-  category: AI工具
+  category: AI 与 Agent
 
 - name: ChatGPT
   url: https://chatgpt.com/
   desc: OpenAI
   image: /images/ChatGPT.jpg
-  category: AI工具
+  category: AI 与 Agent
 
 - name: Gemini
   url: https://gemini.google.com/
   desc: Google AI助手
   image: /images/Gemini.png
-  category: AI工具
+  category: AI 与 Agent
 
 - name: ClaudeCode文档
   url: https://code.claude.com/docs/zh-CN/overview/
   desc: Claude Code中文文档,Agent学习
   image: /images/claude-code-favicon.ico
-  category: AI工具
+  category: AI 与 Agent
 
-# ========== 5. 开发与学术 ==========
+# ========== 3. 编程与学术 ==========
 - name: CS自学指南
   url: https://csdiy.wiki/
   desc: 北大信科学子整理的计算机自学攻略大全
   image: /images/CSdiy.png
-  category: 开发与学术
+  category: 编程与学术
 
 - name: 菜鸟教程
   url: https://www.runoob.com/
   desc: 编程技术自学教程
   image: https://www.runoob.com/favicon.ico
-  category: 在线学习
+  category: 编程与学术
 
 - name: C语言中文网
   url: https://c.biancheng.net/
   desc: 涵盖C/C++、Python、Java等多门语言的编程教程门户
   image: https://c.biancheng.net/favicon.ico
-  category: 开发与学术
+  category: 编程与学术
 
 - name: Wolfram|Alpha
   url: https://www.wolframalpha.com/
   desc: 计算知识引擎
   image: /images/WolframAlpha.png
-  category: 开发与学术
+  category: 编程与学术
 
 - name: GitHub
   url: https://github.com/
   desc: 代码托管与开源社区
   image: https://github.com/favicon.ico
-  category: 开发与学术
+  category: 编程与学术
 
 - name: MDN
   url: https://developer.mozilla.org/zh-CN/
   desc: Web开发技术文档
   image: https://developer.mozilla.org/favicon.ico
-  category: 开发与学术
+  category: 编程与学术
 
 - name: 中国知网
   url: https://www.cnki.net/
   desc: 学术文献数据库
   image: https://www.cnki.net/favicon.ico
-  category: 开发与学术
+  category: 编程与学术
 
-# ========== 6. 搜索与娱乐 ==========
+# ========== 4. 搜索与内容 ==========
 - name: Microsoft Bing
   url: https://cn.bing.com/
   desc: 微软搜索引擎
   image: https://www.bing.com/favicon.ico
-  category: 搜索与娱乐
+  category: 搜索与内容
 
 - name: Bilibili
   url: https://www.bilibili.com/
   desc: 弹幕视频网站（学习/娱乐）
   image: https://www.bilibili.com/favicon.ico
-  category: 搜索与娱乐
+  category: 搜索与内容

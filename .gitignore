@@ -1,6 +1,7 @@
 # Hugo generated output
 /public/
 /resources/_gen/
+/.hugo-cache/
 .hugo_build.lock
 
 # Local Windows Hugo binary
@@ -9,3 +10,7 @@
 # Operating system files
 Thumbs.db
 .DS_Store
+
+# Python helper caches
+__pycache__/
+*.py[cod]

@@ -1,0 +1,27 @@
+{{- define "main" -}}
+  <div class="stellar-article-shell">
+    {{- with .Params.cover_credit -}}
+      <aside class="cover-credit glass-panel" aria-label="文章头图来源">
+        <span>HEAD IMAGE</span>
+        <div>
+          {{- with .artwork_url -}}
+            <a href="{{ . }}" target="_blank" rel="noopener nofollow noreferrer">{{ $.Params.cover_credit.title | default "Pixiv 作品" }}</a>
+          {{- else -}}
+            <strong>{{ .title | default "文章头图" }}</strong>
+          {{- end -}}
+          {{- with .artist -}}
+            <small>
+              by
+              {{- with $.Params.cover_credit.artist_url -}}
+                <a href="{{ . }}" target="_blank" rel="noopener nofollow noreferrer">{{ $.Params.cover_credit.artist }}</a>
+              {{- else -}}
+                {{ . }}
+              {{- end -}}
+            </small>
+          {{- end -}}
+        </div>
+      </aside>
+    {{- end -}}
+    {{- partial "article.html" . -}}
+  </div>
+{{- end -}}

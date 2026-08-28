@@ -1,0 +1,153 @@
+{{- define "main" -}}
+  {{- $posts := where .Site.RegularPages "Section" "in" .Site.Params.mainSections -}}
+  {{- $paginator := .Paginate $posts 8 -}}
+
+  {{- if eq $paginator.PageNumber 1 -}}
+    <section class="home-overview" aria-labelledby="home-overview-title">
+      <div class="home-overview-copy">
+        <span class="home-kicker">CECILIA'S LOGBOOK</span>
+        <h2 id="home-overview-title">沿着问题生长，<br>把知识连成星图。</h2>
+        <p>这里记录编程基础、数据结构、人工智能与工程实践。每篇文章都是一次学习路径的可复用存档。</p>
+        <div class="home-actions">
+          <a class="home-action primary" href="#latest-notes">开始阅读</a>
+          <a class="home-action secondary" href="{{ "about/" | relLangURL }}">了解我</a>
+        </div>
+      </div>
+      <dl class="home-stats" aria-label="博客统计">
+        <div><dt>{{ len $posts }}</dt><dd>篇技术笔记</dd></div>
+        <div><dt>{{ len .Site.Taxonomies.categories }}</dt><dd>个知识专题</dd></div>
+        <div><dt>{{ len .Site.Taxonomies.tags }}</dt><dd>个知识标签</dd></div>
+      </dl>
+    </section>
+
+    {{- $topics := slice
+      (dict "name" "AI 与 Agent" "key" "Agent开发" "mark" "AI" "desc" "从模型基础到 Agent 经典范式与 RAG 实践")
+      (dict "name" "数据结构" "key" "数据结构" "mark" "DS" "desc" "线性表、栈、树、图与搜索算法的系统笔记")
+      (dict "name" "Python" "key" "Python" "mark" "PY" "desc" "语言基础、数据容器、文件操作与 NumPy")
+      (dict "name" "工程实践" "key" "深度学习" "mark" "DEV" "desc" "开发环境、工具链与深度学习工程记录")
+    -}}
+    <section class="home-section home-topics" aria-labelledby="topics-title">
+      <div class="home-section-heading">
+        <div>
+          <span class="home-kicker">LEARNING PATHS</span>
+          <h2 id="topics-title">按专题探索</h2>
+        </div>
+        <a href="{{ "categories/" | relLangURL }}">查看全部专题 <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="topic-grid">
+        {{- range $topics -}}
+          {{- $term := index $.Site.Taxonomies.categories (lower .key) -}}
+          <a class="topic-card" href="{{ printf "categories/%s/" (urlize .key) | relLangURL }}">
+            <span class="topic-mark" aria-hidden="true">{{ .mark }}</span>
+            <span class="topic-copy">
+              <strong>{{ .name }}</strong>
+              <small>{{ .desc }}</small>
+            </span>
+            <span class="topic-count">{{ len $term }} 篇</span>
+          </a>
+        {{- end -}}
+      </div>
+    </section>
+
+    {{- $pixivPicks := hugo.Data.pixiv_picks -}}
+    <section class="home-section pixiv-picks" aria-labelledby="pixiv-picks-title">
+      <div class="home-section-heading pixiv-picks-heading">
+        <div>
+          <span class="home-kicker">PIXIV PICKS</span>
+          <h2 id="pixiv-picks-title">今日插画灵感</h2>
+        </div>
+        {{- with $pixivPicks.source_url -}}
+          <a href="{{ . }}" target="_blank" rel="noopener nofollow noreferrer">
+            查看完整榜单 <span aria-hidden="true">↗</span>
+          </a>
+        {{- end -}}
+      </div>
+
+      <div class="pixiv-picks-intro">
+        <p>从 Pixiv 每日插画榜中自动选取全年龄作品，仅作远程预览与发现入口。</p>
+        {{- with $pixivPicks.ranking_date -}}
+          <span>RANKING · {{ . }}</span>
+        {{- end -}}
+      </div>
+
+      {{- with $pixivPicks.items -}}
+        <div class="pixiv-picks-grid">
+          {{- range $index, $pick := first 5 . -}}
+            <article class="pixiv-pick-card{{ if eq $index 0 }} featured{{ end }}">
+              <a
+                class="pixiv-pick-link"
+                href="{{ $pick.artwork_url }}"
+                target="_blank"
+                rel="noopener nofollow noreferrer"
+                aria-label="在 Pixiv 查看《{{ $pick.title }}》"
+              ></a>
+              <img
+                src="{{ $pick.image_url }}"
+                alt="{{ $pick.title }}，作者 {{ $pick.artist }}"
+                loading="lazy"
+                decoding="async"
+                referrerpolicy="no-referrer"
+              >
+              <div class="pixiv-pick-shade"></div>
+              <div class="pixiv-pick-rank"><span>#</span>{{ $pick.rank }}</div>
+              <div class="pixiv-pick-copy">
+                <div class="pixiv-pick-badges">
+                  {{- if $pick.is_original -}}<span>ORIGINAL</span>{{- end -}}
+                  {{- if gt $pick.page_count 1 -}}<span>{{ $pick.page_count }} PAGES</span>{{- end -}}
+                </div>
+                <h3>{{ $pick.title }}</h3>
+                <p>by {{ $pick.artist }}</p>
+              </div>
+            </article>
+          {{- end -}}
+        </div>
+        <p class="pixiv-picks-note">
+          图片由远程服务加载，作品与著作权归原作者所有；点击卡片可前往 Pixiv 原作页面。
+        </p>
+      {{- else -}}
+        <div class="pixiv-picks-empty glass-panel">
+          <span>PX</span>
+          <div>
+            <h3>插画榜单暂时无法连接</h3>
+            <p>页面会在下一次更新时自动重试，不影响其他内容浏览。</p>
+          </div>
+        </div>
+      {{- end -}}
+    </section>
+  {{- end -}}
+
+  <section class="home-section latest-notes" id="latest-notes" aria-labelledby="latest-title">
+    <div class="home-section-heading">
+      <div>
+        <span class="home-kicker">LATEST NOTES</span>
+        <h2 id="latest-title">最新发布</h2>
+      </div>
+      <a href="{{ "archives/" | relLangURL }}">浏览归档 <span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="home-post-grid">
+      {{- range $index, $page := $paginator.Pages -}}
+        <article class="home-post-card{{ if eq $index 0 }} featured{{ end }}">
+          <a class="home-post-link" href="{{ $page.RelPermalink }}" aria-label="阅读《{{ $page.Title }}》"></a>
+          <div class="home-post-cover">
+            {{- with $page.Params.cover -}}
+              <img src="{{ . | relURL }}" alt="" loading="lazy">
+            {{- else -}}
+              <img src="{{ $.Site.Params.banner | relURL }}" alt="" loading="lazy">
+            {{- end -}}
+          </div>
+          <div class="home-post-body">
+            <div class="home-post-meta">
+              {{- with index $page.Params.categories 0 -}}<span class="home-post-category">{{ . }}</span>{{- end -}}
+              <time datetime="{{ $page.Date.Format "2006-01-02" }}">{{ $page.Date.Format "2006.01.02" }}</time>
+              <span>{{ $page.ReadingTime }} 分钟</span>
+            </div>
+            <h3>{{ $page.Title }}</h3>
+            <p>{{ $page.Params.description | default $page.Summary | plainify | truncate 118 }}</p>
+            <span class="home-post-more">阅读文章 <span aria-hidden="true">→</span></span>
+          </div>
+        </article>
+      {{- end -}}
+    </div>
+  </section>
+  {{- partial "pagination.html" . -}}
+{{- end -}}

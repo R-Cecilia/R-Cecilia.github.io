@@ -1,5 +1,5 @@
 baseURL = 'https://r-cecilia.github.io/'
-title = 'Welcome to My Blog'
+title = 'Cecilia · 技术手记'
 theme = "reimu" 
 
 defaultContentLanguage = 'zh-CN'
