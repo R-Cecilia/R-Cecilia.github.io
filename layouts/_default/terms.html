@@ -1,0 +1,79 @@
+{{- define "main" -}}
+  {{- $terms := .Data.Terms.ByCount -}}
+  {{- $pages := (where .Site.RegularPages "Section" "in" .Site.Params.mainSections).ByDate.Reverse -}}
+  {{- $isCategory := eq .Type "categories" -}}
+  {{- $pageTitle := "标签索引" -}}
+  {{- $pageLead := "以关键词建立文章之间的连接，快速抵达一个具体知识点。" -}}
+  {{- $kicker := "ARTICLE INDEX" -}}
+  {{- $termName := "标签" -}}
+  {{- if $isCategory -}}
+    {{- $pageTitle = "知识专题" -}}
+    {{- $pageLead = "从一个方向出发，连续阅读相关记录，建立更完整的知识脉络。" -}}
+    {{- $kicker = "EXPLORE BY TOPIC" -}}
+    {{- $termName = "专题" -}}
+  {{- end -}}
+
+  <div class="taxonomy-index-page{{ if not $isCategory }} is-tags{{ end }}">
+    <a class="taxonomy-back" href="{{ "" | relURL }}">
+      <span aria-hidden="true">←</span>
+      返回首页
+    </a>
+
+    <section class="taxonomy-index-hero glass-panel" aria-labelledby="taxonomy-index-title">
+      <div>
+        <span class="taxonomy-kicker">{{ $kicker }}</span>
+        <h2 id="taxonomy-index-title">{{ $pageTitle }}</h2>
+        <p>{{ $pageLead }}</p>
+      </div>
+
+      <dl class="taxonomy-index-stats" aria-label="内容统计">
+        <div>
+          <dt>{{ len $terms }}</dt>
+          <dd>个{{ $termName }}</dd>
+        </div>
+        <div>
+          <dt>{{ len $pages }}</dt>
+          <dd>篇文章</dd>
+        </div>
+        <div>
+          {{- with index $pages 0 -}}
+            <dt>{{ .Date.Format "01.02" }}</dt>
+            <dd>最近更新</dd>
+          {{- end -}}
+        </div>
+      </dl>
+    </section>
+
+    <div class="taxonomy-section-heading">
+      <div>
+        <span class="taxonomy-kicker">BROWSE THE COLLECTION</span>
+        <h2>按{{ $termName }}探索</h2>
+      </div>
+      <p>选择一个{{ $termName }}，查看其中的全部文章。</p>
+    </div>
+
+    <div class="taxonomy-index-grid">
+      {{- range $index, $term := $terms -}}
+        <a class="taxonomy-term-card glass-panel" href="{{ $term.Page.RelPermalink }}">
+          <span class="taxonomy-term-number">{{ printf "%02d" (add $index 1) }}</span>
+          <span class="taxonomy-term-arrow" aria-hidden="true">↗</span>
+          <div class="taxonomy-term-copy">
+            <span>{{ $termName }}</span>
+            <h3>{{ $term.Page.LinkTitle }}</h3>
+            <p>
+              {{- if $isCategory -}}
+                收录该方向下的 {{ $term.Count }} 篇学习记录与实践笔记。
+              {{- else -}}
+                查看与此关键词相关的全部内容。
+              {{- end -}}
+            </p>
+          </div>
+          <div class="taxonomy-term-count">
+            <strong>{{ $term.Count }}</strong>
+            <span>篇文章</span>
+          </div>
+        </a>
+      {{- end -}}
+    </div>
+  </div>
+{{- end -}}

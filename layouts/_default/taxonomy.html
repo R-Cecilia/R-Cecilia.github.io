@@ -1,0 +1,101 @@
+{{- define "main" -}}
+  {{- $pages := .Pages.ByDate.Reverse -}}
+  {{- $totalReading := 0 -}}
+  {{- range $pages -}}
+    {{- $totalReading = add $totalReading .ReadingTime -}}
+  {{- end -}}
+  {{- $isCategory := eq .Type "categories" -}}
+  {{- $rootPath := "tags/" -}}
+  {{- $rootLabel := "全部标签" -}}
+  {{- $kindLabel := "ARTICLE TAG" -}}
+  {{- $kindName := "标签" -}}
+  {{- if $isCategory -}}
+    {{- $rootPath = "categories/" -}}
+    {{- $rootLabel = "全部专题" -}}
+    {{- $kindLabel = "KNOWLEDGE TOPIC" -}}
+    {{- $kindName = "专题" -}}
+  {{- end -}}
+
+  <div class="taxonomy-page">
+    <a class="taxonomy-back" href="{{ $rootPath | relURL }}">
+      <span aria-hidden="true">←</span>
+      返回{{ $rootLabel }}
+    </a>
+
+    <section class="taxonomy-hero glass-panel" aria-labelledby="taxonomy-title">
+      <div class="taxonomy-hero-copy">
+        <span class="taxonomy-kicker">{{ $kindLabel }}</span>
+        <h2 id="taxonomy-title">{{ .Title }}</h2>
+        <p>聚合与“{{ .Title }}”相关的学习记录、实践过程与阶段性思考。</p>
+      </div>
+
+      <dl class="taxonomy-stats" aria-label="{{ $kindName }}统计">
+        <div>
+          <dt>{{ len $pages }}</dt>
+          <dd>篇文章</dd>
+        </div>
+        <div>
+          <dt>{{ $totalReading }}</dt>
+          <dd>分钟阅读</dd>
+        </div>
+        <div>
+          {{- with index $pages 0 -}}
+            <dt>{{ .Date.Format "2006" }}</dt>
+            <dd>最近更新</dd>
+          {{- end -}}
+        </div>
+      </dl>
+    </section>
+
+    <div class="taxonomy-section-heading">
+      <div>
+        <span class="taxonomy-kicker">CURATED NOTES</span>
+        <h2>{{ $kindName }}文章</h2>
+      </div>
+      <p>按更新时间排列，共 {{ len $pages }} 篇。</p>
+    </div>
+
+    <div class="taxonomy-post-grid">
+      {{- range $index, $page := $pages -}}
+        {{- $cover := $page.Params.cover | default $.Site.Params.banner -}}
+        <article class="taxonomy-post-card glass-panel{{ if eq $index 0 }} is-featured{{ end }}">
+          <a class="taxonomy-post-overlay" href="{{ $page.RelPermalink }}" aria-label="阅读《{{ $page.Title }}》"></a>
+
+          <figure class="taxonomy-post-cover">
+            <img
+              src="{{ $cover | relURL }}"
+              alt=""
+              {{ if eq $index 0 }}fetchpriority="high"{{ else }}loading="lazy"{{ end }}
+            >
+          </figure>
+
+          <div class="taxonomy-post-body">
+            <div class="taxonomy-post-meta">
+              <time datetime="{{ $page.Date.Format "2006-01-02" }}">{{ $page.Date.Format "2006.01.02" }}</time>
+              <span>{{ $page.ReadingTime }} MIN READ</span>
+              {{- range first 1 ($page.GetTerms "categories") -}}
+                <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+              {{- end -}}
+            </div>
+
+            <h3>{{ $page.Title }}</h3>
+            {{- with $page.Description -}}
+              <p>{{ . }}</p>
+            {{- else -}}
+              <p>{{ $page.Summary | plainify | truncate 120 }}</p>
+            {{- end -}}
+
+            <footer class="taxonomy-post-footer">
+              <div class="taxonomy-post-tags" aria-label="文章标签">
+                {{- range first 3 ($page.GetTerms "tags") -}}
+                  <a href="{{ .RelPermalink }}">#{{ .LinkTitle }}</a>
+                {{- end -}}
+              </div>
+              <span class="taxonomy-post-arrow" aria-hidden="true">↗</span>
+            </footer>
+          </div>
+        </article>
+      {{- end -}}
+    </div>
+  </div>
+{{- end -}}
