@@ -8,7 +8,7 @@ categories: ["Agent开发"]
 tags: ["ReAct", "Plan-and-Solve", "Reflecting"]
 description: "React、Plan-and-Solve、Reflecting范式"
 
-cover: /images/cover20.webp
+cover: /images/cover23.jpg
 ---
 
 # Agent经典范式

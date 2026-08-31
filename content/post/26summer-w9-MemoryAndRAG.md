@@ -1,12 +1,14 @@
 ---
 title: "26summer-w9-Memory与RAG"
 
-date: 2025-08-30T13:10:00+08:00
-lastmod: 2025-08-30T13:10:00+08:00
+date: 2025-08-29T13:10:00+08:00
+lastmod: 2025-08-29T13:10:00+08:00
 
 categories: ["Agent开发"]
 tags: ["Memory", "RAG", "检索增强生成"]
 description: "Agent记忆机制、RAG基础流程与高级检索策略"
+
+cover: /images/cover21.png
 ---
 
 # Memory And RAG

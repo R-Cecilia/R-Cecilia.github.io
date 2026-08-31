@@ -1,5 +1,5 @@
 ---
-title: "Python函数"
+title: "py01-Python函数"
 
 date: 2025-05-01T11:08:00+08:00
 lastmod: 2025-05-01T11:08:00+08:00

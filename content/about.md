@@ -29,7 +29,7 @@ education:
 
 current:
   - label: 在学
-    value: 数据结构、LLM 与 Agent 开发
+    value: 数据结构、 Agent 开发
   - label: 在读
     value: 《数据结构与算法设计》
   - label: 关注
