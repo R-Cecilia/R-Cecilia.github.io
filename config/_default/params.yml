@@ -646,7 +646,7 @@ home_categories:
 # Make sure your code snippet is safeHTML
 injector:
   head_begin: # Inject code snippet right after <head>
-  head_end: '<link rel="stylesheet" href="/css/stellar.css?v=20260828-taxonomy-fix">' # site-specific visual layer
+  head_end: '<link rel="stylesheet" href="/css/stellar.css?v=20260831-cover-ratio-fix">' # site-specific visual layer
   body_begin: # Inject code snippet right after <body>
   body_end: '<script src="/js/stellar.js" defer></script>' # small reading-progress enhancement
   sidebar_begin: # Inject code snippet right after <aside>
