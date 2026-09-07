@@ -17,8 +17,8 @@
   image: https://github.com/favicon.ico
   category: AI 与 Agent
 # ========== 2. 校园与课程 ==========
-- name: YourTJ选课社区
-  url: https://xk.yourtj.de/
+- name: YourTJ社区
+  url: https://f.yourtj.de/
   desc: 选课社区
   image: /images/YourTJ.svg
   category: 校园与课程
