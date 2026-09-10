@@ -198,6 +198,7 @@ python3 -m pip install --upgrade tensorrt-cu12 -i https://pypi.tuna.tsinghua.edu
 提示：在 Ubuntu 系统里，我们习惯用 python3 -m pip 而不是直接敲 pip，这样可以确保 pip 对应到你正在使用的 Python 版本，避免权限和路径混乱。
 
 ### 4. 验证
+
 把整段代码复制到终端里粘贴执行：
 
 ```bash

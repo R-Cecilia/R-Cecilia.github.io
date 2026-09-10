@@ -29,11 +29,11 @@ education:
 
 current:
   - label: 在学
-    value: 数据结构、 Agent 开发
+    value: Missing Semester
   - label: 在读
     value: 《数据结构与算法设计》
   - label: 关注
-    value: 数学建模与可复现工程实践
+    value: Agent前沿开发
 
 skills:
   - name: 编程与工具

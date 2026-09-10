@@ -1,14 +1,14 @@
 ---
 title: "Git基本操作指南"
 
-date: 2025-05-24T11:10:00+08:00
-lastmod: 2025-05-24T11:10:00+08:00
+date: 2026-09-10T11:10:00+08:00
+lastmod: 2026-09-10T11:10:00+08:00
 
 categories: ["Git"]
 tags: ["Git"]
 description: "基本的git操作"
 
-cover: /images/cover2.webp
+cover: /images/cover4.webp
 ---
 
 # Git基本操作
