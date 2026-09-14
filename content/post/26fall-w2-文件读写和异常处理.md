@@ -1,5 +1,5 @@
 ---
-title: "Python文件读写"
+title: "26fall-w2-Python文件读写"
 
 date: 2026-09-06T11:10:00+08:00
 lastmod: 2026-09-06T11:10:00+08:00
