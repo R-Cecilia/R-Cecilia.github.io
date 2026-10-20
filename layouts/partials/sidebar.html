@@ -1,0 +1,30 @@
+{{- $about := .Site.GetPage "/about" -}}
+{{- $isArticle := and .IsPage (in .Site.Params.mainSections .Section) -}}
+{{- $notebook := and (eq .Section "notes") (ne .CurrentSection .FirstSection) -}}
+{{- if $notebook -}}
+  {{- partial "notebook/sidebar.html" . -}}
+{{- else -}}
+<aside id="sidebar" class="profile-sidebar" aria-label="个人信息与内容导航">
+  <div class="profile-panel">
+    <a class="profile-identity" href="{{ "" | relLangURL }}" aria-label="{{ .Site.Params.author }}，返回首页">
+      {{- $avatar := partialCached "assets/avatar.html" 160 160 -}}
+      <img src="{{ $avatar.RelPermalink }}" alt="{{ .Site.Params.author }} 的头像" width="56" height="56" decoding="async">
+      <span class="profile-identity-copy">
+        <span class="profile-name">{{ .Site.Params.author }}</span>
+        {{- with .Site.Params.profile.motto -}}<span class="profile-motto">{{ . }}</span>{{- end -}}
+      </span>
+    </a>
+    {{- partial "content-switch.html" . -}}
+    <div class="profile-introduction">
+      <p lang="en">{{ .Site.Params.profile.intro }}</p>
+      <nav class="profile-links" aria-label="个人链接">
+        <a href="{{ "about/" | relLangURL }}">关于我 <span aria-hidden="true">↗</span></a>
+        {{- range $about.Params.links -}}{{- if eq .label "GitHub" -}}<a href="{{ .url }}" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>{{- end -}}{{- end -}}
+      </nav>
+    </div>
+  </div>
+  {{- if and $isArticle (ne .Params.toc false) .Site.Params.toc -}}
+    <div class="profile-directory glass-panel sidebar-toc-sidebar">{{- partial "sidebar/tocBar.html" . -}}</div>
+  {{- end -}}
+</aside>
+{{- end -}}

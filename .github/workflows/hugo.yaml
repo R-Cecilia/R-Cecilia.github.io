@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - source
-  schedule:
-    - cron: "30 4 * * *"
   workflow_dispatch:
 
 permissions:
@@ -37,9 +35,6 @@ jobs:
       - name: Check Markdown image links
         run: python3 scripts/check_markdown_images.py
 
-      - name: Refresh Pixiv Picks
-        run: python3 scripts/update_pixiv_picks.py
-
       - name: Configure GitHub Pages
         id: pages
         uses: actions/configure-pages@v6
@@ -61,8 +56,12 @@ jobs:
           hugo build \
             --gc \
             --minify \
+            --cleanDestinationDir \
             --baseURL "${{ steps.pages.outputs.base_url }}/" \
             --cacheDir "${RUNNER_TEMP}/hugo_cache"
+
+      - name: Check generated links and notebook navigation
+        run: python3 scripts/check_site.py public --base-url "${{ steps.pages.outputs.base_url }}/"
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v5

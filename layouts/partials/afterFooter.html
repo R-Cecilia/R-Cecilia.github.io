@@ -1,0 +1,47 @@
+{{- /* Optional reading libraries never load on directories, about or friend pages. */ -}}
+{{- $features := partial "assets/page-features.html" . -}}
+{{- $runtime := resources.Get "js/stellar.js" | minify | fingerprint -}}
+<script src="{{ $runtime.RelPermalink }}" integrity="{{ $runtime.Data.Integrity }}" defer></script>
+{{- if $features.reader -}}
+  {{- $reader := resources.Get "js/reader.js" | minify | fingerprint -}}
+  <script src="{{ $reader.RelPermalink }}" integrity="{{ $reader.Data.Integrity }}" defer></script>
+{{- end -}}
+{{- if $features.images -}}
+  {{- $vendor := hugo.Data.vendor.js -}}
+  {{- $lightbox := index (partial "helpers/vendorCdn.html" (dict "item" $vendor.photoswipe_lightbox "ctx" .Site)) 0 -}}
+  {{- $lightboxIntegrity := index (partial "helpers/vendorCdnIntegrity.html" (dict "item" $vendor.photoswipe_lightbox)) 0 -}}
+  {{- $viewer := index (partial "helpers/vendorCdn.html" (dict "item" $vendor.photoswipe "ctx" .Site)) 0 -}}
+  {{- $viewerIntegrity := index (partial "helpers/vendorCdnIntegrity.html" (dict "item" $vendor.photoswipe)) 0 -}}
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      try {
+        const Lightbox = (await safeImport({{ $lightbox }}, {{ $lightboxIntegrity }})).default;
+        new Lightbox({gallery: ".article-entry", children: "a.article-gallery-item", pswpModule: () => safeImport({{ $viewer }}, {{ $viewerIntegrity }})}).init();
+      } catch (error) { console.warn("图片预览未能加载，仍可打开原图。", error); }
+    }, {once: true});
+  </script>
+{{- end -}}
+{{- if and $features.math .Site.Params.math.katex.enable -}}
+  {{- partial "helpers/cdnJs.html" (dict "name" "katex" "ctx" . "defer" true) -}}
+  {{- partial "helpers/cdnJs.html" (dict "name" "katex_auto_render" "ctx" . "defer" true) -}}
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      if (!window.renderMathInElement) return;
+      renderMathInElement(document.querySelector("article"), {delimiters: [
+        {left: "$$", right: "$$", display: true}, {left: "\\[", right: "\\]", display: true},
+        {left: "$", right: "$", display: false}, {left: "\\(", right: "\\)", display: false}
+      ]});
+      window.katexTagOverflowHandler?.();
+    }, {once: true});
+  </script>
+{{- end -}}
+{{- if $features.mermaid -}}
+  {{- partial "helpers/cdnJs.html" (dict "name" "mermaid" "ctx" . "defer" true) -}}
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      if (!window.mermaid) return;
+      mermaid.initialize({startOnLoad: false, theme: document.documentElement.dataset.theme === "dark" ? "dark" : "default"});
+      mermaid.run({querySelector: ".mermaid"});
+    }, {once: true});
+  </script>
+{{- end -}}

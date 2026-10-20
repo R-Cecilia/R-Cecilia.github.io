@@ -1,0 +1,23 @@
+{{- define "main" -}}
+  <div class="site-page">
+    {{- if .Parent.IsHome -}}
+      <section class="notebook-library" aria-labelledby="notes-title">
+        <header class="section-heading"><h1 id="notes-title">{{ .Title }}</h1></header>
+        <ul class="notebook-directory">
+          {{- range .Sections.ByTitle -}}
+            <li class="notebook-card glass-panel">
+              <a class="notebook-link" href="{{ .RelPermalink }}">
+                <img class="notebook-icon" src="{{ .Params.notebook_icon | default "/images/notebooks/notebook.svg" | relURL }}" alt="" width="96" height="96" loading="lazy">
+                <div class="notebook-copy"><h2>{{ .Params.notebook_title | default (printf "%s Notebook" .Title) }}</h2>{{ with .Description }}<p>{{ . }}</p>{{ end }}</div>
+              </a>
+            </li>
+          {{- else -}}
+            <li class="empty-state">暂无笔记</li>
+          {{- end -}}
+        </ul>
+      </section>
+    {{- else -}}
+      {{- partial "notebook/article.html" . -}}
+    {{- end -}}
+  </div>
+{{- end -}}

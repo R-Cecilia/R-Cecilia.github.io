@@ -1,0 +1,14 @@
+<div id="header" class="site-background" aria-hidden="true"><img src="{{ .Site.Params.banner | relURL }}" alt="" fetchpriority="high"></div>
+<header id="header-nav">
+  <a class="site-brand" href="{{ "" | relLangURL }}" aria-label="{{ .Site.Title }}，首页">{{ .Site.Params.author }}<span>技术手记</span></a>
+  <nav id="main-nav" aria-label="主导航">
+    {{- range .Site.Params.menu -}}
+      {{- if not (in (slice "documents" "notes") .name) -}}
+      {{- $current := eq $.Type .name -}}
+      <a class="main-nav-link-wrap" href="{{ .url | relLangURL }}"{{ if $current }} aria-current="page"{{ end }}><span class="main-nav-link">{{ i18n .name }}</span></a>
+      {{- end -}}
+    {{- end -}}
+  </nav>
+  <nav id="sub-nav" aria-label="显示设置">{{ if ne .Site.Params.dark_mode.button false }}<button class="nav-icon dark-mode-btn" type="button" aria-label="切换浅色、深色或跟随系统">☀</button>{{ end }}</nav>
+  <button id="main-nav-toggle" class="nav-icon" type="button" aria-label="打开导航" aria-controls="mobile-nav" aria-expanded="false">☰</button>
+</header>

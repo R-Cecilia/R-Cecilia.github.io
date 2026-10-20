@@ -1,0 +1,28 @@
+<!doctype html>
+{{- $mode := partial "helpers/darkMode.html" . -}}
+<html lang="{{ .Site.Language.Locale }}" data-theme-mode="{{ $mode.mode }}">
+  <head>
+    {{- partial "head.html" . -}}
+  </head>
+  <body>
+    <div id="container">
+      <div id="wrap">
+        {{- partial "header.html" . -}}
+        <div id="content" class="sidebar-left" aria-label="Page content">
+          {{- partial "sidebar.html" . -}}
+          <section id="main" aria-label="Main content">{{ block "main" . }}{{ end }}</section>
+        </div>
+        {{- partialCached "footer.html" . -}}
+        {{- if .Site.Params.top.enable -}}
+          <div class="sidebar-top">
+            <div class="sidebar-top-taichi {{ if .Site.Params.top.icon.rotate }}rotate{{ end }}"></div>
+            <div class="arrow-up"></div>
+          </div>
+        {{- end -}}
+        <div id="mask" class="hide"></div>
+      </div>
+      {{- partial "mobilebar.html" . -}}
+    </div>
+    {{- partial "afterFooter.html" . -}}
+  </body>
+</html>

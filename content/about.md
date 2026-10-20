@@ -1,15 +1,13 @@
 ---
 title: 关于我
-description: "任熙贝的学习方向、项目经历与竞赛记录"
+description: "Cecilia 的学习方向、项目经历与竞赛记录"
 date: 2026-07-25T20:12:00+08:00
 lastmod: 2026-08-28T12:00:00+08:00
 layout: about
 type: about
-sidebar: false
 
 profile:
-  name: 任熙贝
-  english_name: Cecilia
+  name: Cecilia
   role: 数据科学与大数据技术本科生
   location: 上海
   school: 同济大学 · 2025 级

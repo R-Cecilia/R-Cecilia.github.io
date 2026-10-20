@@ -1,0 +1,21 @@
+{{- $book := .CurrentSection -}}
+{{- $chapters := slice $book -}}
+{{- range $book.RegularPages.ByWeight -}}{{- $chapters = $chapters | append . -}}{{- end -}}
+<div class="stellar-article-shell notebook-reader">
+  <article class="h-entry article">
+    <header class="notebook-heading">
+      <nav class="notebook-breadcrumb" aria-label="面包屑"><a href="{{ "" | relLangURL }}">主页</a><span>/</span><a href="{{ "notes/" | relLangURL }}">笔记</a><span>/</span><a href="{{ $book.RelPermalink }}">{{ $book.Title }}</a></nav>
+      <div class="notebook-meta">{{ if not .Lastmod.IsZero }}更新于 <time datetime="{{ .Lastmod.Format "2006-01-02" }}">{{ .Lastmod.Format .Site.Params.dateFormat }}</time><span>·</span>{{ end }}{{ .ReadingTime }} 分钟阅读</div>
+      <h1 class="p-name">{{ if .IsSection }}0. {{ $book.Params.notebook_title | default $book.Title }} · 总览{{ else }}{{ .Title }}{{ end }}</h1>
+    </header>
+    <div class="e-content article-entry">{{ .Content }}</div>
+    <nav class="reading-nav notebook-pagination" aria-label="章节翻页">
+      {{- range $index, $chapter := $chapters -}}
+        {{- if eq $.RelPermalink $chapter.RelPermalink -}}
+          <div>{{ if gt $index 0 }}{{ with index $chapters (sub $index 1) }}<a href="{{ .RelPermalink }}"><small>← 上一章</small><span>{{ if .IsSection }}0. 总览与学习路线{{ else }}{{ .Title }}{{ end }}</span></a>{{ end }}{{ end }}</div>
+          <div>{{ if lt $index (sub (len $chapters) 1) }}{{ with index $chapters (add $index 1) }}<a href="{{ .RelPermalink }}"><small>下一章 →</small><span>{{ .Title }}</span></a>{{ end }}{{ end }}</div>
+        {{- end -}}
+      {{- end -}}
+    </nav>
+  </article>
+</div>

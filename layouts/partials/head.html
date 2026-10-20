@@ -1,0 +1,35 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{{- $init := resources.Get "js/theme-init.js" | minify -}}
+<script>{{ $init.Content | safeJS }}</script>
+{{- $title := .Site.Title -}}
+{{- if not .IsHome -}}{{- $title = printf "%s | %s" .Title .Site.Params.author -}}{{- end -}}
+{{- if eq .Type "archives" -}}{{- $title = printf "%s | %s" (i18n "archive_a") .Site.Params.author -}}{{- end -}}
+{{- if and (eq .Kind "taxonomy") (in (slice "Tags" "Categories") .Title) -}}{{- $title = printf "%s | %s" (i18n (cond (eq .Title "Tags") "tag" "category")) .Site.Params.author -}}{{- end -}}
+{{- $description := .Description | default .Site.Params.description -}}
+<title>{{ $title }}</title>
+<meta name="description" content="{{ $description }}">
+<link rel="canonical" href="{{ .Permalink }}">
+{{- with .Keywords | default .Site.Params.keywords -}}<meta name="keywords" content="{{ delimit . ", " }}">{{- end -}}
+{{- /* Also retain the historical social-preview URL without serving the original. */ -}}
+{{- $social := partialCached "assets/avatar.html" 512 512 -}}
+{{- $social = $social | resources.Copy "avatar/avatar.webp" -}}
+{{- $socialURL := $social.Permalink -}}
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+<meta property="og:title" content="{{ $title }}">
+<meta property="og:description" content="{{ $description }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:site_name" content="{{ .Site.Title }}">
+<meta property="og:image" content="{{ $socialURL }}">
+<meta property="article:author" content="{{ .Site.Params.author }}">
+{{- if not .Date.IsZero -}}<meta property="article:published_time" content="{{ .Date.Format "2006-01-02T15:04:05-07:00" }}">{{- end -}}
+{{- if not .Lastmod.IsZero -}}<meta property="article:modified_time" content="{{ .Lastmod.Format "2006-01-02T15:04:05-07:00" }}">{{- end -}}
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="{{ $socialURL }}">
+{{- with .OutputFormats.Get "rss" -}}<link rel="alternate" type="{{ .MediaType.Type }}" href="{{ .Permalink }}" title="{{ site.Title }}">{{- end -}}
+<link rel="icon" href="{{ "favicon.ico" | relURL }}">
+{{- $style := partialCached "assets/styles.html" . -}}
+<link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
+{{- $features := partial "assets/page-features.html" . -}}
+{{- if $features.images -}}{{- partial "helpers/cdnCss.html" (dict "name" "photoswipe" "ctx" . "async" true) -}}{{- end -}}
+{{- if and $features.math .Site.Params.math.katex.enable -}}{{- partial "helpers/cdnCss.html" (dict "name" "katex" "ctx" .) -}}{{- end -}}

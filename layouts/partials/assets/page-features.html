@@ -1,0 +1,7 @@
+{{- $content := .Content -}}
+{{- return (dict
+  "images" (strings.Contains $content "<img ")
+  "math" (.Params.math | default false)
+  "mermaid" (and (.Store.Get "hasMermaid") .Params.mermaid)
+  "reader" (and (in .Site.Params.mainSections .Section) (or .IsPage (ne .CurrentSection .FirstSection)))
+) -}}

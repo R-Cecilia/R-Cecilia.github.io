@@ -1,6 +1,5 @@
 baseURL = 'https://r-cecilia.github.io/'
 title = 'Cecilia · 技术手记'
-theme = "reimu" 
 
 defaultContentLanguage = 'zh-CN'
 [languages]
@@ -24,3 +23,28 @@ delimiters.inline = [["\\(", "\\)"], ["$", "$"]]
 dir = ':cacheDir/assets'
 [caches.images]
 dir = ':cacheDir/images'
+
+# Keep the vendored theme intact; publish only the image used by its CSS.
+# Optional reading libraries use the theme's pinned CDN configuration.
+# https://gohugo.io/configuration/module/
+[[module.imports]]
+path = "reimu"
+  [[module.imports.mounts]]
+  source = "assets"
+  target = "assets"
+  [[module.imports.mounts]]
+  source = "data"
+  target = "data"
+  [[module.imports.mounts]]
+  source = "i18n"
+  target = "i18n"
+  [[module.imports.mounts]]
+  source = "layouts"
+  target = "layouts"
+  [[module.imports.mounts]]
+  source = "archetypes"
+  target = "archetypes"
+  [[module.imports.mounts]]
+  source = "static"
+  target = "static"
+  files = ["images/taichi.png"]

@@ -1,0 +1,4 @@
+<nav class="content-switch" aria-label="文档和笔记切换">
+  <a class="switch-documents" href="{{ "docs/" | relLangURL }}" aria-label="文章" title="文章"{{ if or .IsHome (eq .Section "docs") }} aria-current="{{ if .IsPage }}true{{ else }}page{{ end }}"{{ end }}>{{ partial "icons/content.html" "documents" }}</a>
+  <a class="switch-notes" href="{{ "notes/" | relLangURL }}" aria-label="全部笔记" title="全部笔记"{{ if eq .Section "notes" }} aria-current="{{ if eq .CurrentSection .FirstSection }}page{{ else }}true{{ end }}"{{ end }}>{{ partial "icons/content.html" "notes" }}</a>
+</nav>

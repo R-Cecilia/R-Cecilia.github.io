@@ -1,0 +1,6 @@
+{{- if or .PrevInSection .NextInSection -}}
+  <nav class="reading-nav" aria-label="相邻文章">
+    <div>{{ with .NextInSection }}<a href="{{ .RelPermalink }}"><small>上一篇</small><span>{{ .Title }}</span></a>{{ end }}</div>
+    <div>{{ with .PrevInSection }}<a href="{{ .RelPermalink }}"><small>下一篇</small><span>{{ .Title }}</span></a>{{ end }}</div>
+  </nav>
+{{- end -}}

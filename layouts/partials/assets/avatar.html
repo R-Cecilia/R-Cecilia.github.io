@@ -1,0 +1,3 @@
+{{- /* Keep the original in assets; publish only the size used by the page. */ -}}
+{{- $image := resources.Get "images/avatar.webp" -}}
+{{- return ($image.Resize (printf "%dx webp q82" .)) -}}

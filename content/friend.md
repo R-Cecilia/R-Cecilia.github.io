@@ -1,10 +1,9 @@
 ---
-title: 链接星图
+title: 友链
 description: "学习、开发与校园生活中值得反复访问的网站收藏"
-date: 2025-05-01T20:12:52+08:00
+date: 2026-05-01T20:12:52+08:00
 lastmod: 2026-08-28T13:00:00+08:00
 type: friend
-sidebar: false
 
 friend_categories:
   - AI 与 Agent

@@ -1,0 +1,21 @@
+<article class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner glass-panel">
+    <header class="article-heading">
+      <a class="back-link" href="{{ .CurrentSection.RelPermalink }}">← {{ .CurrentSection.Title }}</a>
+      <h1 class="p-name" itemprop="headline">{{ .Title }}</h1>
+      <div class="article-meta-line">
+        <time datetime="{{ .Date.Format "2006-01-02" }}" itemprop="datePublished">{{ .Date.Format .Site.Params.dateFormat }}</time>
+        <span>{{ .ReadingTime }} 分钟</span>
+        <time id="post-update-time" hidden>{{ .Lastmod.Format .Site.Params.dateFormat }}</time>
+      </div>
+    </header>
+    <div class="e-content article-entry" itemprop="articleBody">{{ .Content }}</div>
+    {{- with .GetTerms "tags" -}}
+      <footer class="article-footer article-tags">
+        {{- range . -}}<a href="{{ .RelPermalink }}">#{{ .LinkTitle }}</a>{{- end -}}
+      </footer>
+    {{- end -}}
+  </div>
+  {{- partial "post/nav.html" . -}}
+</article>
+{{- partial "comment.html" . -}}

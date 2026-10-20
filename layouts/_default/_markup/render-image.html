@@ -1,0 +1,7 @@
+{{- $width := 0 -}}{{- $height := 0 -}}
+{{- $url := urls.Parse .Destination -}}
+{{- $file := printf "static/%s" (strings.TrimPrefix "/" $url.Path) -}}
+{{- if and (not $url.IsAbs) (fileExists $file) (in (slice ".png" ".jpg" ".jpeg" ".webp" ".gif") (path.Ext $file)) -}}
+  {{- $size := images.Config $file -}}{{- $width = $size.Width -}}{{- $height = $size.Height -}}
+{{- end -}}
+<img src="{{ .Destination | safeURL }}" alt="{{ .PlainText }}"{{ with .Title }} title="{{ . }}"{{ end }} loading="lazy" decoding="async"{{ if $width }} width="{{ $width }}" height="{{ $height }}"{{ end }}>

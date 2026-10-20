@@ -1,0 +1,3 @@
+{{- $theme := resources.Get "css/main.scss" | resources.ExecuteAsTemplate "css/theme.scss" . -}}
+{{- $theme = $theme | css.Sass (dict "targetPath" "css/theme.css") -}}
+{{- return (slice $theme (resources.Get "css/stellar.css") | resources.Concat "css/site.css" | minify | fingerprint) -}}

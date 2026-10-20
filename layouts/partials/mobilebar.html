@@ -1,0 +1,8 @@
+<nav id="mobile-nav" aria-label="Mobile navigation">
+  <div class="sidebar-wrap">
+    {{- partial "sidebar/commonBar.html" . -}}
+    {{- if and .IsPage (in .Site.Params.mainSections .Type) (ne .Params.toc false) .Site.Params.toc -}}
+      <div class="mobile-toc sidebar-toc-sidebar">{{- partial "sidebar/tocBar.html" . -}}</div>
+    {{- end -}}
+  </div>
+</nav>

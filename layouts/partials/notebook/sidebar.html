@@ -1,0 +1,21 @@
+{{- $book := .CurrentSection -}}
+<aside id="sidebar" class="profile-sidebar notebook-sidebar" aria-label="{{ $book.Title }} 章节导航">
+  <div class="profile-panel">
+    <a class="profile-identity notebook-identity" href="{{ $book.RelPermalink }}">
+      <img src="{{ $book.Params.notebook_icon | default "/images/notebooks/notebook.svg" | relURL }}" alt="" width="44" height="44">
+      <span class="profile-identity-copy"><span class="profile-name">{{ $book.Title }}</span><span class="profile-motto">学习笔记 · {{ len $book.RegularPages }} 章</span></span>
+    </a>
+    {{- partial "content-switch.html" . -}}
+    <label class="notebook-search"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 5 5"/></svg><input type="search" placeholder="搜索本册章节" aria-label="搜索{{ $book.Title }}章节" data-chapter-search></label>
+    <nav class="notebook-chapters" aria-label="章节列表">
+      <ol>
+        <li data-chapter-item><a href="{{ $book.RelPermalink }}"{{ if eq .RelPermalink $book.RelPermalink }} aria-current="page"{{ end }}><span class="chapter-number">0.</span><span>总览与学习路线</span></a></li>
+        {{- range $book.RegularPages.ByWeight -}}
+          <li data-chapter-item><a href="{{ .RelPermalink }}"{{ if eq $.RelPermalink .RelPermalink }} aria-current="page"{{ end }}><span class="chapter-number">{{ .Weight }}.</span><span>{{ .Params.chapter_title | default .Title }}</span></a></li>
+        {{- end -}}
+      </ol>
+      <p class="chapter-empty" data-chapter-empty hidden role="status">没有匹配的章节</p>
+    </nav>
+    <a class="notebook-back" href="{{ "notes/" | relLangURL }}">← 全部笔记</a>
+  </div>
+</aside>
